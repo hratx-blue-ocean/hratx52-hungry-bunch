@@ -151,7 +151,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
-Project Link: [https://github.com/chaomonica/poke-catcher](https://github.com/chaomonica/poke-catcher)
+Project Link: [https://github.com/hratx-blue-ocean/hungry-bunch](https://github.com/hratx-blue-ocean/hungry-bunch)
 
 <!-- ACKNOWLEDGEMENTS -->
 
