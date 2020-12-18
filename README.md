@@ -2,22 +2,6 @@
 
 ### Overview
 
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -29,13 +13,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/hratx-blue-ocean/hungry-bunch">
-    <img src="dist/pikachu.png" alt="Logo" width="80" height="80">
+    <img src="dist/hungry.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">PokeCatcher</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    PLACEHOLDER STATEMENT: An application to connect your community through cooking
     <br />
     <a href="https://github.com/hratx-blue-ocean/hungry-bunch"><strong>Explore the docs »</strong></a>
     <br />
@@ -120,7 +104,7 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/hratx-blue-ocean/hratx52-hungry-bunch.git
    ```
 3. Install NPM packages
    ```sh
@@ -191,5 +175,5 @@ Project Link: [https://github.com/chaomonica/poke-catcher](https://github.com/ch
 [license-shield]: https://img.shields.io/github/license/hratx-blue-ocean/hungry-bunch.svg?style=for-the-badge
 [license-url]: https://github.com/hratx-blue-ocean/hungry-bunch/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: www.linkedin.com/in/example
+[linkedin-url]: https://www.linkedin.com/school/hack-reactor/
 [product-screenshot]: images/screenshot.png
