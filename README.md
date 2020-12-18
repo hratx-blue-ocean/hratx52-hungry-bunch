@@ -1,6 +1,4 @@
-# Hungry Bunch
-
-### Overview
+# Team Tuffle
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -16,13 +14,13 @@
     <img src="dist/hungry.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">PokeCatcher</h3>
+  <h3 align="center">Hungry Bunch</h3>
 
   <p align="center">
     PLACEHOLDER STATEMENT: An application to connect your community through cooking
     <br />
-    <a href="https://github.com/hratx-blue-ocean/hungry-bunch"><strong>Explore the docs »</strong></a>
     <br />
+    <a href="https://github.com/hratx-blue-ocean/hungry-bunch"><strong>Explore the docs »</strong></a>
     <br />
     <a href="https://github.com/hratx-blue-ocean/hungry-bunch">View Demo</a>
     ·
@@ -81,7 +79,7 @@ This section should list any major frameworks that you built your project using.
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [React](https://reactjs.org/)
 - [Postgres](https://www.postgresql.org/)
-- [Electron](https://www.electronjs.org/)
+- [Material-UI](https://material-ui.com/)
 
 <!-- GETTING STARTED -->
 
