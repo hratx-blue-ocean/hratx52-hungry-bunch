@@ -1,11 +1,23 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser } from './reducers/user.js';
+import Login from './components/Login/Login.js';
+import MainPage from './components/MainPage/MainPage.js';
+
 
 // eslint-disable-next-line func-style
-export function App() {
-  const [count, setCount] = useState(0);
+const App = () => {
+
+  const user = useSelector(selectUser);
+
   return (
-    <div>
-      <h1>HELLO TEAM TRUFFLE</h1>
-    </div>
+    <>
+    {!user ?
+    <Login></Login> :
+    <MainPage></MainPage>
+    }
+    </>
   );
 }
+
+export default App;
