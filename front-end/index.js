@@ -13,6 +13,8 @@ app.use(
   })
 );
 
+app.use(require('webpack-hot-middleware')(compiler));
+
 app.listen(port, () => {
   console.log(`The amazing HUNGRY BUNCH front-end app listening at http://localhost:${port}`);
 });

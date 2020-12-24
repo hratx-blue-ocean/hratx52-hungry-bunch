@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from './reducers/user.js';
@@ -12,12 +13,12 @@ const App = () => {
 
   return (
     <>
-    {!user ?
-    <Login></Login> :
-    <MainPage></MainPage>
-    }
+      {!user ?
+        <Login></Login> :
+        <MainPage></MainPage>
+      }
     </>
   );
-}
+};
 
-export default App;
+export default hot(App);
