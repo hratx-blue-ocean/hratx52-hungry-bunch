@@ -1,17 +1,44 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../reducers/user.js';
+import {setUser} from '../../reducers/user';
 
-// eslint-disable-next-line func-style
-const Login = () => {
+import { GoogleLogin } from 'react-google-login';
+// refresh token
+import { refreshTokenSetup } from '../../utils/refreshToken';
 
+const clientId = "235745187323-ant5oogmbuuqmtv9jkj7aeejqahu3hfa.apps.googleusercontent.com";
+
+function Login() {
   const dispatch = useDispatch();
 
+  const onSuccess = (res) => {
+    console.log('Login Success: currentUser:', res.profileObj);
+    alert(
+      `Logged in successfully welcome ${res.profileObj.name}. \n See console for full profile object.`
+    );
+    // refreshTokenSetup(res);
+    dispatch(setUser(res.profileObj));
+  };
+
+  const onFailure = (res) => {
+    console.log('Login failed: res:', res);
+    alert(
+      `Failed to login.`
+    );
+  };
+
   return (
-    <>
-    <h1>Click here to sign in</h1>
-    <button onClick = {() => dispatch(setUser("testUser"))}>Sign in</button>
-    </>
+    <div>
+      <GoogleLogin
+        clientId={clientId}
+        buttonText="Login"
+        onSuccess={onSuccess}
+        onFailure={onFailure}
+        cookiePolicy={'single_host_origin'}
+        style={{ marginTop: '100px' }}
+        isSignedIn={true}
+      />
+    </div>
   );
 }
 
