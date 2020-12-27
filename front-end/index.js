@@ -6,7 +6,7 @@ const config = require('./webpack.config.js');
 const app = express();
 const compiler = webpack(config);
 const port = 3001;
-// test
+
 app.use(
   webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
