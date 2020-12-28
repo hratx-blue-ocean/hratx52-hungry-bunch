@@ -12,7 +12,7 @@ var recipe =
   vegan: false,
   steps: ['Chop veggies', 'Combine in pot', 'Add salt and pepper to taste', 'Mix the rest of the ingredients', 'Cook on stove for 25 min'],
   imageUrl: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
-}
+};
 
 var userCookbook = {
   userId: 1,
@@ -58,7 +58,7 @@ var userCookbook = {
       difficulty: 'Medium',
       favoritedBy: [9, 3, 1, 11],
       vegan: false,
-      steps: ['Fry the salmon at medium heat', 'Flip when golden brown', 'Cover in ketchup''],
+      steps: ['Fry the salmon at medium heat', 'Flip when golden brown', 'Cover in ketchup'],
       imageUrl: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
     },
     {
@@ -76,4 +76,4 @@ var userCookbook = {
       imageUrl: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
     },
   ]
-}
+};
