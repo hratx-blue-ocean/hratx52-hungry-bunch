@@ -13,6 +13,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 // eslint-disable-next-line func-style
 const MainPage = () => {
 
+
   return (
     <>
       <AppBar position="static">
@@ -21,9 +22,12 @@ const MainPage = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" >
-      ICON HERE
+            { /**<img src="../../assets/spoonforkplate.png"></img> **/}
+            <img src="https://i.pinimg.com/originals/60/ed/ab/60edabe557e8139d52dae12f380205dc.png" width="100" height="100"></img>
           </Typography>
-          <Button color="inherit">Login</Button>
+          HUNGRY BUNCH
+          <Button color="inherit">
+            <Link to="/login">Login</Link></Button>
         </Toolbar>
       </AppBar>
       <div>
