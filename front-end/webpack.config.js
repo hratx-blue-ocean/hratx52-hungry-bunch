@@ -33,6 +33,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
+    watchContentBase: true,
     historyApiFallback: true
   },
 };

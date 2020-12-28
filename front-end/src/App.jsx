@@ -19,10 +19,8 @@ const App = () => {
     <MainPage></MainPage>
     **/}
 
-
-
       { /* Route components are rendered if the path prop matches the current URL */}
-      <Route path="/"><MainPage/></Route>
+      <Route exact path="/"><MainPage/></Route>
       <Route path="/login"><Login/></Route>
     </>
   );
