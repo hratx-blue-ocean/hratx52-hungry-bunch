@@ -8,27 +8,39 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { Link, Route, Switch } from 'react-router-dom';
-//asdf
+
+//import styles from './mainpage.css';
+
+const useStyles = makeStyles(theme => ({
+  title: {
+    flexGrow: 1,
+    textAlign: 'center',
+  },
+}));
+
 // eslint-disable-next-line func-style
 const MainPage = () => {
 
-
+  const classes = useStyles();
   return (
     <>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu">
-            <MenuIcon />
+
           </IconButton>
 
           { /**<img src="../../assets/spoonforkplate.png"></img>  **/}
           <Link to="/">
-            <img src="https://i.pinimg.com/originals/60/ed/ab/60edabe557e8139d52dae12f380205dc.png" width="100" height="100"></img>
+            <img src="https://i.pinimg.com/originals/60/ed/ab/60edabe557e8139d52dae12f380205dc.png" width="100" height="100" ></img>
           </Link>
 
-          <Typography variant="h6">
+
+
+          <Typography variant="h6" className={classes.title}>
             HUNGRY BUNCH
           </Typography>
 

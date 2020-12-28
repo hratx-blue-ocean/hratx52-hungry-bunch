@@ -7,12 +7,18 @@ const app = express();
 const compiler = webpack(config);
 const port = 3001;
 
+var history = require('connect-history-api-fallback');
+app.use(history());
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: '/'
+}));
 
-app.use(
-  webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath,
-  })
-);
+
+// app.use(
+//   webpackDevMiddleware(compiler, {
+//     publicPath: config.output.publicPath,
+//   })
+// );
 
 // const path = require('path');
 // app.get('/*', function(req, res) {
