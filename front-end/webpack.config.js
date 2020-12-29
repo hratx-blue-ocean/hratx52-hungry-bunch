@@ -1,5 +1,5 @@
 var path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -10,6 +10,11 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+      },
+      {
+        test: /\.(png|jpg)$/,
+        exclude: /node_modules/,
+        use: ['file-loader'],
       },
     ],
   },
@@ -23,10 +28,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "index.html")
+      template: path.resolve(__dirname, 'src', 'index.html')
     })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
+    watchContentBase: true,
+    historyApiFallback: true
   },
 };
