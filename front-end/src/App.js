@@ -23,8 +23,8 @@ const App = () => {
         <>
           <Logout/>
           <MainPage />
-          {/* Profile component contains the information that we get from a user */}
-          {/* <Profile/> */}
+          {/* Profile component contains the information that we get from a user (different info for sign in and continue with google) */}
+          <Profile/>
         </>
       }
     </>
