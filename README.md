@@ -1,4 +1,4 @@
-# Team Tuffle
+# Team Truffle
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -11,7 +11,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/hratx-blue-ocean/hungry-bunch">
-    <img src="dist/hungry.png" alt="Logo" width="80" height="80">
+    <img src="front-end/src/assets/hungry.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Hungry Bunch</h3>

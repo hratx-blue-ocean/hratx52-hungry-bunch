@@ -7,6 +7,8 @@ import Profile from './components/Login/Profile.js';
 import MainPage from './components/MainPage/MainPage.js';
 import { useAuth0 } from "@auth0/auth0-react";
 
+import { Link, Route, Switch } from 'react-router-dom';
+
 
 // eslint-disable-next-line func-style
 const App = () => {
@@ -17,18 +19,19 @@ const App = () => {
 
   return (
     <>
+      { /* Route components are rendered if the path prop matches the current URL */}
       {!isAuthenticated ?
-          <Login/>
+          <Route path="/"><Login/></Route>
         :
         <>
           <Logout/>
-          <MainPage />
+          <Route exact path="/"><MainPage/></Route>
           {/* Profile component contains the information that we get from a user (different info for sign in and continue with google) */}
           <Profile/>
         </>
       }
     </>
   );
-}
+};
 
 export default App;
