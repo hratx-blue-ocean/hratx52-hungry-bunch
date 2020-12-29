@@ -1,4 +1,4 @@
-var recipe =
+export const recipe =
 {
   recipeId: 1,
   ownerId: 1,
@@ -14,7 +14,7 @@ var recipe =
   imageUrl: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
 };
 
-var userCookbook = {
+export const userCookbook = {
   userId: 1,
   username: 'Dave',
   favoritesRecipes: [7, 60, 20, 18, 88, 55, 24],
