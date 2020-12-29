@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Grid } from '@material-ui/core';
+import StarRateIcon from '@material-ui/icons/StarRate';
 
 const SingleRecipe = ({oneRecipe}) => {
 
@@ -16,6 +17,11 @@ const SingleRecipe = ({oneRecipe}) => {
           />
           <CardContent>
             {oneRecipe.recipeName}
+            <Grid>
+              <StarRateIcon/>
+              <StarRateIcon/>
+              <StarRateIcon/>
+            </Grid>
           </CardContent>
         </CardActionArea>
       </Card>
