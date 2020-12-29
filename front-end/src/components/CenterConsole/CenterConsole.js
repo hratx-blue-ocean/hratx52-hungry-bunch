@@ -1,11 +1,12 @@
 import React from 'react';
 import RecipeList from './RecipeList.js';
+import { Container } from '@material-ui/core';
 
 const CenterConsole = (props) => {
   return (
-    <div>
+    <Container maxWidth='sm'>
       <RecipeList/>
-    </div>
+    </Container>
   );
 };
 
