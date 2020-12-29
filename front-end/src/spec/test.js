@@ -1,4 +1,4 @@
-import reducer from '../reducers/user.js'
+import reducer from '../reducers/user.js';
 //import * as types from '../../constants/ActionTypes'
 
 describe('user reducer', () => {
@@ -7,8 +7,8 @@ describe('user reducer', () => {
       {
         user: null
       }
-    ])
-  })
+    ]);
+  });
 
   it('should handle SET_USER', () => {
     expect(
@@ -17,8 +17,8 @@ describe('user reducer', () => {
       })
     ).toEqual([
       {
-        user:action.user
+        user: action.user
       }
     ]);
-  })
-})
+  });
+});

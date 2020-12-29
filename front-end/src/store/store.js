@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import rootReducer  from '../reducers/main.js';
+import rootReducer from '../reducers/main.js';
 
 /*
 https://redux-toolkit.js.org/api/configureStore
