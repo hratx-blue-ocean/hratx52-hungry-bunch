@@ -1,4 +1,4 @@
-const { MONGO_URI } = require('../config');
+const { MONGO_URI, EC2_URI } = require('../config');
 const MongoClient = require('mongodb').MongoClient;
 
 /*
