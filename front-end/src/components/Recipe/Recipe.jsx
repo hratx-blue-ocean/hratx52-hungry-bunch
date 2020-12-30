@@ -1,8 +1,8 @@
 import Print from './Print.jsx';
-import ChefData from './ChefData.jsx';
 import Favorite from './Favorite.jsx';
 import RecipeData from './RecipeData.jsx';
 import Rating from './Rating.jsx';
+import React from 'react';
 
 const Recipe = () => {
   return (
@@ -14,3 +14,5 @@ const Recipe = () => {
     </div>
   );
 };
+
+export default Recipe;

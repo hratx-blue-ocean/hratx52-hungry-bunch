@@ -10,6 +10,7 @@ import Menu from '@material-ui/core/Menu';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Route, Switch } from 'react-router-dom';
+import Recipe from '../Recipe/Recipe.jsx';
 
 //import styles from './mainpage.css';
 
@@ -56,6 +57,9 @@ const MainPage = () => {
       <div>
         <h1>HELLO TEAM TRUFFLE</h1>
         <CenterConsole/>
+      </div>
+      <div>
+        <Recipe />
       </div>
     </>
   );
