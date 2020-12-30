@@ -12,23 +12,9 @@ app.use(history());
 app.use(webpackDevMiddleware(compiler, {
   publicPath: '/'
 }));
-
-
-// app.use(
-//   webpackDevMiddleware(compiler, {
-//     publicPath: config.output.publicPath,
-//   })
-// );
-
-// const path = require('path');
-// app.get('/*', function(req, res) {
-//   res.sendFile(path.join(__dirname, './src/index.html'), function(err) {
-//     if (err) {
-//       res.status(500).send(err)
-//     }
-//   })
-// })
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.listen(port, () => {
   console.log(`The amazing HUNGRY BUNCH front-end app listening at http://localhost:${port}`);
 });
+
