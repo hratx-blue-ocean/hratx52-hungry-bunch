@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -22,7 +22,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-// eslint-disable-next-line func-style
+// ------------------------------------------------------------------------------------------------------------------------------------
+// Attention, please!
+// To whomever is working directly in the MainPage component, you should really create your own component (like Jonathan did) and just render it here and anywhere else you may need it.
+// Please, delete comments after fixing it. Thank you :)
+// ------------------------------------------------------------------------------------------------------------------------------------
+
 const MainPage = () => {
 
   const classes = useStyles();
@@ -52,6 +57,7 @@ const MainPage = () => {
       </AppBar>
       <div>
         <h1>HELLO TEAM TRUFFLE</h1>
+        <CenterConsole/>
       </div>
           <AddRecipe>
 

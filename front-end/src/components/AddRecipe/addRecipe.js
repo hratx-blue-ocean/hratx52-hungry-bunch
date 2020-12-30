@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,13 +16,13 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '50ch',
     },
+  },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 200,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
-  },
   },
 }));
 
@@ -29,10 +30,22 @@ export const AddRecipe = () => {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form className={classes.root}>
       <div>
         <FormControl variant="outlined" className={classes.formControl}>
-          <TextField required id="add-recipe-name" defaultValue="ex: Brocolli Cheddar Soup"/>
+          <TextField required id="add-recipe-name" variant="outlined" label="Recipe Name"/>
+        </FormControl>
+        <FormControl className={classes.formControl}>
+          <TextField required id="add-recipe-ingredient" variant="outlined" label="Add Ingredient"/>
+          <Button variant="contained" color="primary">
+            Add Ingredient
+          </Button>
+        </FormControl>
+        <FormControl className={classes.formControl}>
+          <TextField required id="add-recipe-step" variant="outlined" label="Add Instruction"/>
+          <Button variant="contained" color="primary">
+            Add Instruction
+          </Button>
         </FormControl>
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel id="add-recipe-category-label">Category</InputLabel>
@@ -53,26 +66,53 @@ export const AddRecipe = () => {
             <MenuItem>Everyone</MenuItem>
           </Select>
         </FormControl>
-
-        <FormControl className={classes.formControl}>
-          <TextField required id="add-recipe-ingredient" variant="outlined" label="Add Ingredient" defaultValue="ex: Brocolli"/>
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel id="add-recipe-time-lable">Time in Minutes</InputLabel>
+          <Select required id="add-recipe-time" label="Time in Minutes">
+            <MenuItem>10</MenuItem>
+            <MenuItem>15</MenuItem>
+            <MenuItem>20</MenuItem>
+            <MenuItem>25</MenuItem>
+            <MenuItem>30</MenuItem>
+            <MenuItem>45</MenuItem>
+            <MenuItem>60</MenuItem>
+            <MenuItem>75</MenuItem>
+            <MenuItem>90</MenuItem>
+            <MenuItem>120</MenuItem>
+            <MenuItem>180</MenuItem>
+            <MenuItem>240</MenuItem>
+            <MenuItem>300</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel id="add-recipe-difficulty-label">Difficulty</InputLabel>
+          <Select required id="add-recipe-difficulty" label="Difficulty">
+            <MenuItem>Easy</MenuItem>
+            <MenuItem>Medium</MenuItem>
+            <MenuItem>Hard</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel id="add-recipe-vegan-label">Vegan?</InputLabel>
+          <Select required id="add-recipe-vegan" label="Vegan?">
+            <MenuItem>Yes</MenuItem>
+            <MenuItem>No</MenuItem>
+          </Select>
         </FormControl>
         <FormControl className={classes.formControl}>
-          <TextField required id="add-recipe-time" variant="outlined" label="Time in Minutes" defaultValue="ex: 60"/>
+          <input
+          accept="image/*"
+          className={classes.input}
+          id="contained-button-file"
+          multiple
+          type="file"
+          />
+          <label htmlFor="contained-button-file">
+            <Button variant="contained" color="primary" component="span">
+              Upload an image
+            </Button>
+          </label>
         </FormControl>
-        <FormControl className={classes.formControl}>
-          <TextField required id="add-recipe-difficulty" variant="outlined" label="Difficulty" defaultValue="Easy/Medium/Hard"/>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <TextField required id="add-recipe-vegan" variant="outlined" label="Vegan?" defaultValue="Yes/No"/>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <TextField required id="add-recipe-step" variant="outlined" label="Add Instruction" defaultValue="ex: Cut the vegetables"/>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <TextField required id="add-recipe-image" variant="outlined" label="Add an Image" defaultValue="Add image here" />
-        </FormControl>
-
       </div>
     </form>
   )
