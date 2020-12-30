@@ -5,7 +5,7 @@ import Login from './components/Login/Login.js';
 import Logout from './components/Login/Logout.js';
 import Profile from './components/Login/Profile.js';
 import MainPage from './components/MainPage/MainPage.js';
-import { useAuth0 } from '@auth0/auth0-react';
+// import { useAuth0 } from "@auth0/auth0-react";
 
 import { Link, Route, Switch } from 'react-router-dom';
 
@@ -19,15 +19,14 @@ const App = () => {
   return (
     <>
       { /* Route components are rendered if the path prop matches the current URL */}
-      {isAuthenticated ?
+      {!isAuthenticated ?
         <Route path="/login"><Login/></Route>
         :
         <>
-
+          <Logout/>
           <Route path="/"><MainPage/></Route>
           {/* Profile component contains the information that we get from a user (different info for sign in and continue with google) */}
-          {/*<Logout/>
-          <Profile/>*/}
+          <Profile/>
         </>
       }
     </>
