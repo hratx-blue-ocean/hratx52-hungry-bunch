@@ -1,9 +1,10 @@
 import Rating from '@material-ui/lab/Rating';
 import React from 'react';
+import {recipe} from '../../data/recipeDummyData.js';
 
 const RecipeRating = () => {
 
-  const [value, setValue] = React.useState(3.5);
+  const [value, setValue] = React.useState(recipe.rating);
 
   return (
     <Rating
@@ -17,7 +18,3 @@ const RecipeRating = () => {
 };
 
 export default RecipeRating;
-
-//TODO:
-// add onChange
-// change 3.5 to dynamically render whatever the avg rating is
