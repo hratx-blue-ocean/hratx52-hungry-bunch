@@ -7,16 +7,11 @@ import Logout from './components/Login/Logout.js';
 import Profile from './components/Login/Profile.js';
 import MainPage from './components/MainPage/MainPage.js';
 import { useAuth0 } from '@auth0/auth0-react';
-
 import { Link, Route, Switch } from 'react-router-dom';
 
-
-// eslint-disable-next-line func-style
 const App = () => {
 
-  // debugger;
   const { user, isAuthenticated, isLoading } = useAuth0();
-
 
   return (
     <>

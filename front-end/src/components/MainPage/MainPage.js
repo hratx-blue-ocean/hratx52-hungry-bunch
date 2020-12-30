@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -51,6 +52,7 @@ const MainPage = () => {
       </AppBar>
       <div>
         <h1>HELLO TEAM TRUFFLE</h1>
+        <CenterConsole/>
       </div>
     </>
   );
