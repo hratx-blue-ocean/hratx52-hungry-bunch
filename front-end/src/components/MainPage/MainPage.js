@@ -50,7 +50,14 @@ const MainPage = () => {
 
 
           <Button color="inherit">
-            <Link to="/login">Login</Link></Button>
+            <Link to="/login">Login</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/signup">Sign up</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/">Sign out</Link>
+          </Button>
         </Toolbar>
       </AppBar>
       <div>
