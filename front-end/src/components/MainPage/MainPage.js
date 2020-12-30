@@ -20,11 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-// ------------------------------------------------------------------------------------------------------------------------------------
-// Attention, please!
-// To whomever is working directly in the MainPage component, you should really create your own component (like Jonathan did) and just render it here and anywhere else you may need it.
-// Please, delete comments after fixing it. Thank you :)
-// ------------------------------------------------------------------------------------------------------------------------------------
+
 
 const MainPage = () => {
 

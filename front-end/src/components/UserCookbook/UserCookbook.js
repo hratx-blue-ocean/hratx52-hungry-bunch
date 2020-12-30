@@ -5,6 +5,9 @@ import { Link, Route, Switch } from 'react-router-dom';
 import TopToolbar from './TopToolBar.js';
 import { useAuth0 } from '@auth0/auth0-react';
 
+import CategoryCarousel from './CategoryCarousel.js';
+import RecipeTiles from './RecipeTiles.js';
+
 //wireframe: https://www.figma.com/file/C9TLcX8c0DNBW3xsYlv6kO/Untitled?node-id=60%3A2
 /*
 top toolbar
@@ -32,8 +35,8 @@ const UserCookbook = () => {
     return (
       <>
         <TopToolbar nickname={nickname} picture={picture}/>
-        <p>ghello, am cookbook</p>
-        {console.warn('this is warning', user)}
+        <CategoryCarousel />
+        <RecipeTiles />
       </>
     );
   } else {
