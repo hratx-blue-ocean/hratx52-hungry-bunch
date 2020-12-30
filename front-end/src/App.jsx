@@ -21,7 +21,7 @@ const App = () => {
         :
         <>
           <Logout/>
-          <Route exact path="/"><MainPage/></Route>
+          <Route path="/"><MainPage/></Route>
           {/* Profile component contains the information that we get from a user (different info for sign in and continue with google) */}
           <Profile/>
         </>
