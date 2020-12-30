@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    path.resolve(__dirname, './src/index.js'),
+  ],
   module: {
     rules: [
       {
@@ -34,8 +37,9 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html')
-    })
+      template: path.resolve(__dirname, 'src', 'index.html'),
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
