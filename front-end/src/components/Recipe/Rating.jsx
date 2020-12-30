@@ -18,3 +18,5 @@ const RecipeRating = () => {
 };
 
 export default RecipeRating;
+
+// TODO: transition to real data from db once that's implemented, onClick/Change should update the number of ratings on the recipe

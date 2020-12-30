@@ -6,9 +6,11 @@ const Print = () => {
   return (
 
     <Button onClick={() => { window.print(); }}>
-      Print!
+      Print Recipe
     </Button>
   );
 };
 
 export default Print;
+
+//TODO: only print the <Recipe /> component, button styling - print icon?
