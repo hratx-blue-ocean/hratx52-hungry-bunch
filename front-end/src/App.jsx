@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from './reducers/user.js';
@@ -16,7 +17,7 @@ const App = () => {
     <>
       { /* Route components are rendered if the path prop matches the current URL */}
       {!isAuthenticated ?
-          <Route path="/"><Login/></Route>
+        <Route path="/"><Login/></Route>
         :
         <>
           <Logout/>
@@ -29,4 +30,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default hot(App);
