@@ -1,18 +1,9 @@
 const express = require('express');
-const { MakeConnection } = require('../database/index.js');
 const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  // MakeConnection((err, result) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(result);
-  //     res.send('success!!!!!!!');
-  //   }
-  // });
-  // res.send('Hello World!');
+
 });
 
 app.listen(port, () => {
