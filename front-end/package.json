@@ -54,9 +54,9 @@
           "suppressErrorReporter": false
         }
       ]
-    ]},
-    "webpack-dev-server": "^3.11.0",
-    "webpack-hot-middleware": "^2.25.0",
-    "webpack-livereload-plugin": "^2.3.0"
-
+    ]
+  },
+  "webpack-dev-server": "^3.11.0",
+  "webpack-hot-middleware": "^2.25.0",
+  "webpack-livereload-plugin": "^2.3.0"
 }
