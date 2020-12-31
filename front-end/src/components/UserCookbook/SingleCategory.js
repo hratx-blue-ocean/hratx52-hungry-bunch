@@ -3,14 +3,25 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+
+const useStyles = makeStyles(()=>({
+  borderOverlay: {
+    border: '4px solid white'
+  },
+  centerText: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    background: 'rgba(255,255,255,0.6)'
+    //backgroundColor: '#80ced6',
+  }
+}));
+
 
 const SingleCategory = (props) => {
-
-  const useStyles = makeStyles(()=>({
-    borderOverlay: {
-
-    }
-  }));
+  const classes = useStyles();
 
   let handleClick = function (e) {
     e.preventDefault();
@@ -19,7 +30,10 @@ const SingleCategory = (props) => {
 
 
   return (
-    <img src = {props.picture} style={{width: '200px', height: '150px'}} onClick={handleClick} />
+    <div>
+      <img src = {props.picture} style={{width: '200px', height: '150px'}} onClick={handleClick} className={classes.borderOverlay}/>
+      <Typography className={classes.centerText} variant='body1'> {props.categoryName} </Typography>
+    </div>
   );
 };
 
