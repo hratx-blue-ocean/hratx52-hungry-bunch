@@ -6,7 +6,12 @@ import TopToolbar from './TopToolBar.js';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import CategoryCarousel from './CategoryCarousel.js';
-import RecipeTiles from './RecipeTiles.js';
+import { Container } from '@material-ui/core';
+
+
+//This is Jonathan's component, will need to tweak for reusability later
+import CenterConsole from '../CenterConsole/CenterConsole.js';
+//import RecipeTiles from './RecipeTiles.js';
 
 //wireframe: https://www.figma.com/file/C9TLcX8c0DNBW3xsYlv6kO/Untitled?node-id=60%3A2
 /*
@@ -35,8 +40,14 @@ const UserCookbook = () => {
     return (
       <>
         <TopToolbar nickname={nickname} picture={picture}/>
-        <CategoryCarousel />
-        <RecipeTiles />
+        <br></br>
+        <Container maxWidth='sm'>
+          <CategoryCarousel />
+        </Container>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CenterConsole />
       </>
     );
   } else {
