@@ -1,6 +1,5 @@
 const Recipes = [
   {
-    '_id': ObjectId('5feba17f21a05c70d65737cf'),
     'recipeId': 1,
     'ownerId': 1,
     'recipeName': 'Soupie Soup',
@@ -36,7 +35,6 @@ const Recipes = [
     'imageUrl': 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
   },
   {
-    '_id': ObjectId('5feba17f21a05c70d65737d0'),
     'recipeID': 2,
     'ownerId': 1,
     'recipeName': 'Vegan Soupie Soup',
@@ -75,7 +73,6 @@ const Recipes = [
     'imageUrl': 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
   },
   {
-    '_id': ObjectId('5feba3af21a05c70d65737d1'),
     'recipeId': 3,
     'ownerId': 1,
     'recipeName': 'Vegan Soupie Soup',
@@ -116,7 +113,6 @@ const Recipes = [
 ];
 
 const UserCookBook = {
-  '_id': ObjectId('5feba07421a05c70d65737cd'),
   'userId': 1,
   'username': 'Dave',
   'favoriteRecipes': [

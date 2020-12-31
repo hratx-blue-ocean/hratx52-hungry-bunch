@@ -1,12 +1,21 @@
 const { EC2_URI } = require('../config');
 const mongoose = require('mongoose');
-const MongoClient = require('mongodb').MongoClient;
+const chalk = require('chalk');
 
-mongoose.connect('mongodb://hungrybunch:eateateat@3.138.189.191/HUNGRYBUNCH?authSource=admin', {useNewUrlParser: true })
-  .then(result => {
-    console.log('successfully connected to database!');
-    console.log(mongoose.connection.name);
-  })
-  .catch(error => {
-    console.log('ERROR connecting to ADMIN DATABASEe');
-  });
+class DB {
+  constructor() {
+    this._connect();
+  }
+
+  _connect() {
+    mongoose.connect(EC2_URI)
+      .then(() => {
+        console.log(chalk.blue('Successfully connected to database!'));
+      })
+      .catch(err => {
+        console.error(chalk.red('Database connection error'));
+      });
+  }
+}
+
+module.exports = new DB();
