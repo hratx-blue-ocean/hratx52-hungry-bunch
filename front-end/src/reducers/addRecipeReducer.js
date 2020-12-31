@@ -1,7 +1,7 @@
-import setRecipe from '../actions/addRecipeActions';
-
 const initialState = {
   recipe: null,
+  currentIngredients: [],
+  currentSteps: [],
 }
 
 export const addRecipeReducer = (state = initialState, action) => {
@@ -9,8 +9,20 @@ export const addRecipeReducer = (state = initialState, action) => {
     case 'SET_RECIPE': {
       return {
         ...state,
-        recipe: action.recipe
+        recipe: action.payload
       };
+    }
+    case 'SET_CURRENT_INGREDIENTS': {
+      return {
+        ...state,
+        currentIngredients: action.payload
+      }
+    }
+    case 'SET_CURRENT_STEPS': {
+      return {
+        ...state,
+        currentSteps: action.payload
+      }
     }
     default: {
       return state;
