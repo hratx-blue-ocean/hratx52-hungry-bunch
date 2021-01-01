@@ -10,9 +10,9 @@ module.exports = {
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
   reporters: [
     [
-      "jest-nyancat-reporter",
+      'jest-nyancat-reporter',
       {
-        "suppressErrorReporter": false
+        'suppressErrorReporter': false
       }
     ]
   ]
