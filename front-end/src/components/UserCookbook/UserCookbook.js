@@ -51,7 +51,7 @@ const UserCookbook = () => {
       </>
     );
   } else {
-    return (<p>Eep! You shouldn't see this!</p>);
+    return (<></>);
   }
 };
 

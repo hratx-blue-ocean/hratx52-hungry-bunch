@@ -36,8 +36,8 @@ const CategoryCarousel = () => {
 
   //categories are currently placeholders, will need to access state for categories later
   // ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Beverage', 'Snack']
-  const categories = ['Breakfast', 'Lunch', 'Dinner', 'Miscellaneous'];
-  const categorypictures = ['https://i.imgur.com/e73cWzB.jpeg', 'https://i.imgur.com/WHpUNJk.jpeg', 'https://imgur.com/3HXBEI6.jpeg', 'https://imgur.com/epfHCXK.jpeg'];
+  const categories = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Beverage', 'Snack'];
+  const categorypictures = ['https://i.imgur.com/mAyXMl3.jpg', 'https://i.imgur.com/UmYs1Jx.jpg', 'https://i.imgur.com/i6P7pGX.jpg', 'https://i.imgur.com/NyGCFS0.jpg', 'https://i.imgur.com/y5NeQZN.jpg', 'https://i.imgur.com/OGPlFzj.jpg'];
 
   const classes = useStyles();
 
