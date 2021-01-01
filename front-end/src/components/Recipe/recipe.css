@@ -1,11 +1,23 @@
+/* MAIN PAGE COMPONENTS */
+
+.recipe-page-component {
+  position: relative;
+}
+
+/* RECIPE COMPONENTS */
+
 .recipe-container {
   display: flex;
   justify-content: center;
 };
 
-.recipe-info-container {
+.recipe-page-container {
   width: 50%;
 };
+
+/* RECIPE DATA */
+
+/* RECIPE IMAGE */
 
 .recipe-image-and-rating-container {
   position:relative;
@@ -14,10 +26,16 @@
 
 .recipe-image-container {
   position: relative;
+  justify-content: center;
 }
 
+.recipe-page-image {
+  width: 80%;
+  justify-content: center;
+}
 .recipe-rating-container {
   position: absolute;
-  top:0%;
-  right:0%;
+  top: 0%;
+  right: 25%;
 }
+

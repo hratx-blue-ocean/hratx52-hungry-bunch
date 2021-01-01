@@ -65,7 +65,7 @@ const MainPage = () => {
         <h1>HELLO TEAM TRUFFLE</h1>
         <CenterConsole/>
       </div>
-      <div>
+      <div className='recipe-page-component'>
         <Recipe />
       </div>
     </>
