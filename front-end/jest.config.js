@@ -5,7 +5,15 @@ module.exports = {
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
-    '\\.(css|less)$": "identity-obj-proxy'
+    '\\.(css|less)$': 'identity-obj-proxy'
   },
-  transformIgnorePatterns: ['<rootDir>/node_modules/']
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  reporters: [
+    [
+      "jest-nyancat-reporter",
+      {
+        "suppressErrorReporter": false
+      }
+    ]
+  ]
 };

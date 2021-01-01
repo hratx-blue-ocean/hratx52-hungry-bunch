@@ -56,26 +56,5 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-livereload-plugin": "^2.3.0"
-  },
-  "jest": {
-    "reporters": [
-      [
-        "jest-nyancat-reporter",
-        {
-          "suppressErrorReporter": false
-        }
-      ]
-    ],
-    "testEnvironment": "jest-environment-node",
-    "transform": {
-      "^.+\\.(js|jsx)?$": "babel-jest"
-    },
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ],
-    "modulePaths": [
-      "<rootDir>"
-    ]
   }
 }
