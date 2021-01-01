@@ -1,11 +1,12 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import {recipe} from '../../data/recipeDummyData.js';
-import heartIcon from './heart.png';
 
 const Favorite = () => {
   return (
-    <Button>Fave? ({recipe.favoritedBy})</Button>
+    <Button
+      // onClick={handleFave}
+    >Fave? ({recipe.favoritedBy})</Button>
   );
 };
 

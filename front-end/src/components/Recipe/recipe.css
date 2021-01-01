@@ -1,0 +1,23 @@
+.recipe-container {
+  display: flex;
+  justify-content: center;
+};
+
+.recipe-info-container {
+  width: 50%;
+};
+
+.recipe-image-and-rating-container {
+  position:relative;
+  width: 50%;
+};
+
+.recipe-image-container {
+  position: relative;
+}
+
+.recipe-rating-container {
+  position: absolute;
+  top:0%;
+  right:0%;
+}

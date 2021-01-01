@@ -6,8 +6,7 @@ const RecipeData = () => {
   return (
     <div>
       <h1>{recipe.recipeName}</h1>
-      <a href="fakeurl.com">{recipe.ownerId}</a>
-      <img src={recipe.imageUrl}></img>
+      <a href="fakeurl.com">{recipe.ownerId}</a> 
       <ul>{recipe.ingredients.map((ingredient, i) => (
         <li key={i}>{ingredient}</li>
       ))}</ul>
