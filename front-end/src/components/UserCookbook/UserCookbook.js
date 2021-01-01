@@ -11,7 +11,6 @@ import { Container } from '@material-ui/core';
 
 //This is Jonathan's component, will need to tweak for reusability later
 import CenterConsole from '../CenterConsole/CenterConsole.js';
-//import RecipeTiles from './RecipeTiles.js';
 
 //wireframe: https://www.figma.com/file/C9TLcX8c0DNBW3xsYlv6kO/Untitled?node-id=60%3A2
 /*

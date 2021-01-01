@@ -34,8 +34,7 @@ const useStyles = makeStyles(()=>({
 
 const CategoryCarousel = () => {
 
-  //categories are currently placeholders, will need to access state for categories later
-  // ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Beverage', 'Snack']
+  //categories are currently placeholders (?), will need to access state for categories later
   const categories = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Beverage', 'Snack'];
   const categorypictures = ['https://i.imgur.com/mAyXMl3.jpg', 'https://i.imgur.com/UmYs1Jx.jpg', 'https://i.imgur.com/i6P7pGX.jpg', 'https://i.imgur.com/NyGCFS0.jpg', 'https://i.imgur.com/y5NeQZN.jpg', 'https://i.imgur.com/OGPlFzj.jpg'];
 

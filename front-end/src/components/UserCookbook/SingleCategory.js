@@ -15,7 +15,6 @@ const useStyles = makeStyles(()=>({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     background: 'rgba(255,255,255,0.6)'
-    //backgroundColor: '#80ced6',
   }
 }));
 
@@ -25,6 +24,7 @@ const SingleCategory = (props) => {
 
   let handleClick = function (e) {
     e.preventDefault();
+    //will be used for filtering
     console.log(props.categoryName, 'was clicked...');
   };
 
