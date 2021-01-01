@@ -48,38 +48,35 @@ class RecipeList extends Component {
 
   render() {
     return (
-      <div>
-        <Grid container spacing={1}>
-          <Grid container item xs={12} spacing={3}>
-            {this.state.recipeList.slice(this.state.startOfSlice, this.state.endOfSlice).map((oneRecipe) => {
-              return (
-                <SingleRecipe oneRecipe={oneRecipe} key={oneRecipe.recipeId}/>
-              );
-            })}
-          </Grid>
-          <Grid container spacing={10}>
-            <Grid item xs={6} sm={2}>
-              <Button
-                disabled={this.state.disablePreviousButton}
-                color='primary'
-                onClick={() => this.showPreviousClickHandler()}
-              >
-              Show Previous
-              </Button>
-            </Grid>
-            <Grid item xs={6} sm={2}>
-              <Button
-                disabled={this.state.disableShowMoreButton}
-                color='primary'
-                onClick={() => this.showMoreClickHandler()}
-              >
-              Show More
-              </Button>
-            </Grid>
-          </Grid>
-          {console.log(this.state)}
+      <Grid container spacing={1}>
+        <Grid container item xs={12} spacing={3}>
+          {this.state.recipeList.slice(this.state.startOfSlice, this.state.endOfSlice).map((oneRecipe) => {
+            return (
+              <SingleRecipe oneRecipe={oneRecipe} key={oneRecipe.recipeId}/>
+            );
+          })}
         </Grid>
-      </div>
+        <Grid container spacing={10}>
+          <Grid item >
+            <Button
+              disabled={this.state.disablePreviousButton}
+              color='primary'
+              onClick={() => this.showPreviousClickHandler()}
+            >
+            Show Previous
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              disabled={this.state.disableShowMoreButton}
+              color='primary'
+              onClick={() => this.showMoreClickHandler()}
+            >
+            Show More
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
     );
   }
 }

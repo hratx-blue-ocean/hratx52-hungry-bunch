@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
+import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,6 +11,7 @@ import Menu from '@material-ui/core/Menu';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Route, Switch } from 'react-router-dom';
+import { Grid, Container } from '@material-ui/core';
 
 //import styles from './mainpage.css';
 
@@ -58,7 +60,19 @@ const MainPage = () => {
       </AppBar>
       <div>
         <h1>HELLO TEAM TRUFFLE</h1>
-        <CenterConsole/>
+        <Container>
+          <Grid container>
+            <Grid item xs={3}>
+              <RightToolBar/>
+            </Grid>
+            <Grid item xs={6}>
+              <CenterConsole/>
+            </Grid>
+            <Grid item xs={3}>
+              <RightToolBar/>
+            </Grid>
+          </Grid>
+        </Container>
       </div>
     </>
   );
