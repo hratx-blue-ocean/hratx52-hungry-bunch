@@ -19,6 +19,7 @@ import Button from '@material-ui/core/Button';
 import DifficultySelect from './DifficultySelect';
 import Badge from '@material-ui/core/Badge';
 import Chip from '@material-ui/core/Chip';
+import ChipsList from './ChipList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,7 +60,7 @@ const SearchBar = () => {
   const [open, setOpen] = useState(false);
   const [category, setCategory] = useState('');
   const [Difficulty, setDifficulty] = useState('');
-  const [Preferences, setPreferences] = useState('');
+  const [Preferences, setPreferences] = useState([]);
   const classes = useStyles();
 
   const handleChange = (event) => {
@@ -91,14 +92,23 @@ const SearchBar = () => {
   };
 
   const handleDelete = () => {
-    console.info('You clicked the delete icon.');
+    setCategory('');
   };
 
   return (
     <div className={classes.mainDiv}>
       <Grid container spacing={3} direction="column" alignItems="center">
         <Grid item xs={12}>
-          <Badge badgeContent={category === '' ? 0 : <Chip color="secondary" size="small" label={category} onDelete={handleDelete} />}>
+          <Badge
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            badgeContent={category === '' ? 0 :
+              <Chip
+                color='secondary'
+                size='small'
+                label={category}
+                onDelete={handleDelete}>
+              </Chip>}
+          >
             <Paper component="form" className={classes.root} variant="outlined" elevation={3}>
               <IconButton type="submit" className={classes.iconButton} aria-label="search">
                 <SearchIcon />
