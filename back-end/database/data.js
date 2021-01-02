@@ -136,6 +136,8 @@ const User = {
   'sub': 'auth0|5feb9f6fea3fc70078775277'
 };
 
+// add users collection 
+
 module.exports = {
   Recipes: Recipes,
   UserCookBook: UserCookBook,

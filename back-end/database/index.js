@@ -13,7 +13,7 @@ class DB {
         console.log(chalk.blue('Successfully connected to database!'));
       })
       .catch(err => {
-        console.error(chalk.red('Database connection error'));
+        console.error(chalk.red(err, 'Database connection error'));
       });
   }
 }
