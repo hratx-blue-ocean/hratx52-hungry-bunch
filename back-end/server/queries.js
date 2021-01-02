@@ -1,14 +1,15 @@
 const chalk = require('chalk');
 const Recipe = require('../database/models/recipe');
-const UserCookBooks = require('../database/models/userCookBook');
+const UserCookBook = require('../database/models/userCookBook');
 const User = require('../database/models/user');
+const FriendsList = require('../database/models/friendsList');
 const log = console.log;
 
 /*
 ** userId (type: number) | single userId
 */
 const GetUserCookBook = ({ userId }, callback) => {
-  UserCookBooks.find({userId: userId}, (err, doc) => {
+  UserCookBook.find({userId: userId}, (err, doc) => {
     if (err) {
       log('Error at route: ' + chalk.redBright('GetUserCookBook'));
       callback(err);
@@ -32,19 +33,33 @@ const GetRecipes = ({ recipes }, callback) => {
   });
 };
 
-const GetFriends = ({}, callback) => {
-
+const GetFriends = ({ userId }, callback) => {
+  FriendsList.find({userId: userId}, (err, freinds) => {
+    if (err) {
+      log('Error at route: ' + chalk.redBright('GetFriends'));
+      callback(err);
+    } else {
+      callback(null, friends);
+    }
+  });
 };
 
-const GetUser = ({}, callback) => {
-
+const GetUser = ({userId}, callback) => {
+  User.find({userId: userId}, (err, user) => {
+    if (err) {
+      log('Error at route: ' + chalk.redBright('GetUser'));
+      callback(err);
+    } else {
+      callback(null, user);
+    }
+  });
 };
 
 /*
 ** userId (type: number) | single userId
-** recipeId (tpe: array) | array of number
+** recipeId (tpe: number) | single recipeId
 */
-const UpdateUserCookBook = (({ userId, recipeId }, callback) => {
+const UpdateUserCookBook = ({ userId, recipeId }, callback) => {
   User.update({userId: userId}, { $push: {recipes: recipeId}}, (err, result) => {
     if (err) {
       log('Error at route: ' + chalk.redBright('UpdateUserCookBook'));
@@ -53,11 +68,11 @@ const UpdateUserCookBook = (({ userId, recipeId }, callback) => {
       callback(null, result);
     }
   });
-});
+};
 
 /*
 ** userId (type: number) | single userId
-** recipe (tpe: array) | array of recipe objects
+** recipe (tpe: number) | single recipeId
 */
 const AddNewRecipe = ({ userId, recipe }, callback) => {
   Recipe.insertOne(recipe, (err, doc) => {
@@ -79,14 +94,24 @@ const AddNewRecipe = ({ userId, recipe }, callback) => {
 };
 
 const AddNewUser = ({ userId }, callback) => {
-
+  // 1. add user to User collection
+  // 2. make a userCookBook for that user
+  // 3. make a friends list for the user
 };
 
-const AddNewFriend = ({}, callback) => {
-
+const AddNewFriend = ({userId, friend}, callback) => {
+  FriendsList.update({userId: userId}, { $push: {friends: friend}}, (err, result) => {
+    if (err) {
+      log('Error in ' + chalk.redBright('AddNewFriend'));
+      callback(err);
+    } else {
+      log(chalk.green('Success adding new friend'));
+      callback(null, result);
+    }
+  });
 };
 
-const UpdateUserPhoto = ({ userId }, callback) => {
+const UpdateUserPhoto = ({ userId, photoUrl }, callback) => {
 
 };
 
@@ -96,6 +121,7 @@ const formatData = (UserCookBook, newRecipes) => {
 };
 
 const DeleteRecipeById = ({recipeId}, callback) => {
+
   Recipe.deleteMany({recipeId: recipeId}, (err, result) => {
     if (err) {
       log('err deleting recipe with id: ' + recipeId);
@@ -110,12 +136,12 @@ const DeleteRecipeById = ({recipeId}, callback) => {
 module.exports = {
   GetUserCookBook,
   GetRecipes,
-  // GetFriends,
-  // AddNewRecipe,
-  // AddNewUser,
-  // AddNewFriend,
-  // UpdateUserPhoto,
-  // UpdateUserCookBook,
+  GetFriends,
+  AddNewRecipe,
+  AddNewUser,
+  AddNewFriend,
+  UpdateUserPhoto,
+  UpdateUserCookBook,
   formatData,
   DeleteRecipeById,
 };

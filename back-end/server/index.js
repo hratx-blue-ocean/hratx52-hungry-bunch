@@ -15,30 +15,29 @@ app.get('/', (req, res) => {
   res.send(200);
 });
 
-//ROUTES
-//GET
+// ROUTES
+
+// --------------------- GET  ---------------------------------------------------------------------------------------------
 // get user cookbook will send user cookbook object back to client with user info and recipes
-app.get('/usercookbook/:userid', (req, res) => {
-  // get user cookbook query
-  // log('body.params', req.body.params);
-  // log('req.params', req.params.userid);
-  const userid = req.params.userid;
-  // console.log('userId', userId);
-  queries.GetUserCookBook({ userid }, (err, response) => {
+app.get('/usercookbook/:userId', (req, res) => {
+
+  const { userId } = req.params;
+
+  queries.GetUserCookBook({ userId }, (err, response) => {
     if (err) {
       res.send(500);
       log(chalk.bgRed('ERROR GETTING USER COOKBOOK FROM DATABASE'));
     } else {
       const userCookBook = response;
       // get recipes query
-      const {recipes} = response;
-      queries.GetRecipes({ recipes }, (err, response) => {
+      const {recipesIds} = response;
+      queries.GetRecipes({ recipesIds }, (err, recipes) => {
         if (err) {
           res.send(500);
           log(chalk.bgRed('ERROR GETTING USER RECIPES FROM DATABASE'));
         } else {
           // format data to combine userCookBook and recipes data structures
-          const recipes = response;
+          userCookBook.recipes = recipes;
           res.status(200).send(userCookBook);
         }
       });
@@ -47,37 +46,47 @@ app.get('/usercookbook/:userid', (req, res) => {
 });
 
 // get friends - query friends collection
-app.get('/friends', (req, res) => {
+app.get('/friends/:userId', (req, res) => {
+
+  const { userId } = req.params;
+
   // get friends query
-  queries.GetFriends((err, response) => {
+  queries.GetFriends({ userId }, (err, friends) => {
     if (err) {
       res.send(500);
       log(chalk.bgRed('ERROR GETTING USER FRIENDS FROM DATABASE'));
     } else {
       // send friends back to client
-      res.status(200).send(response);
+      res.status(200).send(friends);
     }
   });
 });
+
 // getting user authentication info
-app.get('/user', (req, res) => {
+app.get('/user/:userId', (req, res) => {
+
+  const { userId } = req.params;
+
   // get user query
-  queries.GetUser((err, response) => {
+  queries.GetUser({ userId }, (err, user) => {
     if (err) {
       res.send(500);
       log(chalk.bgRed('ERROR GETTING USER FROM DATABASE'));
     } else {
       // send user back to client
-      res.status(200).send(response);
+      res.status(200).send(user);
     }
   });
 });
 
-//POST
+// -------------- POST ---------------------------------------------------------------------------------------------
 // Add recipe to add recipe to recipes collection and add id to user cookbook array
 app.post('/addrecipe', (req, res) => {
-// add recipe query
-  queries.AddNewRecipe((err, response)=> {
+
+  const { userId, recipe } = req.body;
+
+  // add recipe query
+  queries.AddNewRecipe({ userId, recipe }, (err, response)=> {
     if (err) {
       res.send(500);
       log(chalk.bgRed('ERROR ADDING NEW RECIPE TO DATABASE'));
@@ -88,10 +97,14 @@ app.post('/addrecipe', (req, res) => {
     }
   });
 });
+
 // add friend - add to friends array in friends collection
 app.post('/addfriend', (req, res) => {
-// add friend query
-  queries.AddNewFriend((err, response) => {
+
+  const { userId, friend } = req.body;
+
+  // add friend query
+  queries.AddNewFriend({ userId, friend }, (err, response) => {
     if (err) {
       res.send(500);
       log(chalk.bgRed('ERROR ADDING NEW FRIEND TO DATABASE'));
@@ -102,10 +115,14 @@ app.post('/addfriend', (req, res) => {
     }
   });
 });
+
 // add user, adds new user to users collection (default avatar if no photo)
 app.post('/adduser', (req, res) => {
-// add user query
-  queries.AddNewUser((err, response) => {
+
+  const { user } = req.body;
+
+  // add user query
+  queries.AddNewUser({user}, (err, response) => {
     if (err) {
       res.status(500).send('there was an error adding a new user');
     } else {
@@ -115,10 +132,14 @@ app.post('/adduser', (req, res) => {
     }
   });
 });
+
 // update user photo, takes photo field if has changed and updates field in users collection
 app.post('/adduserphoto', (req, res) => {
-// add user photo query
-  queries.UpdateUserPhoto((err, response) => {
+
+  const { userId, photoUrl } = req.body;
+
+  // add user photo query
+  queries.UpdateUserPhoto({ userId, photoUrl }, (err, response) => {
     if (err) {
       res.send(500);
     } else {
@@ -130,7 +151,9 @@ app.post('/adduserphoto', (req, res) => {
 });
 
 app.post('/deleterecipes/:recipeId', (req, res) => {
+
   const { recipeId } = req.params.recipeId;
+
   queries.DeleteRecipeById({ recipeId }, (err, response) => {
     if (err) {
       res.send(500);
@@ -139,33 +162,6 @@ app.post('/deleterecipes/:recipeId', (req, res) => {
     }
   });
 });
-
-// app.get('/recipes', (req, res) => {
-//   Recipe.find((err, docs) => {
-//     if (err) {
-//       log(chalk.bgRed('ERROR FINDING RECIPES. SORRY BRO.'), err);
-//       res.send(500);
-//     } else {
-//       log(chalk.cyan('WE FOUND THE RECIPES'));
-//       log(chalk.cyanBright(docs));
-//       res.send(docs);
-//     }
-//   });
-// });
-
-// app.post('/recipes', (req, res) => {
-//   console.log(Recipes[0]);
-//   Recipe.create(Recipes[0], (err, doc) => {
-//     if (err) {
-//       log(chalk.bgRed('ERROR ADDING RECIPES. SORRY BRO.'), err);
-//       res.send(500);
-//     } else {
-//       log(chalk.magentaBright('WE ADDED THE RECIPES'));
-//       log(chalk.cyan(doc));
-//       res.send(doc);
-//     }
-//   });
-// });
 
 app.listen(port, () => {
   log(chalk.magenta('HUNGRY BACK-END app listening at ') + chalk.bold.greenBright(`http://localhost:${port}`));
