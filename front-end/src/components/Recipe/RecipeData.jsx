@@ -15,10 +15,12 @@ const RecipeData = () => {
         ))}</ul>
       </div>
       <div className='optional-recipe-data'>
-        Category: {recipe.category}
-        Time: {recipe.time} minutes
+        Category: {recipe.category},
+
+        Time: {recipe.time} minutes,
+
         Difficulty: {recipe.difficulty}
-        {recipe.vegan ? 'Vegan' : null}
+        {recipe.vegan ? ', Vegan' : null}
       </div>
       <div className='recipe-steps'>
         <ol>{recipe.steps.map((step, i) => (

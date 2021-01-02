@@ -11,6 +11,7 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Route, Switch } from 'react-router-dom';
 import Recipe from '../Recipe/Recipe.jsx';
+import Logout from '../../components/Login/Logout';
 
 //import styles from './mainpage.css';
 
@@ -57,7 +58,7 @@ const MainPage = () => {
             <Link to="/signup">Sign up</Link>
           </Button>
           <Button color="inherit">
-            <Link to="/">Sign out</Link>
+            <Link to="/"><Logout /></Link>
           </Button>
         </Toolbar>
       </AppBar>

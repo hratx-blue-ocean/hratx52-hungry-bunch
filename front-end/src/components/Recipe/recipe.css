@@ -2,6 +2,8 @@
 
 .recipe-page-component {
   position: relative;
+  size: 75%;
+  justify-content: center;
 }
 
 /* RECIPE COMPONENTS */
@@ -17,11 +19,32 @@
 
 /* RECIPE DATA */
 
+.recipe-data {
+  background-color: pink
+}
+
+.recipe-name-and-user {
+  background-color: #3F50B5;
+}
+
+.recipe-ingredients {
+  background-color: pink;
+}
+
+.optional-recipe-data {
+  background-color: #3F50B5;
+}
+
+.recipe-steps {
+  background-color: pink;
+}
+
 /* RECIPE IMAGE */
 
 .recipe-image-and-rating-container {
   position:relative;
   width: 50%;
+  padding-left: 3%;
 };
 
 .recipe-image-container {
