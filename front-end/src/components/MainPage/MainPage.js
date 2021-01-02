@@ -11,7 +11,6 @@ import SearchBar from '../SearchBar/SearchBar';
 import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
 
-
 //import styles from './mainpage.css';
 
 const useStyles = makeStyles(theme => ({
@@ -20,8 +19,6 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
   },
 }));
-
-
 
 const MainPage = () => {
 
