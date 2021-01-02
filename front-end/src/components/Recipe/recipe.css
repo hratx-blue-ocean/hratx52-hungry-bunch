@@ -20,23 +20,16 @@
 /* RECIPE DATA */
 
 .recipe-data {
-  background-color: pink
-}
-
-.recipe-name-and-user {
-  background-color: #3F50B5;
+  background-color: white;
 }
 
 .recipe-ingredients {
-  background-color: pink;
+  background-color: white;
 }
 
-.optional-recipe-data {
-  background-color: #3F50B5;
-}
 
 .recipe-steps {
-  background-color: pink;
+  background-color:white;
 }
 
 /* RECIPE IMAGE */

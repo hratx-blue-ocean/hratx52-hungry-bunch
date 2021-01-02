@@ -7,7 +7,7 @@ const RecipeData = () => {
     <div className='recipe-data'>
       <div className='recipe-name-and-user'>
         <h1>{recipe.recipeName}</h1>
-        <a href="userId">{recipe.ownerId}</a>
+        <a href="user">{recipe.ownerId} - username goes here!</a>
       </div>
       <div className='recipe-ingredients'>
         <ul>{recipe.ingredients.map((ingredient, i) => (
@@ -15,7 +15,9 @@ const RecipeData = () => {
         ))}</ul>
       </div>
       <div className='optional-recipe-data'>
-        Category: {recipe.category},
+        Category: {recipe.category.length < 2 ? recipe.category : recipe.category.map(string => (
+          <li key={string}>{string}</li>
+        ))}
 
         Time: {recipe.time} minutes,
 

@@ -11,9 +11,10 @@ import Menu from '@material-ui/core/Menu';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Route, Switch } from 'react-router-dom';
-import Recipe from '../Recipe/Recipe.jsx';
 import Logout from '../../components/Login/Logout';
+import SearchBar from '../SearchBar/SearchBar';
 import { Grid, Container } from '@material-ui/core';
+
 
 //import styles from './mainpage.css';
 
@@ -48,20 +49,12 @@ const MainPage = () => {
             HUNGRY BUNCH
           </Typography>
 
+          <Link to="/"><Logout /></Link>
 
-          <Button color="inherit">
-            <Link to="/login">Login</Link>
-          </Button>
-          <Button color="inherit">
-            <Link to="/signup">Sign up</Link>
-          </Button>
-          <Button color="inherit">
-            <Link to="/"><Logout /></Link>
-          </Button>
         </Toolbar>
       </AppBar>
+      <SearchBar />
       <div>
-        <h1>HELLO TEAM TRUFFLE</h1>
         {/* The Grid system below should be able to hold the left tool bar, center console, and
           * right toolbar in the proper format and can easily be moved from mainPage if needed.
          */}
@@ -79,9 +72,6 @@ const MainPage = () => {
             </Grid>
           </Grid>
         </Container>
-      </div>
-      <div className='recipe-page-component'>
-        <Recipe />
       </div>
     </>
   );
