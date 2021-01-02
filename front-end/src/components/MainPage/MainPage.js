@@ -11,7 +11,9 @@ import Menu from '@material-ui/core/Menu';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, Route, Switch } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
 import { Grid, Container } from '@material-ui/core';
+
 
 //import styles from './mainpage.css';
 
@@ -58,8 +60,8 @@ const MainPage = () => {
           </Button>
         </Toolbar>
       </AppBar>
+      <SearchBar />
       <div>
-        <h1>HELLO TEAM TRUFFLE</h1>
         {/* The Grid system below should be able to hold the left tool bar, center console, and
           * right toolbar in the proper format and can easily be moved from mainPage if needed.
          */}
