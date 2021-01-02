@@ -18,23 +18,28 @@ app.get('/', (req, res) => {
 //ROUTES
 //GET
 // get user cookbook will send user cookbook object back to client with user info and recipes
-app.get('/usercookbook', (req, res) => {
+app.get('/usercookbook/:userid', (req, res) => {
   // get user cookbook query
-  queries.GetUserCookBook((err, response) => {
+  // log('body.params', req.body.params);
+  // log('req.params', req.params.userid);
+  const userid = req.params.userid;
+  // console.log('userId', userId);
+  queries.GetUserCookBook({ userid }, (err, response) => {
     if (err) {
       res.send(500);
       log(chalk.bgRed('ERROR GETTING USER COOKBOOK FROM DATABASE'));
     } else {
       const userCookBook = response;
       // get recipes query
-      queries.GetRecipes((err, response) => {
+      const {recipes} = response;
+      queries.GetRecipes({ recipes }, (err, response) => {
         if (err) {
           res.send(500);
           log(chalk.bgRed('ERROR GETTING USER RECIPES FROM DATABASE'));
         } else {
           // format data to combine userCookBook and recipes data structures
           const recipes = response;
-          res.status(200).send('formatted data');
+          res.status(200).send(userCookBook);
         }
       });
     }
@@ -71,7 +76,7 @@ app.get('/user', (req, res) => {
 //POST
 // Add recipe to add recipe to recipes collection and add id to user cookbook array
 app.post('/addrecipe', (req, res) => {
-// add recipe query 
+// add recipe query
   queries.AddNewRecipe((err, response)=> {
     if (err) {
       res.send(500);
@@ -112,7 +117,7 @@ app.post('/adduser', (req, res) => {
 });
 // update user photo, takes photo field if has changed and updates field in users collection
 app.post('/adduserphoto', (req, res) => {
-// add user photo query 
+// add user photo query
   queries.UpdateUserPhoto((err, response) => {
     if (err) {
       res.send(500);
@@ -120,6 +125,17 @@ app.post('/adduserphoto', (req, res) => {
       // send status success back to client
       res.send(200);
       log(chalk.magentaBright('NEW USER PHOTO ADDED SUCCESFULLY'));
+    }
+  });
+});
+
+app.post('/deleterecipes/:recipeId', (req, res) => {
+  const { recipeId } = req.params.recipeId;
+  queries.DeleteRecipeById({ recipeId }, (err, response) => {
+    if (err) {
+      res.send(500);
+    } else {
+      res.send('success deleting recipes');
     }
   });
 });

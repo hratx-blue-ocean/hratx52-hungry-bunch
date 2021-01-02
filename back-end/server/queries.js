@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 const Recipe = require('../database/models/recipe');
-const UserCookBook = require('../database/models/recipe');
+const UserCookBooks = require('../database/models/userCookBook');
 const User = require('../database/models/user');
 const log = console.log;
 
@@ -8,7 +8,7 @@ const log = console.log;
 ** userId (type: number) | single userId
 */
 const GetUserCookBook = ({ userId }, callback) => {
-  UserCookBook.find({userId: userId}, (err, doc) => {
+  UserCookBooks.find({userId: userId}, (err, doc) => {
     if (err) {
       log('Error at route: ' + chalk.redBright('GetUserCookBook'));
       callback(err);
@@ -32,31 +32,48 @@ const GetRecipes = ({ recipes }, callback) => {
   });
 };
 
+const GetFriends = ({}, callback) => {
+
+};
+
+const GetUser = ({}, callback) => {
+
+};
+
 /*
 ** userId (type: number) | single userId
-** recipeIds (tpe: array) | array of numbers
+** recipeId (tpe: array) | array of number
 */
-const UpdateUserCookBook = (({ userId, recipeIds }, callback) => {
-  // User.up
+const UpdateUserCookBook = (({ userId, recipeId }, callback) => {
+  User.update({userId: userId}, { $push: {recipes: recipeId}}, (err, result) => {
+    if (err) {
+      log('Error at route: ' + chalk.redBright('UpdateUserCookBook'));
+      callback(err);
+    } else {
+      callback(null, result);
+    }
+  });
 });
 
 /*
 ** userId (type: number) | single userId
-** recipes (tpe: array) | array of recipe objects
+** recipe (tpe: array) | array of recipe objects
 */
-const AddRecipes = ({ userId, recipes }, callback) => {
-  Recipe.insertMany(recipes, (err, docs) => {
+const AddNewRecipe = ({ userId, recipe }, callback) => {
+  Recipe.insertOne(recipe, (err, doc) => {
     if (err) {
-      log('Error at route: ' + chalk.redBright('AddRecipes'));
+      log('Error at route: ' + chalk.redBright('AddRecipe'));
       callback(err);
     } else {
-      UpdateUserCookBook({userId, recipeIds}, (err, result) => {
+      const { recipeId } = doc;
+      UpdateUserCookBook({userId, recipeId}, (err, result) => {
         if (err) {
           log('Error updating with UpdateUserCookBook method inside ' + chalk.redBright('AddRecipes'));
         } else {
-
+          log(chalk.green('Success Updating recipe array for userId: ' + chalk.magentaBright(userId)));
         }
       });
+      callback(null, doc);
     }
   });
 };
@@ -65,15 +82,40 @@ const AddNewUser = ({ userId }, callback) => {
 
 };
 
+const AddNewFriend = ({}, callback) => {
+
+};
+
 const UpdateUserPhoto = ({ userId }, callback) => {
 
+};
+
+const formatData = (UserCookBook, newRecipes) => {
+  UserCookBook.recipes = newRecipes;
+  return UserCookBook;
+};
+
+const DeleteRecipeById = ({recipeId}, callback) => {
+  Recipe.deleteMany({recipeId: recipeId}, (err, result) => {
+    if (err) {
+      log('err deleting recipe with id: ' + recipeId);
+      callback(err);
+    } else {
+      log('success deleting recipes');
+      callback(null, result);
+    }
+  });
 };
 
 module.exports = {
   GetUserCookBook,
   GetRecipes,
-  AddRecipes,
-  AddNewUser,
-  UpdateUserPhoto,
-  UpdateUserCookBook,
+  // GetFriends,
+  // AddNewRecipe,
+  // AddNewUser,
+  // AddNewFriend,
+  // UpdateUserPhoto,
+  // UpdateUserCookBook,
+  formatData,
+  DeleteRecipeById,
 };

@@ -7,4 +7,4 @@ const userCookBookSchema = new mongoose.Schema({
   recipes: [Number],
 });
 
-module.exports = mongoose.model('User', userCookBookSchema);
+module.exports = mongoose.model('UserCookBooks', userCookBookSchema);
