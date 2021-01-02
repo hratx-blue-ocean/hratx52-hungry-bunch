@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import { flexbox } from '@material-ui/system';
-
+import Logout from '../Login/Logout';
 import { Link, Route, Switch } from 'react-router-dom';
 
 const useStyles = makeStyles((theme)=>({
@@ -61,9 +61,7 @@ const TopToolbar = (props) => {
 
           {/* sign out link*/}
           <Box>
-            <Button color="inherit">
-              <Link to="/">Sign out</Link>
-            </Button>
+            <Logout />
           </Box>
 
         </Toolbar>

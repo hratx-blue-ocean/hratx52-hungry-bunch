@@ -8,7 +8,7 @@ const SingleRecipe = ({oneRecipe}) => {
 
   return (
     <Grid item xs={4}>
-      <Link to='/signup'>
+      <Link to='/recipe'>
         <Card>
           <CardActionArea>
             <CardMedia
