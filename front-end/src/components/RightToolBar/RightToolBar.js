@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container, Paper, InputBase, TextField, IconButton } from '@material-ui/core';
+import { Grid, Container, Paper, InputBase, IconButton } from '@material-ui/core';
 import GroupIcon from '@material-ui/icons/Group';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -19,11 +19,11 @@ const RightToolBar = () => {
             <IconButton onClick={()=>alert('yo')}>
               <SearchIcon/>
             </IconButton>
-           </Paper>
+          </Paper>
         </Grid>
       </Grid>
     </Container>
   );
-}
+};
 
 export default RightToolBar;

@@ -60,9 +60,13 @@ const MainPage = () => {
       </AppBar>
       <div>
         <h1>HELLO TEAM TRUFFLE</h1>
+        {/* The Grid system below should be able to hold the left tool bar, center console, and
+          * right toolbar in the proper format and can easily be moved from mainPage if needed.
+         */}
         <Container>
           <Grid container>
             <Grid item xs={3}>
+              {/* Replace with Right ToolBar*/}
               <RightToolBar/>
             </Grid>
             <Grid item xs={6}>

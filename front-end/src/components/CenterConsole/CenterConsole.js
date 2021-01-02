@@ -6,9 +6,7 @@ import { Container, Grid } from '@material-ui/core';
 const CenterConsole = (props) => {
   return (
     <Container maxWidth='sm'>
-
-          <RecipeList/>
-
+      <RecipeList/>
     </Container>
 
   );
