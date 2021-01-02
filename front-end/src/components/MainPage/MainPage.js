@@ -66,7 +66,7 @@ const MainPage = () => {
         <Container>
           <Grid container>
             <Grid item xs={3}>
-              {/* Replace with Right ToolBar*/}
+              {/* Replace with Left ToolBar*/}
               <RightToolBar/>
             </Grid>
             <Grid item xs={6}>
