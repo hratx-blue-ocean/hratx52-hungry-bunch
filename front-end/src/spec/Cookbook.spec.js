@@ -12,31 +12,21 @@ import renderer from 'react-test-renderer';
 
 
 import UserCookbook from '../components/UserCookbook/UserCookbook.js';
-//var UserCookbook = require('../components/UserCookbook/UserCookbook');
+
 
 import configureMockStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
-
 import { configureStore } from '@reduxjs/toolkit';
 
-/********************************************/
-import * as reducer from '../reducers/user.js';
 
+describe('Cookbook component', () => {
 
-
-
-describe('user reducer', () => {
-  it('should return the initial state', () => {
-    expect(reducer.userReducer(undefined, {})).toEqual(
-      {
-        user: null
-      }
-    );
-  });
-
-  it('should render my component', () => {
+  it('should render', () => {
     const wrapper = shallow(<UserCookbook />);
   });
+
+  /** */
+
 
 
 });
