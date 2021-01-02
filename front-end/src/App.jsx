@@ -10,8 +10,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Link, Route, Switch } from 'react-router-dom';
 
 
-//delete
-import UserCookbook from './components/UserCookbook/UserCookbook.js';
 
 const App = () => {
 
@@ -19,9 +17,7 @@ const App = () => {
 
   return (
     <>
-      {/* DELETE */}
-      <UserCookbook/>
-      {/* DELETE */}
+
 
       { /* Route components are rendered if the path prop matches the current URL */}
       {!isAuthenticated ?
