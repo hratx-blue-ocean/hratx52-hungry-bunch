@@ -7,7 +7,7 @@ import Profile from './components/Login/Profile.js';
 import MainPage from './components/MainPage/MainPage.js';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link, Route, Switch } from 'react-router-dom';
-import RecipePage from './components/RecipePage.jsx';
+import RecipePage from './components/RecipePage/RecipePage.jsx';
 import UserCookbook from './components/UserCookbook/UserCookbook.js';
 
 const App = () => {
