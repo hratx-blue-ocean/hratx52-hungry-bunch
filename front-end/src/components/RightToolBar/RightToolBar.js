@@ -8,7 +8,7 @@ const RightToolBar = () => {
   return (
     <Container>
       <Grid container >
-        <Grid item  sm={5}>
+        <Grid item sm={5}>
           <GroupIcon fontSize='large'/>
         </Grid>
         <Grid item>
