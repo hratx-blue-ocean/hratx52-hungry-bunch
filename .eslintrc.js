@@ -3,13 +3,12 @@ module.exports = {
     'es6': true
   },
   parserOptions: {
-    'ecmaVersion': 6,
     'sourceType': 'module',
+    "ecmaVersion": 2020,
     ecmaFeatures: {
       'jsx': true,
       'sourceType': 'module',
-      "experimentalObjectRestSpread": true
-    },
+    }
   },
   rules: {
     /* Indentation */
