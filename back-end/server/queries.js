@@ -112,7 +112,15 @@ const AddNewFriend = ({userId, friend}, callback) => {
 };
 
 const UpdateUserPhoto = ({ userId, photoUrl }, callback) => {
-
+  User.update( {userId: userId}, {picture: photoUrl}, (err, result) => {
+    if (err) {
+      log('Error in ' + chalk.redBright('UpdateUserPhoto'));
+      callback(err);
+    } else {
+      log(chalk.green('Success adding updating user photo'));
+      callback(null, result);
+    }
+  });
 };
 
 const formatData = (UserCookBook, newRecipes) => {
