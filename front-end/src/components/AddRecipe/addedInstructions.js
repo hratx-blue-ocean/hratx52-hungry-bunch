@@ -11,7 +11,11 @@ export const AddedInstructions = () => {
 
   return (
     <div>
-      <div>Here are the instructions: {steps} </div>
+      <div>Here are the instructions: {steps.map((step, index) => {
+        return (
+          <div>{index + 1}. {step}</div>
+        );
+      })} </div>
     </div>
-  )
-}
+  );
+};

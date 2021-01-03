@@ -11,7 +11,11 @@ export const AddedIngredients = () => {
 
   return (
     <div>
-      <div>Here are the ingredients: {ingredients}</div>
+      <div>Here are the ingredients: {ingredients.map((ingredient) => {
+        return (
+          <div>{ingredient}</div>
+        );
+      })}</div>
     </div>
-  )
-}
+  );
+};

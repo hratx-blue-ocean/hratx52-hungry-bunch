@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
+import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,6 +13,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AddRecipe } from '../AddRecipe/addRecipe.js';
 
 import { Link, Route, Switch } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
+import { Grid, Container } from '@material-ui/core';
+
 
 //import styles from './mainpage.css';
 
@@ -22,11 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-// ------------------------------------------------------------------------------------------------------------------------------------
-// Attention, please!
-// To whomever is working directly in the MainPage component, you should really create your own component (like Jonathan did) and just render it here and anywhere else you may need it.
-// Please, delete comments after fixing it. Thank you :)
-// ------------------------------------------------------------------------------------------------------------------------------------
+
 
 const MainPage = () => {
 
@@ -52,16 +52,39 @@ const MainPage = () => {
 
 
           <Button color="inherit">
-            <Link to="/login">Login</Link></Button>
+            <Link to="/login">Login</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/signup">Sign up</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/">Sign out</Link>
+          </Button>
         </Toolbar>
       </AppBar>
+      <SearchBar />
       <div>
-        <h1>HELLO TEAM TRUFFLE</h1>
-        <CenterConsole/>
+        {/* The Grid system below should be able to hold the left tool bar, center console, and
+          * right toolbar in the proper format and can easily be moved from mainPage if needed.
+         */}
+        <Container>
+          <Grid container>
+            <Grid item xs={3}>
+              {/* Replace with Left ToolBar*/}
+              <RightToolBar/>
+            </Grid>
+            <Grid item xs={6}>
+              <CenterConsole/>
+            </Grid>
+            <Grid item xs={3}>
+              <RightToolBar/>
+            </Grid>
+          </Grid>
+        </Container>
       </div>
-          <AddRecipe>
+      <AddRecipe>
 
-          </AddRecipe>
+      </AddRecipe>
     </>
   );
 };
