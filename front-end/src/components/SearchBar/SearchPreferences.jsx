@@ -24,7 +24,7 @@ const SearchPreferences = ({ updatePreferences }) => {
   });
 
   const handleChange = (event) => {
-    // setState({ ...state, [event.target.name]: event.target.checked });
+    setState({ ...state, [event.target.name]: event.target.checked });
     updatePreferences([state.Favorites, state.Vegan]);
   };
 
