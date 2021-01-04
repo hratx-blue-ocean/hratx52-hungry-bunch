@@ -10,6 +10,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
+import LeftToolbarLanding from '../LeftToolbarLanding/LeftToolbarLanding.jsx';
 
 //import styles from './mainpage.css';
 
@@ -35,7 +36,7 @@ const MainPage = () => {
           <Grid container>
             <Grid item xs={3}>
               {/* Replace with Left ToolBar*/}
-              <RightToolBar/>
+              <LeftToolbarLanding/>
             </Grid>
             <Grid item xs={6}>
               <CenterConsole/>
