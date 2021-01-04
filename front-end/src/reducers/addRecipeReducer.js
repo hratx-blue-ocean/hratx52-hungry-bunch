@@ -11,64 +11,64 @@ const initialState = {
   imageUrl: ''
 };
 
-// export const addRecipeReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case 'SET_RECIPE': {
-//       return {
-//         ...state,
-//         recipe: action.payload
-//       };
-//     }
-//     case 'SET_CURRENT_INGREDIENTS': {
-//       return {
-//         ...state,
-//         currentIngredients: [...state.currentIngredients, action.payload]
-//       }
-//     }
-//     case 'SET_CURRENT_STEPS': {
-//       return {
-//         ...state,
-//         currentSteps: [...state.currentSteps, action.payload]
-//       }
-//     }
-//     case 'SET_RECIPE_NAME': {
-//       return {
-//         ...state,
-//         recipeName: action.payload
-//       };
-//     }
-//     case 'SET_CATEGORY': {
-//       return {
-//         ...state,
-//         category: action.payload
-//       };
-//     }
-//     case 'SET_SHARED': {
-//       return {
-//         ...state,
-//         shared: action.payload
-//       };
-//     }
-//     case 'SET_TIME': {
-//       return {
-//         ...state,
-//         time: action.payload
-//       };
-//     }
-//     case 'SET_DIFFICULTY': {
-//       return {
-//         ...state,
-//         difficulty: action.payload
-//       };
-//     }
-//     case 'SET_VEGAN': {
-//       return {
-//         ...state,
-//         vegan: action.payload
-//       };
-//     }
-//     default: {
-//       return state;
-//     }
-//   }
-// };
+export const addRecipeReducer = (state = initialState, action) => {
+  switch (action.type) {
+  case 'SET_RECIPE': {
+    return {
+      ...state,
+      recipe: action.payload
+    };
+  }
+  case 'SET_CURRENT_INGREDIENTS': {
+    return {
+      ...state,
+      currentIngredients: [...state.currentIngredients, action.payload]
+    };
+  }
+  case 'SET_CURRENT_STEPS': {
+    return {
+      ...state,
+      currentSteps: [...state.currentSteps, action.payload]
+    };
+  }
+  case 'SET_RECIPE_NAME': {
+    return {
+      ...state,
+      recipeName: action.payload
+    };
+  }
+  case 'SET_CATEGORY': {
+    return {
+      ...state,
+      category: action.payload
+    };
+  }
+  case 'SET_SHARED': {
+    return {
+      ...state,
+      shared: action.payload
+    };
+  }
+  case 'SET_TIME': {
+    return {
+      ...state,
+      time: action.payload
+    };
+  }
+  case 'SET_DIFFICULTY': {
+    return {
+      ...state,
+      difficulty: action.payload
+    };
+  }
+  case 'SET_VEGAN': {
+    return {
+      ...state,
+      vegan: action.payload
+    };
+  }
+  default: {
+    return state;
+  }
+  }
+};
