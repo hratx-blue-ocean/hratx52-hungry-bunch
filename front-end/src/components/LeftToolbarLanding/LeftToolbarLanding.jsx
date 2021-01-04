@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import Button from '@material-ui/core/Button';
@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
 export default function LeftToolbarLanding() {
   const classes = useStyles();
   const { user } = useAuth0();
+  const [uploadVisibility, handleUploadVisibility] = useState(false);
 
   if (user) {
     const { name, picture, email, nickname } = user;
@@ -33,9 +34,10 @@ export default function LeftToolbarLanding() {
           </a>
         </Grid>
         <Grid>
-          <Button onClick={()=>alert('popup modal with picture upload')}>
-                add picture
+          <Button onClick={()=>{ handleUploadVisibility(uploadVisibility = !uploadVisibility); }}>
+            change avatar
           </Button>
+          {uploadVisibility ? <input type="file"></input> : null}
         </Grid>
         <Grid>
           <Button>
@@ -48,4 +50,3 @@ export default function LeftToolbarLanding() {
     return null;
   }
 }
-// TODO: connect recipe form at "add recipe" button

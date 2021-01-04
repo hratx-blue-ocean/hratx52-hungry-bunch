@@ -9,6 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Link, Route, Switch } from 'react-router-dom';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
 import UserCookbook from './components/UserCookbook/UserCookbook.js';
+import Signup from './components/Login/Signup.js';
 
 const App = () => {
 

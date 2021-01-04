@@ -1,5 +1,6 @@
 import {recipe} from '../../data/recipeDummyData.js';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RecipeData = () => {
 
@@ -7,7 +8,9 @@ const RecipeData = () => {
     <div className='recipe-data'>
       <div className='recipe-name-and-user'>
         <h1>{recipe.recipeName}</h1>
-        <a href="user">{recipe.ownerId} - username goes here!</a>
+        <Link to='/user'>
+          <div>{recipe.ownerId} - username goes here!</div>
+        </Link>
       </div>
       <div className='recipe-ingredients'>
         <ul>{recipe.ingredients.map((ingredient, i) => (
