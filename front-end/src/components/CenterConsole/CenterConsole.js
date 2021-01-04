@@ -5,16 +5,13 @@ import { Container, Grid } from '@material-ui/core';
 
 const CenterConsole = (props) => {
   return (
-    <Container maxWidth='sm'>
-      <RecipeList/>
-    </Container>
-
+    <RecipeList/>
   );
 };
 
 export default CenterConsole;
 
-{/* <Container maxWidth='sm'>
+{ /* <Container maxWidth='sm'>
 <Grid container>
   <Grid item sm= {11} >
     <RecipeList/>
@@ -23,4 +20,4 @@ export default CenterConsole;
     <RightToolBar/>
   </Grid>
 </Grid>
-</Container> */}
+</Container> */ }

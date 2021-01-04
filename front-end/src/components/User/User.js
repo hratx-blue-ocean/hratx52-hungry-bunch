@@ -6,11 +6,13 @@ import TopToolbar from './TopToolBar.js';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import CategoryCarousel from './CategoryCarousel.js';
-import { Container } from '@material-ui/core';
+import { Grid, Container } from '@material-ui/core';
 
 
 //This is Jonathan's component, will need to tweak for reusability later
 import CenterConsole from '../CenterConsole/CenterConsole.js';
+
+import LeftToolbarSearch from './LeftToolbarSearch.js'
 
 //wireframe: https://www.figma.com/file/C9TLcX8c0DNBW3xsYlv6kO/Untitled?node-id=60%3A2
 /*
@@ -28,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const UserCookbook = () => {
+const User = () => {
 
   const classes = useStyles();
   const { user } = useAuth0();
@@ -40,13 +42,20 @@ const UserCookbook = () => {
       <>
         <TopToolbar nickname={nickname} picture={picture}/>
         <br></br>
-        <Container maxWidth='sm'>
-          <CategoryCarousel />
-        </Container>
-        <br></br>
-        <br></br>
-        <br></br>
-        <CenterConsole />
+        <div>
+          <Container>
+            <Grid container>
+              <Grid item xs={3}>
+                <LeftToolbarSearch />
+              </Grid>
+              <Grid item xs={9}>
+              <CategoryCarousel />
+              <br></br>
+              <CenterConsole userFilter={"snacks"}/>
+              </Grid>
+            </Grid>
+          </Container>
+        </div>
       </>
     );
   } else {
@@ -54,4 +63,17 @@ const UserCookbook = () => {
   }
 };
 
-export default UserCookbook;
+/*
+
+  <br></br>
+        <Container maxWidth='sm'>
+          <CategoryCarousel />
+        </Container>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CenterConsole userFilter={"snacks"}/>
+
+*/
+
+export default User;
