@@ -5,16 +5,16 @@ import IndividualFriend from './IndividualFriend.js';
 const FriendsList = ({ friendsList }) => {
   return (
     <Container>
-      <Grid container direction='column' item xs={12}>
+      <Grid container direction='column' item spacing={3} xs={12}>
         {friendsList.map((friend)=>{
           return (
             <IndividualFriend singleFriend={friend}/>
-          )
+          );
         })}
       </Grid>
 
     </Container>
   );
-}
+};
 
 export default FriendsList;

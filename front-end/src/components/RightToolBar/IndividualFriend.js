@@ -10,11 +10,11 @@ const IndividualFriend = ({ singleFriend }) => {
         <Avatar src={singleFriend.picture}></Avatar>
       </Grid>
       <Grid item>
-      {singleFriend.name}
+        {singleFriend.name}
       </Grid>
     </Grid>
 
   );
-}
+};
 
 export default IndividualFriend;

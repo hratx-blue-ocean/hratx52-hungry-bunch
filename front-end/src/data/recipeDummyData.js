@@ -1,4 +1,3 @@
-const pandaPic = require('../assets/hungry.png')
 
 export const recipe =
 {
@@ -207,331 +206,113 @@ export const userCookbook = {
   ]
 };
 
-// export const Users = {
-//   users: [
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'somename',
-//       'name': 'noah garcia',
-//       'picture': pandaPic,
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//     {
-//       'nickname': 'rickhawley109',
-//       'name': 'rickhawley109@gmail.com',
-//       'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-//       'updated_at': '2020-12-29T21:28:15.625Z',
-//       'email': 'rickhawley109@gmail.com',
-//       'email_verified': false,
-//       'sub': 'auth0|5feb9f6fea3fc70078775277'
-//     },
-//     {
-//       "given_name": "Jonathan",
-//       "family_name": "Garcia",
-//       "nickname": "jagspurs7",
-//       "name": "Jonathan Garcia",
-//       "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-//       "locale": "en",
-//       "updated_at": "2021-01-01T17:08:03.805Z",
-//       "email": "jagspurs7@gmail.com",
-//       "email_verified": true,
-//       "sub": "google-oauth2|103370284414679082948"
-//     },
-//   ]
-// }
-
-
-export const Users= {
-  'fetchedUsers':
-   [
-      {
-        'userId': 1,
-        "given_name": "Jonathan",
-        "family_name": "Garcia",
-        "nickname": "jagspurs7",
-        "name": "Jonathan Garcia",
-        "picture": "https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c",
-        "locale": "en",
-        "updated_at": "2021-01-01T17:08:03.805Z",
-        "email": "jagspurs7@gmail.com",
-        "email_verified": true,
-        "sub": "google-oauth2|103370284414679082948",
-        'friends': [
-          {
-            'userId' : 22,
-            'nickname': 'someOtherNickName',
-            'name': 'Halle Garcia',
-            'picture': 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/130309299_1929505633863146_7552594757939529966_o.jpg?_nc_cat=104&ccb=2&_nc_sid=8bfeb9&_nc_ohc=Xx7dQFt22bgAX-vqs0_&_nc_ht=scontent-dfw5-2.xx&oh=1fa58d3aea551de114ae9ac0d774b255&oe=6015D920',
-            'updated_at': '2020-12-29T21:28:15.625Z',
-            'email': 'fakeEmail4@gmail.com',
-            'email_verified': false,
-            'friends':[]
-          },
-          {
-            'userId' : 50,
-            'nickname': 'evenDifferentNickName',
-            'name': 'Emma Garcia',
-            'picture': 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/56673168_1368679343279114_3859384477482483712_o.jpg?_nc_cat=105&ccb=2&_nc_sid=8bfeb9&_nc_ohc=SvYZVa6TZk4AX_iQUg-&_nc_ht=scontent-dfw5-1.xx&oh=f684223be229a47d00dd638235b356ac&oe=6016656C',
-            'updated_at': '2020-12-29T21:28:15.625Z',
-            'email': 'fakeEmail5@gmail.com',
-            'email_verified': false,
-            'friends':[]
-          },
-          {
-            'userId' : 9,
-            'nickname': 'somenickname',
-            'name': 'Noah Garcia',
-            'picture': 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/120738363_1865815250232185_613854060227026462_o.jpg?_nc_cat=104&ccb=2&_nc_sid=8bfeb9&_nc_ohc=4dGJnMau47wAX-YGApK&_nc_ht=scontent-dfw5-2.xx&oh=77ca73b25a46e8599811a9ef195c0a3c&oe=601802F8',
-            'updated_at': '2020-12-29T21:28:15.625Z',
-            'email': 'fakeEmail@gmail.com',
-            'email_verified': false,
-            'friends':[]
-          },
-
-        ]
-      },
-      {
-        'userId' : 20,
-        'nickname': 'rickhawley109',
-        'name': 'rickhawley109@gmail.com',
-        'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-        'updated_at': '2020-12-29T21:28:15.625Z',
-        'email': 'rickhawley109@gmail.com',
-        'email_verified': false,
-        'sub': 'auth0|5feb9f6fea3fc70078775277',
-        'friends':[]
-      },
-      {
-        'userId' : 9,
-        'nickname': 'somenickname',
-        'name': 'Noah Garcia',
-        'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-        'updated_at': '2020-12-29T21:28:15.625Z',
-        'email': 'fakeEmail@gmail.com',
-        'email_verified': false,
-        'friends':[]
-      },
-      {
-        'userId' : 6,
-        'nickname': 'differentNickName',
-        'name': 'Vincent Vaga',
-        'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-        'updated_at': '2020-12-29T21:28:15.625Z',
-        'email': 'fakeEmail2@gmail.com',
-        'email_verified': false,
-        'friends':[]
-      },
-      {
-        'userId' : 11,
-        'nickname': 'newNickName',
-        'name': 'Jules Winfield',
-        'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-        'updated_at': '2020-12-29T21:28:15.625Z',
-        'email': 'fakeEmail3@gmail.com',
-        'email_verified': false,
-        'friends':[]
-      },
-      {
-        'userId' : 22,
-        'nickname': 'someOtherNickName',
-        'name': 'Halle Garcia',
-        'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-        'updated_at': '2020-12-29T21:28:15.625Z',
-        'email': 'fakeEmail4@gmail.com',
-        'email_verified': false,
-        'friends':[]
-      },
-      {
-        'userId' : 50,
-        'nickname': 'evenDifferentNickName',
-        'name': 'Emma Garcia',
-        'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
-        'updated_at': '2020-12-29T21:28:15.625Z',
-        'email': 'fakeEmail5@gmail.com',
-        'email_verified': false,
-        'friends':[]
-      },
-    ]
-  }
+export const Users = {
+  'fetchedUsers': [
+    {
+      'userId': 1,
+      'given_name': 'Jonathan',
+      'family_name': 'Garcia',
+      'nickname': 'jagspurs7',
+      'name': 'Jonathan Garcia',
+      'picture': 'https://lh3.googleusercontent.com/a-/AOh14GigZeSo4fmuzlYR_oYon8vlnE7AzjFNTuUfl-Ek=s96-c',
+      'locale': 'en',
+      'updated_at': '2021-01-01T17:08:03.805Z',
+      'email': 'jagspurs7@gmail.com',
+      'email_verified': true,
+      'sub': 'google-oauth2|103370284414679082948',
+      'friends': [
+        {
+          'userId': 22,
+          'nickname': 'someOtherNickName',
+          'name': 'Halle Garcia',
+          'picture': 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/130309299_1929505633863146_7552594757939529966_o.jpg?_nc_cat=104&ccb=2&_nc_sid=8bfeb9&_nc_ohc=Xx7dQFt22bgAX-vqs0_&_nc_ht=scontent-dfw5-2.xx&oh=1fa58d3aea551de114ae9ac0d774b255&oe=6015D920',
+          'updated_at': '2020-12-29T21:28:15.625Z',
+          'email': 'fakeEmail4@gmail.com',
+          'email_verified': false,
+          'friends': []
+        },
+        {
+          'userId': 50,
+          'nickname': 'evenDifferentNickName',
+          'name': 'Emma Garcia',
+          'picture': 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/55674683_1357273767753005_6657891983945629696_o.jpg?_nc_cat=105&ccb=2&_nc_sid=8bfeb9&_nc_ohc=3GK4VF4GvJoAX8BM38E&_nc_ht=scontent-dfw5-1.xx&oh=359025687f48806bf972e47d21028621&oe=6018415F',
+          'updated_at': '2020-12-29T21:28:15.625Z',
+          'email': 'fakeEmail5@gmail.com',
+          'email_verified': false,
+          'friends': []
+        },
+        {
+          'userId': 9,
+          'nickname': 'somenickname',
+          'name': 'Noah Garcia',
+          'picture': 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/120738363_1865815250232185_613854060227026462_o.jpg?_nc_cat=104&ccb=2&_nc_sid=8bfeb9&_nc_ohc=4dGJnMau47wAX-YGApK&_nc_ht=scontent-dfw5-2.xx&oh=77ca73b25a46e8599811a9ef195c0a3c&oe=601802F8',
+          'updated_at': '2020-12-29T21:28:15.625Z',
+          'email': 'fakeEmail@gmail.com',
+          'email_verified': false,
+          'friends': []
+        },
+      ]
+    },
+    {
+      'userId': 20,
+      'nickname': 'rickhawley109',
+      'name': 'rickhawley109@gmail.com',
+      'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
+      'updated_at': '2020-12-29T21:28:15.625Z',
+      'email': 'rickhawley109@gmail.com',
+      'email_verified': false,
+      'sub': 'auth0|5feb9f6fea3fc70078775277',
+      'friends': []
+    },
+    {
+      'userId': 9,
+      'nickname': 'somenickname',
+      'name': 'Noah Garcia',
+      'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
+      'updated_at': '2020-12-29T21:28:15.625Z',
+      'email': 'fakeEmail@gmail.com',
+      'email_verified': false,
+      'friends': []
+    },
+    {
+      'userId': 6,
+      'nickname': 'differentNickName',
+      'name': 'Vincent Vaga',
+      'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
+      'updated_at': '2020-12-29T21:28:15.625Z',
+      'email': 'fakeEmail2@gmail.com',
+      'email_verified': false,
+      'friends': []
+    },
+    {
+      'userId': 11,
+      'nickname': 'newNickName',
+      'name': 'Jules Winfield',
+      'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
+      'updated_at': '2020-12-29T21:28:15.625Z',
+      'email': 'fakeEmail3@gmail.com',
+      'email_verified': false,
+      'friends': []
+    },
+    {
+      'userId': 22,
+      'nickname': 'someOtherNickName',
+      'name': 'Halle Garcia',
+      'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
+      'updated_at': '2020-12-29T21:28:15.625Z',
+      'email': 'fakeEmail4@gmail.com',
+      'email_verified': false,
+      'friends': []
+    },
+    {
+      'userId': 50,
+      'nickname': 'evenDifferentNickName',
+      'name': 'Emma Garcia',
+      'picture': 'https://s.gravatar.com/avatar/6e785eb0726d6552198006f3bc03d4f6?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png',
+      'updated_at': '2020-12-29T21:28:15.625Z',
+      'email': 'fakeEmail5@gmail.com',
+      'email_verified': false,
+      'friends': []
+    },
+  ]
+};
