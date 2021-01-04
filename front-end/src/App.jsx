@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from './reducers/user.js';
 import LoginLandingPage from './components/Login/LoginLandingPage.js';
 import Logout from './components/Login/Logout.js';
+import Loading from './components/Login/Loading.js';
 import Auth0Profile from './components/Login/Auth0Profile.js';
 import MainPage from './components/MainPage/MainPage.js';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -15,6 +16,10 @@ import UserCookbook from './components/UserCookbook/UserCookbook.js';
 const App = () => {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <Switch>

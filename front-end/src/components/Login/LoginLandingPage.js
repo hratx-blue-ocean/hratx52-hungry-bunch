@@ -1,8 +1,6 @@
 import React from 'react';
 import LoginButton from './Login.js';
 import LoginCarousel from './LoginCarousel.js';
-import HookedCarousel from './CarouselUsingHooks.js';
-
 
 const LoginLandingPage = () => {
 
@@ -10,7 +8,6 @@ const LoginLandingPage = () => {
     <>
       <LoginButton />
       <LoginCarousel />
-      {/* <HookedCarousel /> */}
     </>
   );
 };

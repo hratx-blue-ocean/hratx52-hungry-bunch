@@ -6,13 +6,14 @@ import styles from './loginStyles.css';
 const LoginCarousel = () => {
   const settings = {
     dots: true,
+    fade: true,
     // variableWidth: true,
     // centerMode: true,
     initialSlide: 0,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 5000,
+    speed: 1500,
     autoplaySpeed: 5000,
     cssEase: 'linear',
   };
@@ -31,7 +32,6 @@ const LoginCarousel = () => {
       <h2>AutoPlay</h2>
       <Slider className="login-landing-page-carousel" {...settings}>
         {imageSourcesToDisplay.map((image, index) => {
-          debugger;
           return (
             <div key={image}>
               <img className="login-landing-page-image" src={image} />

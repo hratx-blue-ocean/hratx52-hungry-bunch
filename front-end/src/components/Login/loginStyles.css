@@ -1,6 +1,4 @@
-.login-landing-page-carousel-placeholder{
-  width: 9000px;
-}
+
 .login-landing-page-carousel-container{
  width :100%
 }
@@ -8,3 +6,6 @@
   width: 100%;
 }
 
+.spinner{
+  width: 100%;
+}
