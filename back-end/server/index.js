@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 // --------------------- GET  ---------------------------------------------------------------------------------------------
 // get user info will send user object back to client with user info and user recipes
-app.get('/userinfo/:id', (req, res) => {
+app.get('/userInfo/:id', (req, res) => {
   log(chalk.cyan(req.params.id));
   const { id } = req.params;
   // get User query - query user collection
@@ -36,7 +36,7 @@ app.get('/userinfo/:id', (req, res) => {
 });
 // -------------- POST ---------------------------------------------------------------------------------------------
 // Add recipe to add recipe to recipes collection and add id to user cookbook array
-app.post('/addrecipe', (req, res) => {
+app.post('/addRecipe', (req, res) => {
   const { id, recipe } = req.body;
   // add recipe query
   queries.AddNewRecipe({ id, recipe }, (err, response)=> {
@@ -52,7 +52,7 @@ app.post('/addrecipe', (req, res) => {
 });
 
 // add friend - add to friends array in friends collection
-app.post('/addfriend', (req, res) => {
+app.post('/addFriend', (req, res) => {
   const { id, friendId } = req.body;
   // add friend query
   queries.AddNewFriend({ id, friendId }, (err, response) => {
@@ -68,7 +68,7 @@ app.post('/addfriend', (req, res) => {
 });
 
 // add user, adds new user to users collection (default avatar if no photo)
-app.post('/adduser', (req, res) => {
+app.post('/addUser', (req, res) => {
   console.log(req.body);
   const userInfo = req.body;
   // add user query
@@ -84,11 +84,24 @@ app.post('/adduser', (req, res) => {
   });
 });
 
+app.post('/addUserName', (req, res) => {
+  const { id, name } = req.body;
+  // update username query
+  queries.UpdateUserName({ userId, name }, (err, response) => {
+    if (err) {
+      res.send(500);
+    } else {
+      // send status success back to client
+      res.send(200);
+    }
+  });
+});
+
 // update user photo, takes photo field if has changed and updates field in users collection
-app.post('/adduserphoto', (req, res) => {
-  const { userId, photoUrl } = req.body;
+app.post('/addUserPhoto', (req, res) => {
+  const { id, photoUrl } = req.body;
   // add user photo query
-  queries.UpdateUserPhoto({ userId, photoUrl }, (err, response) => {
+  queries.UpdateUserPhoto({ id, photoUrl }, (err, response) => {
     if (err) {
       res.send(500);
     } else {

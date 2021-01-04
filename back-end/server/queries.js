@@ -85,6 +85,18 @@ const AddNewFavoriteRecipe = ({id, recipeId}, callback) => {
   });
 };
 
+const UpdateUserName = ({ id, name }, callback) => {
+  User.findByIdAndUpdate(id, { $set: { name: name }}, (err, result) => {
+    if (err) {
+      log('Error in ' + chalk.redBright('UpdateUserName'));
+      callback(err);
+    } else {
+      log(chalk.green('Success changing username'));
+      callback(null, result);
+    }
+  });
+};
+
 const UpdateUserPhoto = ({ id, photoUrl }, callback) => {
   User.findByIdAndUpdate(id, { $set: { picture: photoUrl }}, (err, result) => {
     if (err) {
@@ -104,4 +116,5 @@ module.exports = {
   AddNewFriend,
   UpdateUserPhoto,
   AddNewFavoriteRecipe,
+  UpdateUserName,
 };
