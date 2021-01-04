@@ -6,6 +6,7 @@ import { setRecipe, setCurrentStep, setCurrentIngredients } from '../../actions/
 import { selectCurrentSteps, selectCurrentIngredients, selectRecipeName, selectCategory, selectShared, selectTime, selectDifficulty, selectVegan } from '../../containers/addRecipeContainer.js';
 import { AddedIngredients } from './addedIngredients.js';
 import { AddedInstructions } from './addedInstructions.js';
+import Container from '@material-ui/core/Container';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -78,6 +79,8 @@ export const AddRecipe = () => {
       dispatch({type: 'SET_DIFFICULTY', payload: event.target.value});
     } else if (event.target.name === 'add-recipe-vegan') {
       dispatch({type: 'SET_VEGAN', payload: event.target.value});
+    } else if (event.target.id === 'add-recipe-imageUrl') {
+      console.log(event.target.files[0]);
     }
   };
 
@@ -100,7 +103,8 @@ export const AddRecipe = () => {
   };
 
   return (
-    <div>
+    <Container maxWidth="sm">
+      <h2>Add a new recipe:</h2>
       <form className={classes.root}>
         <div>
           <FormControl variant="outlined" className={classes.formControl}>
@@ -111,12 +115,14 @@ export const AddRecipe = () => {
             <Button variant="contained" color="primary" onClick={handleAddIngredient}>
               Add Ingredient
             </Button>
+            <AddedIngredients/>
           </FormControl>
           <FormControl className={classes.formControl}>
             <TextField required id="add-recipe-step" defaultValue={step}variant="outlined" label="Add Instruction" onChange={handleRecipeChange}/>
             <Button variant="contained" color="primary" onClick={handleAddInstruction}>
               Add Instruction
             </Button>
+            <AddedInstructions/>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="add-recipe-category-label">Category</InputLabel>
@@ -176,11 +182,12 @@ export const AddRecipe = () => {
             <input
               accept="image/*"
               className={classes.input}
-              id="contained-button-file"
+              id="add-recipe-imageUrl"
               multiple
               type="file"
+              onChange={handleRecipeChange}
             />
-            <label htmlFor="contained-button-file">
+            <label htmlFor="add-recipe-imageUrl">
               <Button variant="contained" color="primary" component="span">
                 Upload an image
               </Button>
@@ -197,10 +204,8 @@ export const AddRecipe = () => {
         </div>
       </form>
       <>
-        <AddedIngredients/>
-        <AddedInstructions/>
       </>
-    </div>
+    </Container>
 
   );
 };

@@ -11,11 +11,14 @@ export const AddedInstructions = () => {
 
   return (
     <div>
-      <div>Here are the instructions: {steps.map((step, index) => {
-        return (
-          <div>{index + 1}. {step}</div>
-        );
-      })} </div>
+      <h4>Here are the instructions: </h4>
+      <div>
+        {steps.map((step, index) => {
+          return (
+            <div key={step + index}>{index + 1}. {step}</div>
+          );
+        })}
+      </div>
     </div>
   );
 };
