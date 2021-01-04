@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import LeftToolbarLanding from '../../components/LeftToolbarLanding/LeftToolbarLanding.jsx';
 import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
 import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import MenuIcon from '@material-ui/core/Menu';
@@ -50,9 +49,6 @@ const MainPage = () => {
           </Grid>
         </Container>
       </div>
-      <AddRecipe>
-
-      </AddRecipe>
     </>
   );
 };

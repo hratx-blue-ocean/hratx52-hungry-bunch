@@ -45,7 +45,6 @@ export const AddRecipe = () => {
   const vegan = useSelector(selectVegan);
   const dispatch = useDispatch();
 
-  //MOVE THESE INTO STATE!
   var ingredient = '';
   var step = '';
 
@@ -86,6 +85,7 @@ export const AddRecipe = () => {
 
   const handleSubmit = (event) => {
     console.log(event);
+    console.log(newRecipe);
   };
 
   const handleAddIngredient = (event) => {
@@ -103,7 +103,7 @@ export const AddRecipe = () => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" style={{padding: '20px'}}>
       <h2>Add a new recipe:</h2>
       <form className={classes.root}>
         <div>
@@ -198,6 +198,7 @@ export const AddRecipe = () => {
             color="primary"
             size="large"
             startIcon={<SaveIcon />}
+            onClick={handleSubmit}
           >
             Save Recipe
           </Button>
