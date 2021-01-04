@@ -3,7 +3,7 @@ import React from 'react';
 export default function LeftToolbarSearch() {
   return (
     <div>
-      Left Toolbar Goes Here
+      Left Toolbar (Friends) Goes Here
     </div>
   );
 }
