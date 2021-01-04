@@ -5,10 +5,7 @@ import { Container, Grid } from '@material-ui/core';
 
 const CenterConsole = (props) => {
   return (
-    <Container maxWidth='sm'>
-      <RecipeList selectedCatagorie={props.userFilter}/>
-    </Container>
-
+    <RecipeList userFilter={props.userFilter}/>
   );
 };
 
