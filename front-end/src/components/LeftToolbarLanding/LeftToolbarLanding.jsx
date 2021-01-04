@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 export default function LeftToolbarLanding() {
   const classes = useStyles();
   const { user } = useAuth0();
-  const [uploadVisibility, handleUploadVisibility] = useState(false);
+  const [isVisible, toggleVisibility] = useState(false);
 
   if (user) {
     const { name, picture, email, nickname } = user;
@@ -34,10 +34,24 @@ export default function LeftToolbarLanding() {
           </a>
         </Grid>
         <Grid>
-          <Button onClick={()=>{ handleUploadVisibility(uploadVisibility = !uploadVisibility); }}>
+          <Button onClick={(e) => {
+            e.preventDefault();
+            toggleVisibility(!isVisible);
+          }}>
             change avatar
           </Button>
-          {uploadVisibility ? <input type="file"></input> : null}
+          {isVisible ?
+            <div>
+              <input type="file"></input>
+              <Button onClick={(e)=>{
+                e.preventDefault();
+                alert('avatar updated!');
+                toggleVisibility(!isVisible);
+              }}>
+                upload
+              </Button>
+            </div>
+            : null}
         </Grid>
         <Grid>
           <Button>
