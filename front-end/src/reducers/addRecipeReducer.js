@@ -8,7 +8,8 @@ const initialState = {
   time: 30,
   difficulty: 'Medium',
   vegan: false,
-  imageUrl: ''
+  imageUrl: '',
+  modalOpen: false,
 };
 
 export const addRecipeReducer = (state = initialState, action) => {
@@ -65,6 +66,12 @@ export const addRecipeReducer = (state = initialState, action) => {
     return {
       ...state,
       vegan: action.payload
+    };
+  }
+  case 'SET_MODAL': {
+    return {
+      ...state,
+      modalOpen: action.payload
     };
   }
   default: {

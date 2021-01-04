@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import LeftToolbarLanding from '../../components/LeftToolbarLanding/LeftToolbarLanding.jsx';
 import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
 import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import MenuIcon from '@material-ui/core/Menu';
@@ -13,6 +12,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
+import LeftToolbarLanding from '../LeftToolbarLanding/LeftToolbarLanding.jsx';
 
 //import styles from './mainpage.css';
 
@@ -49,9 +49,6 @@ const MainPage = () => {
           </Grid>
         </Container>
       </div>
-      <AddRecipe>
-
-      </AddRecipe>
     </>
   );
 };
