@@ -15,9 +15,7 @@ const RecipeData = () => {
         ))}</ul>
       </div>
       <div className='optional-recipe-data'>
-        Category: {recipe.category.length < 2 ? recipe.category : recipe.category.map(string => (
-          <li key={string}>{string}</li>
-        ))}
+        Category: {recipe.category}
 
         Time: {recipe.time} minutes,
 
