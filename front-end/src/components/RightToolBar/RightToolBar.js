@@ -13,7 +13,7 @@ const RightToolBar = () => {
   const [friends, setFriends] = useState(Users.fetchedUsers[0].friends);
 
   const handleFriendsSearch = (e) => {
-    setUserInput(e.target.value)
+    setUserInput(e.target.value);
   };
 
 
