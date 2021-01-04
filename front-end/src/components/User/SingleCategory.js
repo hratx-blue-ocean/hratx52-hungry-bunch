@@ -45,7 +45,7 @@ const SingleCategory = (props) => {
             <Typography
               className={classes.centerText}
               variant='body1'
-              onClick={handleClick}>
+              onClick={props.setCurrCategory}>
               {props.categoryName}
             </Typography>
           </CardContent>

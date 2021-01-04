@@ -4,14 +4,15 @@ import SingleRecipe from './SingleRecipe.js';
 import { Grid, Button, Container } from '@material-ui/core/';
 
 class RecipeList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       recipeList: userCookbook.recipes,
       disableShowMoreButton: false,
       disablePreviousButton: true,
       startOfSlice: 0,
       endOfSlice: 6,
+      selectedCatagorie: this.props.selectedCatagorie
     };
   }
 
@@ -46,10 +47,26 @@ class RecipeList extends Component {
     });
   }
 
+  filterByCatagorie (filterTerm) {
+    if (filterTerm === undefined) {
+      return;
+    } else {
+      const filterRecipelist = this.state.recipeList.filter((currRecipe) => currRecipe.category === filterTerm);
+      this.setState({
+        recipeList: filterRecipelist
+      });
+    }
+  }
+
+  componentDidMount() {
+    this.filterByCatagorie(this.state.selectedCatagorie);
+  }
+
   render() {
     return (
       <Grid container spacing={1}>
         <Grid container item xs={12} spacing={3}>
+          {console.log(this.state.recipeList)}
           {this.state.recipeList.slice(this.state.startOfSlice, this.state.endOfSlice).map((oneRecipe) => {
             return (
               <SingleRecipe oneRecipe={oneRecipe} key={oneRecipe.recipeId}/>

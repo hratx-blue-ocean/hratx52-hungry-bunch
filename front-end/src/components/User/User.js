@@ -1,26 +1,18 @@
 import React, {useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Link, Route, Switch } from 'react-router-dom';
 
-import TopToolbar from './TopToolBar.js';
 import { useAuth0 } from '@auth0/auth0-react';
 
-import CategoryCarousel from './CategoryCarousel.js';
+import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Container } from '@material-ui/core';
 
-
-//This is Jonathan's component, will need to tweak for reusability later
+import TopToolbar from './TopToolBar.js';
+import CategoryCarousel from './CategoryCarousel.js';
 import CenterConsole from '../CenterConsole/CenterConsole.js';
-
-import LeftToolbarSearch from './LeftToolbarSearch.js'
+import LeftToolbarSearch from './LeftToolbarSearch.js';
+import SetFilterCategory from './SetFilterCategory.js';
 
 //wireframe: https://www.figma.com/file/C9TLcX8c0DNBW3xsYlv6kO/Untitled?node-id=60%3A2
-/*
-top toolbar
-category carousel
-recipe tiles
-friend toolbar on left?
-*/
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -34,6 +26,7 @@ const User = () => {
 
   const classes = useStyles();
   const { user } = useAuth0();
+  const [currCategory, setCurrCategory] = useState('');
 
   if (user) {
     const { name, picture, email, nickname } = user;
@@ -49,9 +42,7 @@ const User = () => {
                 <LeftToolbarSearch />
               </Grid>
               <Grid item xs={9}>
-              <CategoryCarousel />
-              <br></br>
-              <CenterConsole userFilter={"snacks"}/>
+                <SetFilterCategory/>
               </Grid>
             </Grid>
           </Container>
@@ -62,18 +53,5 @@ const User = () => {
     return (<></>);
   }
 };
-
-/*
-
-  <br></br>
-        <Container maxWidth='sm'>
-          <CategoryCarousel />
-        </Container>
-        <br></br>
-        <br></br>
-        <br></br>
-        <CenterConsole userFilter={"snacks"}/>
-
-*/
 
 export default User;

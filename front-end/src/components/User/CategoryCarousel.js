@@ -20,7 +20,7 @@ const useStyles = makeStyles(()=>({
 }));
 
 
-const CategoryCarousel = () => {
+const CategoryCarousel = (props) => {
 
   //categories images are currently static but can be changed if needed
   const categories = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Beverage', 'Snack'];
@@ -56,7 +56,13 @@ const CategoryCarousel = () => {
 
         {categories.map(function(currentCategory, index) {
           //console.warn(currentCategory, index)
-          return (<div key={index}><SingleCategory categoryName = {currentCategory} picture={categorypictures[index]} /></div>);
+          return (<div key={index}>
+            <SingleCategory
+              categoryName = {currentCategory}
+              picture={categorypictures[index]}
+              setCurrCategory={props.setCurrCategory}
+            />
+          </div>);
         })}
 
 
