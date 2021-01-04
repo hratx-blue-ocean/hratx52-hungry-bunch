@@ -2,6 +2,8 @@ const { EC2_URI } = require('../config');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
 
+/*  add this as second argument in mongoose.connect for the production build ,{ autoIndex: false }); */
+
 class DB {
   constructor() {
     this._connect();
@@ -13,7 +15,7 @@ class DB {
         console.log(chalk.blue('Successfully connected to database!'));
       })
       .catch(err => {
-        console.error(chalk.red('Database connection error'));
+        console.error(chalk.red(err, 'Database connection error'));
       });
   }
 }

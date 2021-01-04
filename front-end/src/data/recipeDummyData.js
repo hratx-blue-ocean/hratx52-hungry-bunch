@@ -4,6 +4,7 @@ export const recipe =
   ownerId: 1,
   recipeName: 'Soupie Soup',
   category: ['Dinner', 'Soup'],
+  rating: 3.5,
   shared: 'Only me',
   ingredients: ['carrot', 'celery', 'onion', 'basil', 'salt', 'pepper', 'potato', 'tomato', 'chicken broth'],
   time: 45,
@@ -203,3 +204,4 @@ export const userCookbook = {
     },
   ]
 };
+
