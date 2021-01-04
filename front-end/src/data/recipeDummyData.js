@@ -4,7 +4,7 @@ export const recipe =
   recipeId: 1,
   ownerId: 1,
   recipeName: 'Soupie Soup',
-  category: ['Dinner', 'Soup'],
+  category: 'Dinner',
   rating: 3.5,
   shared: 'Only me',
   ingredients: ['carrot', 'celery', 'onion', 'basil', 'salt', 'pepper', 'potato', 'tomato', 'chicken broth'],
@@ -193,6 +193,7 @@ export const userCookbook = {
       recipeId: 9,
       ownerId: 1,
       recipeName: 'street tacos',
+
       category: 'Dinner',
       shared: 'Friends',
       ingredients: ['carrot', 'chicken', 'rice', 'cheese', 'salt', 'pepper', 'brown sugar', 'blueberries', 'cream cheese'],
@@ -204,6 +205,7 @@ export const userCookbook = {
       imageUrl: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
     },
   ]
+
 };
 
 
@@ -316,4 +318,3 @@ export const Users = {
       'friends': []
     },
   ]
-};
