@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import LeftToolbarLanding from '../../components/LeftToolbarLanding/LeftToolbarLanding.jsx';
 import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
 import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import MenuIcon from '@material-ui/core/Menu';
@@ -37,7 +38,7 @@ const MainPage = () => {
           <Grid container>
             <Grid item xs={3}>
               {/* Replace with Left ToolBar*/}
-              <RightToolBar/>
+              <LeftToolbarLanding/>
             </Grid>
             <Grid item xs={6}>
               <CenterConsole/>

@@ -46,7 +46,7 @@ const UserCookbook = () => {
         <br></br>
         <br></br>
         <br></br>
-        <CenterConsole />
+        <CenterConsole userFilter={"Snack"}/>
       </>
     );
   } else {
