@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { setRecipe, setCurrentStep, setCurrentIngredients } from '../../actions/addRecipeActions.js';
 import { selectCurrentSteps, selectCurrentIngredients, selectRecipeName, selectCategory, selectShared, selectTime, selectDifficulty, selectVegan } from '../../containers/addRecipeContainer.js';
-import { selectUser } from '../../reducers/user.js';
+import { selectUser } from '../../containers/addUserContainer.js';
 import { AddedIngredients } from './addedIngredients.js';
 import { AddedInstructions } from './addedInstructions.js';
 import { postNewRecipe } from '../../utils/apiCalls.js';
