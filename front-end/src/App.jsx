@@ -26,7 +26,7 @@ const App = () => {
           <Route path="/recipe">
             <RecipePage />
           </Route>
-          <Route exact path="/user">
+          <Route path="/user">
             <User/>
           </Route>
           <Profile/>

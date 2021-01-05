@@ -3,12 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const RecipeData = () => {
-
+  const user = `/user/${recipe.ownerId}`;
   return (
     <div className='recipe-data'>
       <div className='recipe-name-and-user'>
         <h1>{recipe.recipeName}</h1>
-        <Link to='/user'>
+        <Link to={user}>
           <div>{recipe.ownerId} - username goes here!</div>
         </Link>
       </div>
