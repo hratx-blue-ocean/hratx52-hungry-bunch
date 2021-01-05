@@ -4,10 +4,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 // Profile component contains the information that we get from a user when he/she signs in (slightly different info for sign in and continue with google)
 
 const Auth0Profile = () => {
+
   const { user } = useAuth0();
   const { name, picture, email } = user;
-
-
 
   return (
     <div>

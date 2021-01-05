@@ -1,6 +1,5 @@
-/* webpack loaders do not work for this*/
-/* @import '~slick-carousel/slick/slick.css';
-@import '~slick-carousel/slick/slick-theme.css'; */
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 
 body{
   max-width: 100%;
