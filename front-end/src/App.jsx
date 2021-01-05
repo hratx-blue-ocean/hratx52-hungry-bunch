@@ -1,6 +1,6 @@
 import { hot } from 'react-hot-loader/root';
 import React, {useState} from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './reducers/user.js';
 import Login from './components/Login/Login.js';
 import Profile from './components/Login/Profile.js';
@@ -9,10 +9,26 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Link, Route, Switch } from 'react-router-dom';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
 import User from './components/User/User.js';
+import { connect } from 'react-redux';
+import { receiveLogin } from './actions/action';
+import axios from 'axios';
 
-const App = () => {
+const App = (props) => {
+
+  const dispatch = useDispatch();
 
   const { user, isAuthenticated, isLoading } = useAuth0();
+
+  if (isAuthenticated) {
+    console.log('user IS AUTHENTICATED');
+    axios.post('http://localhost:3000/checkUser', user)
+      .then(results => {
+        dispatch(receiveLogin(results.data));
+      })
+      .catch(err => console.log('an error occured attempting to hit the checkUser endpoint...', err));
+  } else {
+    console.log('user still not authenticated');
+  }
 
   return (
     <Switch>
@@ -37,4 +53,4 @@ const App = () => {
   );
 };
 
-export default hot(App);
+export default hot(connect()(App));
