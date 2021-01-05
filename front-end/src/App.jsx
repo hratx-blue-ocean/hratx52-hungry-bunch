@@ -1,7 +1,7 @@
 import { hot } from 'react-hot-loader/root';
-import React, {useState} from 'react';
-import { useSelector } from 'react-redux';
-import { selectUser } from './reducers/user.js';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser, postUser} from './reducers/user.js';
 import Login from './components/Login/Login.js';
 import Profile from './components/Login/Profile.js';
 import MainPage from './components/MainPage/MainPage.js';
@@ -10,14 +10,33 @@ import { Link, Route, Switch } from 'react-router-dom';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
 import User from './components/User/User.js';
 
+const regeneratorRuntime = require('regenerator-runtime');
+
 const App = () => {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const newUser = useSelector(selectUser);
+
+
+  const dispatch = useDispatch();
+  // maybe possible to use context.stats.loginCount???????
+
+  useEffect(() => {
+    isAuthenticated && user ? dispatch(postUser(user))
+      :
+      console.log('user has not logged in yet:', user);
+  }, []);
+
+  const isAuthenticatedWithMongoDB = () => {
+    debugger;
+    return isAuthenticated && newUser._id !== null;
+  };
+
 
   return (
     <Switch>
       { /* Route components are rendered if the path prop matches the current URL */}
-      {!isAuthenticated ?
+      {!isAuthenticatedWithMongoDB() ?
         <Route path="/"><Login/></Route>
         :
         <>
@@ -29,6 +48,7 @@ const App = () => {
           <Route exact path="/user">
             <User/>
           </Route>
+          <div>{newUser.username}</div>
           <Profile/>
         </>
       }
