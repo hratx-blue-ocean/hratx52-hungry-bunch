@@ -1,5 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
 import rootReducer from '../reducers/main.js';
+import thunk from 'redux-thunk';
+
+
+export default store = createStore(rootReducer, applyMiddleware(thunk));
 
 /*
 https://redux-toolkit.js.org/api/configureStore
@@ -10,9 +14,8 @@ an object with a few methods on it that holds the whole state tree of your appli
 •	to create it, pass your root reducing function to createStore
 •	only way to change the state inside of it is to dispatch an action on it
 
-
 */
-export default configureStore({
-  // *use it here*
-  reducer: rootReducer
-});
+//export default configureStore({
+// *use it here*
+//reducer: rootReducer
+//});
