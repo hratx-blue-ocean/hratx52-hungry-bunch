@@ -20,7 +20,7 @@ import DifficultySelect from './DifficultySelect';
 import Badge from '@material-ui/core/Badge';
 import Chip from '@material-ui/core/Chip';
 import ChipsList from './ChipList';
-// import LeftToolbarLanding from '../LeftToolbarLanding/LeftToolbarLanding.jsx';
+import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
 import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
 import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 
@@ -160,7 +160,7 @@ const SearchBar = () => {
       <Container>
         <Grid container>
           <Grid item xs={3}>
-            <RightToolBar/>
+            <UserInfoToolbar/>
           </Grid>
           <Grid item xs={6}>
             <CenterConsole
