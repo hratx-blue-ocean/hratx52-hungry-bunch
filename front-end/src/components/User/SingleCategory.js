@@ -26,8 +26,6 @@ const SingleCategory = (props) => {
 
   let handleClick = function (e) {
     e.preventDefault();
-    //will be used for filtering
-    console.log(props.categoryName, 'was clicked...');
     props.setCurrCategory(e, props.categoryName);
   };
 
@@ -46,7 +44,7 @@ const SingleCategory = (props) => {
             <Typography
               className={classes.centerText}
               variant='body1'
-              onClick={props.setCurrCategory}>
+              onClick={handleClick}>
               {props.categoryName}
             </Typography>
           </CardContent>
