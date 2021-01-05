@@ -6,11 +6,14 @@ const { Recipes } = require('../database/data');
 const log = console.log;
 const queries = require('./queries');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   log(chalk.magenta('hey from the server'));
