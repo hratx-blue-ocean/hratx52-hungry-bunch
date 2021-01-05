@@ -19,7 +19,6 @@ class SetFilterCategory extends React.Component {
     } else {
       this.setState({currCategory: undefined});
     }
-
   }
 
   render() {
