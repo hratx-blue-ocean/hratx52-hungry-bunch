@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Container } from '@material-ui/core';
 import TopToolbar from '../MainPage/TopToolbar.js';
 import Recipe from '../Recipe/Recipe';
-import LeftToolbarRecipe from './LeftToolbarRecipe';
+import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar';
+import SearchBar from '../SearchBar/SearchBar';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -17,11 +18,12 @@ export default function RecipePage() {
   return (
     <>
       <TopToolbar />
+      <SearchBar />
       <div>
         <Container>
           <Grid container>
             <Grid item xs={3}>
-              <LeftToolbarRecipe />
+              <UserInfoToolbar />
             </Grid>
             <Grid item xs={9}>
               <Recipe/>

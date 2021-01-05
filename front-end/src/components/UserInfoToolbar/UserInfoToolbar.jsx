@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import { AddRecipe } from '../AddRecipe/addRecipe.js';
 import Button from '@material-ui/core/Button';
-import Link from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { Grid, Container, Paper, InputBase, IconButton, Typography, Modal } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectModal } from '../../containers/addRecipeContainer.js';
@@ -15,9 +15,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function LeftToolbarLanding() {
+export default function UserInfoToolbar() {
   const classes = useStyles();
   const { user } = useAuth0();
+  const [isVisible, toggleVisibility] = useState(false);
   const modalState = useSelector(selectModal);
   const dispatch = useDispatch();
 
@@ -31,24 +32,40 @@ export default function LeftToolbarLanding() {
 
   if (user) {
     const { name, picture, email, nickname } = user;
+    const userLink = `/user/${name}`;
     return (
       <Container>
         <Grid>
-          <a href='/user'>
+          <Link to={userLink}>
             <img src={picture}></img>
-          </a>
+          </Link>
         </Grid>
         <Grid>
-          <a href='/user'>
+          <Link to={userLink}>
             <Typography>
               {name}
             </Typography>
-          </a>
+          </Link>
         </Grid>
         <Grid>
-          <Button onClick={()=>alert('popup modal with picture upload')}>
-                add picture
+          <Button onClick={(e) => {
+            e.preventDefault();
+            toggleVisibility(!isVisible);
+          }}>
+            change avatar
           </Button>
+          {isVisible ?
+            <div>
+              <input type="file"></input>
+              <Button onClick={(e)=>{
+                e.preventDefault();
+                alert('avatar updated!');
+                toggleVisibility(!isVisible);
+              }}>
+                upload
+              </Button>
+            </div>
+            : null}
         </Grid>
         <Grid>
           <Button onClick={handleOpen}>
@@ -69,4 +86,3 @@ export default function LeftToolbarLanding() {
     return null;
   }
 }
-// TODO: connect recipe form at "add recipe" button
