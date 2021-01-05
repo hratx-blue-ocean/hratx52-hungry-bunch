@@ -10,7 +10,7 @@ combineReducers is a helper function which turns an object (whose values are dif
 */
 var rootReducer = combineReducers({
   // insert reducer functions
-  users: userReducer,
+  userReducer,
   addRecipes: addRecipeReducer
 });
 

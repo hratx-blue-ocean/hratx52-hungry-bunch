@@ -4,8 +4,10 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { setRecipe, setCurrentStep, setCurrentIngredients } from '../../actions/addRecipeActions.js';
 import { selectCurrentSteps, selectCurrentIngredients, selectRecipeName, selectCategory, selectShared, selectTime, selectDifficulty, selectVegan } from '../../containers/addRecipeContainer.js';
+import { selectUser } from '../../reducers/user.js';
 import { AddedIngredients } from './addedIngredients.js';
 import { AddedInstructions } from './addedInstructions.js';
+import { postNewRecipe } from '../../utils/apiCalls.js';
 import Container from '@material-ui/core/Container';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -43,6 +45,7 @@ export const AddRecipe = () => {
   const time = useSelector(selectTime);
   const difficulty = useSelector(selectDifficulty);
   const vegan = useSelector(selectVegan);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   var ingredient = '';
@@ -58,6 +61,13 @@ export const AddRecipe = () => {
     vegan: vegan,
     steps: steps,
     imageUrl: ''
+  };
+
+  console.log(newRecipe);
+
+  const clearRecipe = () => {
+    dispatch({type: 'SET_NEW_RECIPE_DEFAULT'});
+    console.log(newRecipe);
   };
 
   const handleRecipeChange = (event) => {
@@ -86,6 +96,15 @@ export const AddRecipe = () => {
   const handleSubmit = (event) => {
     console.log(event);
     console.log(newRecipe);
+    //using dummy image url
+    newRecipe.imageUrl = 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
+
+    postNewRecipe(newRecipe, '5ff4903962127775787d7d8f');
+    setTimeout(() => {
+      dispatch({type: 'SET_MODAL', payload: false});
+      alert('Recipe Saved');
+    }, 1000);
+    clearRecipe();
   };
 
   const handleAddIngredient = (event) => {
@@ -103,7 +122,7 @@ export const AddRecipe = () => {
   };
 
   return (
-    <Container maxWidth="sm" style={{padding: '20px'}}>
+    <Container maxWidth="sm" style={{padding: '20px', height: '700px', overflow: 'scroll'}}>
       <h2>Add a new recipe:</h2>
       <form className={classes.root}>
         <div>
@@ -137,7 +156,7 @@ export const AddRecipe = () => {
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="add-share-with-lable">Share With</InputLabel>
-            <Select required id="add-recipe-share-with"  name="add-recipe-shared-with" defaultValue="Everyone" label="Share With" onChange={handleRecipeChange}>
+            <Select required id="add-recipe-share-with" name="add-recipe-shared-with" defaultValue="Everyone" label="Share With" onChange={handleRecipeChange}>
               <MenuItem value={"Only Me"}>Only Me</MenuItem>
               <MenuItem value={"Friends Only"}>Friends Only</MenuItem>
               <MenuItem value={"Everyone"}>Everyone</MenuItem>
