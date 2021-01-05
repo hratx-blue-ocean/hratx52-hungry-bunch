@@ -8,7 +8,7 @@ const IndividualFriend = ({ singleFriend }) => {
   //userId for a friend will be in the original user's object received from the GET request
   //the User component will then use the url to make its own axios request
 
-  let userId = 1232132;
+  let userId = '5ff2381f11fa42c5cd024b55';
   let friendLink = `/user/${userId}`;
 
   return (
