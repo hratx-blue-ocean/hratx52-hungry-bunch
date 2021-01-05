@@ -1,9 +1,19 @@
 import {recipe} from '../../data/recipeDummyData.js';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const RecipeData = () => {
+  // var recipe;
+  // let { id } = useParams();
+  // for (var i = 0; i < userCookbook.recipes.length - 1; i++) {
+  //   if (userCookbook.recipes.recipeId = id) {
+  //     recipe = userCookbook.recipes[i];
+  //   }
+  //   break;
+  // }
+  // if (recipe) {
   const user = `/user/${recipe.ownerId}`;
+  // }
   return (
     <div className='recipe-data'>
       <div className='recipe-name-and-user'>

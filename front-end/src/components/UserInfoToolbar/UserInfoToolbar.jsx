@@ -32,15 +32,16 @@ export default function UserInfoToolbar() {
 
   if (user) {
     const { name, picture, email, nickname } = user;
+    const userLink = `/user/${name}`;
     return (
       <Container>
         <Grid>
-          <Link to='/user'>
+          <Link to={userLink}>
             <img src={picture}></img>
           </Link>
         </Grid>
         <Grid>
-          <Link to='/user'>
+          <Link to={userLink}>
             <Typography>
               {name}
             </Typography>
