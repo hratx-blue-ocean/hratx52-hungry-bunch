@@ -11,15 +11,19 @@ class SetFilterCategory extends React.Component {
     this.setCurrCategory = this.setCurrCategory.bind(this);
   }
 
-  setCurrCategory(e) {
+  setCurrCategory(e, categoryName) {
     e.preventDefault();
-    console.log(e.target.innerHTML, 'was clicked...this is top');
-    this.setState({currCategory: e.target.innerHTML});
+
+    if (categoryName && this.state.currCategory !== categoryName) {
+      this.setState({currCategory: categoryName});
+    } else {
+      this.setState({currCategory: undefined});
+    }
+
   }
 
   render() {
     if (this.state.currCategory) {
-      console.warn('currCategory has been set!');
       return (
         <>
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
@@ -28,7 +32,6 @@ class SetFilterCategory extends React.Component {
         </>
       );
     } else {
-      console.warn('currCategory has NOT been set!');
       return (
         <>
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>

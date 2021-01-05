@@ -27,7 +27,6 @@ const MainPage = () => {
     <>
       <TopToolbar />
       <SearchBar />
-
     </>
   );
 };
