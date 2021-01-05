@@ -22,12 +22,17 @@ export default function UserInfoToolbar() {
   const modalState = useSelector(selectModal);
   const dispatch = useDispatch();
 
+  const clearRecipe = () => {
+    dispatch({type: 'SET_NEW_RECIPE_DEFAULT'});
+  };
+
   const handleOpen = () => {
     dispatch({type: 'SET_MODAL', payload: true});
   };
 
   const handleClose = () => {
     dispatch({type: 'SET_MODAL', payload: false});
+    clearRecipe();
   };
 
   if (user) {
