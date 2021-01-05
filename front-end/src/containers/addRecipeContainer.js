@@ -42,5 +42,10 @@ export const selectDifficulty = createSelector(
 
 export const selectVegan = createSelector(
   state => state.addRecipes,
-  addRecipes => addRecipes.shared
+  addRecipes => addRecipes.vegan
+);
+
+export const selectModal = createSelector(
+  state => state.addRecipes,
+  addRecipes => addRecipes.modalOpen
 );

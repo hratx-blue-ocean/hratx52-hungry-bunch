@@ -12,7 +12,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
-import LeftToolbarLanding from '../LeftToolbarLanding/LeftToolbarLanding.jsx';
+import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
 
 //import styles from './mainpage.css';
 
@@ -38,7 +38,7 @@ const MainPage = () => {
           <Grid container>
             <Grid item xs={3}>
               {/* Replace with Left ToolBar*/}
-              <LeftToolbarLanding/>
+              <UserInfoToolbar/>
             </Grid>
             <Grid item xs={6}>
               <CenterConsole/>
@@ -49,9 +49,6 @@ const MainPage = () => {
           </Grid>
         </Container>
       </div>
-      <AddRecipe>
-
-      </AddRecipe>
     </>
   );
 };

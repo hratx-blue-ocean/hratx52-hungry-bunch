@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
+import { AddRecipe } from '../AddRecipe/addRecipe.js';
 import Button from '@material-ui/core/Button';
-import Link from 'react-router-dom';
-import { Grid, Container, Paper, InputBase, IconButton, Typography } from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import { Grid, Container, Paper, InputBase, IconButton, Typography, Modal } from '@material-ui/core';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectModal } from '../../containers/addRecipeContainer.js';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -12,26 +15,36 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function LeftToolbarLanding() {
+export default function UserInfoToolbar() {
   const classes = useStyles();
   const { user } = useAuth0();
   const [isVisible, toggleVisibility] = useState(false);
+  const modalState = useSelector(selectModal);
+  const dispatch = useDispatch();
+
+  const handleOpen = () => {
+    dispatch({type: 'SET_MODAL', payload: true});
+  };
+
+  const handleClose = () => {
+    dispatch({type: 'SET_MODAL', payload: false});
+  };
 
   if (user) {
     const { name, picture, email, nickname } = user;
     return (
       <Container>
         <Grid>
-          <a href='/user'>
+          <Link to='/user'>
             <img src={picture}></img>
-          </a>
+          </Link>
         </Grid>
         <Grid>
-          <a href='/user'>
+          <Link to='/user'>
             <Typography>
               {name}
             </Typography>
-          </a>
+          </Link>
         </Grid>
         <Grid>
           <Button onClick={(e) => {
@@ -54,9 +67,17 @@ export default function LeftToolbarLanding() {
             : null}
         </Grid>
         <Grid>
-          <Button>
+          <Button onClick={handleOpen}>
               add recipe
           </Button>
+          <Modal
+            open={modalState}
+            onClose={handleClose}
+          >
+            <div style={{width: '650px', backgroundColor: 'white', margin: '0 auto'}}>
+              <AddRecipe></AddRecipe>
+            </div>
+          </Modal>
         </Grid>
       </Container>
     );
