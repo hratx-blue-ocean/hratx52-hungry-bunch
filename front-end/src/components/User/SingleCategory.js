@@ -28,6 +28,7 @@ const SingleCategory = (props) => {
     e.preventDefault();
     //will be used for filtering
     console.log(props.categoryName, 'was clicked...');
+    props.setCurrCategory(e, props.categoryName);
   };
 
   return (

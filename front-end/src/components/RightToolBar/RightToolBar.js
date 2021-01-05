@@ -18,7 +18,7 @@ const RightToolBar = () => {
 
 
   return (
-    <Container>
+    <>
       <Grid container spacing={2}>
         <Grid item>
           <GroupIcon fontSize='large'/>
@@ -36,7 +36,7 @@ const RightToolBar = () => {
         </Grid>
         <FriendsList friendsList={friends}/>
       </Grid>
-    </Container>
+    </>
   );
 };
 
