@@ -8,7 +8,6 @@ class RecipeList extends Component {
     super(props);
     this.state = {
       recipeList: userCookbook.recipes,
-      filterList: [],
       disableShowMoreButton: false,
       disablePreviousButton: true,
       startOfSlice: 0,
@@ -59,10 +58,8 @@ class RecipeList extends Component {
 
   filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
     const searchArr = arrOfRecipes.filter (function (singleRecipe) {
-      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.recipeName === objOfSearchTerms.searchBarInput || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty) {
+      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || singleRecipe.recipeName.toLowerCase() === objOfSearchTerms.searchBarInput.toLowerCase()) {
         return true;
-      } else {
-        return false;
       }
     });
     return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
