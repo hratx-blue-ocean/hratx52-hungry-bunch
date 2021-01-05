@@ -74,6 +74,22 @@ export const addRecipeReducer = (state = initialState, action) => {
       modalOpen: action.payload
     };
   }
+  case 'SET_NEW_RECIPE_DEFAULT': {
+    return {
+      ...state,
+      recipe: null,
+      currentIngredients: [],
+      currentSteps: [],
+      recipeName: '',
+      category: 'Breakfast',
+      shared: 'Everyone',
+      time: 30,
+      difficulty: 'Medium',
+      vegan: false,
+      imageUrl: '',
+      modalOpen: false,
+    };
+  }
   default: {
     return state;
   }

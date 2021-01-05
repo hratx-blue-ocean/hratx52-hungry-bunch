@@ -6,8 +6,9 @@ const { Recipes } = require('../database/data');
 const log = console.log;
 const queries = require('./queries');
 const bodyParser = require('body-parser');
-const { User } = require('../database/data');
 const cors = require('cors');
+
+const { User } = require('../database/data');
 
 const app = express();
 const port = 3000;
