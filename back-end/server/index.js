@@ -8,6 +8,7 @@ const queries = require('./queries');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const { User } = require('../database/data');
 
 const app = express();
 const port = 3000;
@@ -38,6 +39,37 @@ app.get('/userInfo/:id', (req, res) => {
   });
 });
 // -------------- POST ---------------------------------------------------------------------------------------------
+
+app.post('/checkUser', (req, res) => {
+
+  const userInfo = req.body;
+  let check = userInfo.sub.split('|')[1];
+
+  queries.CheckUser({ check }, (err, result) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed(err, 'err'));
+    } else {
+      if (result === null) {
+        // USER DOES NOT EXIST - CREATE ONE
+        queries.AddNewUser({ userInfo }, (err, response) => {
+          if (err) {
+            res.status(500).send('there was an error adding a new user');
+          } else {
+            // send status success back to client
+            console.log(response);
+            res.send(response);
+            log(chalk.magentaBright('NEW USER ADDED SUCCESFULLY'));
+          }
+        });
+      } else {
+        console.log(chalk.yellow(result));
+        res.status(200).send(result);
+      }
+    }
+  });
+});
+
 // Add recipe to add recipe to recipes collection and add id to user cookbook array
 app.post('/addRecipe', (req, res) => {
   const { id, recipe } = req.body;

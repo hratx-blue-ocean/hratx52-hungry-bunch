@@ -23,10 +23,10 @@ const App = () => {
         <>
           <Route exact path="/"><MainPage/></Route>
           {/* Profile component contains the information that we get from a user (different info for sign in and continue with google) */}
-          <Route exact path="/recipe">
+          <Route path="/recipe">
             <RecipePage />
           </Route>
-          <Route exact path="/user">
+          <Route path="/user">
             <User/>
           </Route>
           <Profile/>

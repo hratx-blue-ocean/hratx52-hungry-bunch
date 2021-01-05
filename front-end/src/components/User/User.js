@@ -7,10 +7,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Container } from '@material-ui/core';
 
 import TopToolbar from './TopToolBar.js';
+import SetFilterCategory from './SetFilterCategory.js';
 import CategoryCarousel from './CategoryCarousel.js';
 import CenterConsole from '../CenterConsole/CenterConsole.js';
-import LeftToolbarSearch from './LeftToolbarSearch.js';
-import SetFilterCategory from './SetFilterCategory.js';
+
+//import * as LeftToolbar from '../RightToolBar/RightToolBar.js';
+import { default as LeftToolbar } from '../RightToolBar/RightToolBar.js';
+//import RightToolBar from '../RightToolBar/RightToolBar.js';
 
 //wireframe: https://www.figma.com/file/C9TLcX8c0DNBW3xsYlv6kO/Untitled?node-id=60%3A2
 
@@ -39,7 +42,8 @@ const User = () => {
           <Container>
             <Grid container>
               <Grid item xs={3}>
-                <LeftToolbarSearch />
+                <LeftToolbar/>
+                {/*<LeftToolbarSearch />*/}
               </Grid>
               <Grid item xs={9}>
                 <SetFilterCategory/>
@@ -47,6 +51,7 @@ const User = () => {
             </Grid>
           </Container>
         </div>
+
       </>
     );
   } else {
