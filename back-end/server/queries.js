@@ -6,18 +6,20 @@ const log = console.log;
 const GetUser = ({ id }, callback) => {
   console.log(id);
   User.findById(id, (err, doc) => {
-    if (err) { callback(err); }
-
-    doc.
-      populate('recipes').
-      populate('friends').
-      populate('favoriteRecipes').
-      execPopulate((err, user) => {
-        if (err) { callback(err); }
-        log(chalk.green('success getting user'));
-        log(user);
-        callback(null, user);
-      });
+    if (err) {
+      callback(err);
+    } else {
+      doc.
+        populate('recipes').
+        populate('friends').
+        populate('favoriteRecipes').
+        execPopulate((err, user) => {
+          if (err) { callback(err); }
+          log(chalk.green('success getting user'));
+          log(user);
+          callback(null, user);
+        });
+    }
   });
 };
 
@@ -78,22 +80,33 @@ const AddNewUser = ({userInfo}, callback) => {
   });
 
   user.save((err, newUser) => {
-    if (err) { callback(err); }
-    callback(null, newUser);
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, newUser);
+    }
   });
 };
 
 const AddNewFriend = ({id, friendId}, callback) => {
   User.findByIdAndUpdate(id, { $push: { friends: friendId }}, (err, newFriend) => {
-    if (err) { callback(err); }
-    callback(null, newFriend);
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, newFriend);
+    }
+
   });
 };
 
 const AddNewFavoriteRecipe = ({id, recipeId}, callback) => {
   User.findByIdAndUpdate(id, { $push: { favoriteRecipes: recipeId }}, (err, newFavorite) => {
-    if (err) { callback(err); }
-    callback(null, newFavorite);
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, newFavorite);
+    }
+
   });
 };
 
