@@ -26,6 +26,7 @@ const RightToolBar = () => {
         <Grid item>
           <Paper component='form'>
             <InputBase
+              onChange={handleFriendsSearch}
               value={userInput}
               placeholder='search for friends'
             />
