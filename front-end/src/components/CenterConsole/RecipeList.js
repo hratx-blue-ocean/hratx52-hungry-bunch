@@ -48,36 +48,48 @@ class RecipeList extends Component {
     });
   }
 
+
   filterByCatagorie (arrOfRecipes, filterTerm) {
     if (filterTerm === undefined) {
-      return arrOfRecipes;
+      return arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
     } else {
-      return arrOfRecipes.filter((currRecipe) => currRecipe.category === filterTerm);
+      return arrOfRecipes.filter((currRecipe) => currRecipe.category === filterTerm).slice(this.state.startOfSlice, this.state.endOfSlice);
     }
+  }
+
+  filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
+    const searchArr = arrOfRecipes.filter (function (singleRecipe) {
+      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.recipeName === objOfSearchTerms.searchBarInput || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
+  }
+
+  mapHelper(arr) {
+    return arr.map((singleItem) => {
+      return (
+        <SingleRecipe oneRecipe={singleItem} key={singleItem.recipeId}/>
+      );
+    });
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (this.props.userFilter !== prevProps.userFilter) {
       this.filterByCatagorie(this.props.userFilter);
+    } else if (this.props.searchBarInput !== prevProps.searchBarInput || this.props.searchBarCategory !== prevProps.searchBarCategory || this.props.searchBarDifficulty !== prevProps.searchBarDifficulty) {
+      this.filterBySearchBar(this.state.recipeList, this.props);
     }
-  }
-
-
-
-  componentDidMount() {
-    this.filterByCatagorie(this.state.userFilter);
   }
 
   render() {
     return (
+
       <Grid container spacing={1}>
-        {console.log(this.props)}
         <Grid container item xs={12} spacing={3}>
-          {this.filterByCatagorie(this.state.recipeList, this.props.userFilter).slice(this.state.startOfSlice, this.state.endOfSlice).map((oneRecipe) => {
-            return (
-              <SingleRecipe oneRecipe={oneRecipe} key={oneRecipe.recipeId}/>
-            );
-          })}
+          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.recipeList, this.props.userFilter)) : this.mapHelper(this.filterBySearchBar(this.state.recipeList, this.props))}
         </Grid>
         <Grid container spacing={10}>
           <Grid item >
