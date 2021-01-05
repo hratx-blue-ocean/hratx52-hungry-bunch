@@ -13,8 +13,7 @@ const { User } = require('../database/data');
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.json());
-app.use(cors());
+app.use(bodyParser.json()).use(cors());
 
 app.get('/', (req, res) => {
   log(chalk.magenta('hey from the server'));
