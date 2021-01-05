@@ -20,6 +20,16 @@ const GetUser = ({ id }, callback) => {
       });
   });
 };
+
+const CheckUser = ({ check }, callback) => {
+  User.findOne({ sub: check }, (err, user) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, user);
+    }
+  });
+};
 /*
 ** userId (type: number) | single userId
 ** recipe (tpe: number) | single recipeId
@@ -55,14 +65,16 @@ const AddNewRecipe = ({ id, recipe }, callback) => {
 };
 
 const AddNewUser = ({userInfo}, callback) => {
-  const { username, name, picture, updated_at, email } = userInfo;
+  const { username, name, picture, updated_at, email, sub } = userInfo;
+  let parsedSub = sub.split('|')[1];
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     username: username,
     name: name,
     picture: picture,
     updated_at: updated_at,
-    email: email
+    email: email,
+    sub: parsedSub,
   });
 
   user.save((err, newUser) => {
@@ -117,4 +129,5 @@ module.exports = {
   UpdateUserPhoto,
   AddNewFavoriteRecipe,
   UpdateUserName,
+  CheckUser,
 };

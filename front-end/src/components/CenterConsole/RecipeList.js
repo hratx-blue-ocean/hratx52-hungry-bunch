@@ -8,6 +8,7 @@ class RecipeList extends Component {
     super(props);
     this.state = {
       recipeList: userCookbook.recipes,
+      filterList: [],
       disableShowMoreButton: false,
       disablePreviousButton: true,
       startOfSlice: 0,
@@ -47,27 +48,32 @@ class RecipeList extends Component {
     });
   }
 
-  filterByCatagorie (filterTerm) {
+  filterByCatagorie (arrOfRecipes, filterTerm) {
     if (filterTerm === undefined) {
-      return;
+      return arrOfRecipes;
     } else {
-      const filterRecipelist = this.state.recipeList.filter((currRecipe) => currRecipe.category === filterTerm);
-      this.setState({
-        recipeList: filterRecipelist
-      });
+      return arrOfRecipes.filter((currRecipe) => currRecipe.category === filterTerm);
     }
   }
 
+  componentDidUpdate (prevProps, prevState) {
+    if (this.props.userFilter !== prevProps.userFilter) {
+      this.filterByCatagorie(this.props.userFilter);
+    }
+  }
+
+
+
   componentDidMount() {
-    this.filterByCatagorie(this.state.selectedCatagorie);
+    this.filterByCatagorie(this.state.userFilter);
   }
 
   render() {
     return (
       <Grid container spacing={1}>
+        {console.log(this.props)}
         <Grid container item xs={12} spacing={3}>
-          {console.log(this.state.recipeList)}
-          {this.state.recipeList.slice(this.state.startOfSlice, this.state.endOfSlice).map((oneRecipe) => {
+          {this.filterByCatagorie(this.state.recipeList, this.props.userFilter).slice(this.state.startOfSlice, this.state.endOfSlice).map((oneRecipe) => {
             return (
               <SingleRecipe oneRecipe={oneRecipe} key={oneRecipe.recipeId}/>
             );

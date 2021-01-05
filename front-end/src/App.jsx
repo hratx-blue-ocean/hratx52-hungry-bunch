@@ -8,7 +8,7 @@ import MainPage from './components/MainPage/MainPage.js';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link, Route, Switch } from 'react-router-dom';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
-import UserCookbook from './components/UserCookbook/UserCookbook.js';
+import User from './components/User/User.js';
 
 const App = () => {
 
@@ -27,7 +27,7 @@ const App = () => {
             <RecipePage />
           </Route>
           <Route exact path="/user">
-            <UserCookbook />
+            <User/>
           </Route>
           <Profile/>
         </>
