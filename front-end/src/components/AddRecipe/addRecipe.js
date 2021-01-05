@@ -50,6 +50,7 @@ export const AddRecipe = () => {
 
   var ingredient = '';
   var step = '';
+  console.log(user);
 
   var newRecipe = {
     recipeName: recipeName,
@@ -111,18 +112,18 @@ export const AddRecipe = () => {
     event.preventDefault();
     dispatch({type: 'SET_CURRENT_INGREDIENTS', payload: ingredient});
     ingredient = '';
-    document.getElementById("add-recipe-ingredient").value = '';
+    document.getElementById('add-recipe-ingredient').value = '';
   };
 
   const handleAddInstruction = (event) => {
     event.preventDefault();
     dispatch({type: 'SET_CURRENT_STEPS', payload: step});
     step = '';
-    document.getElementById("add-recipe-step").value = '';
+    document.getElementById('add-recipe-step').value = '';
   };
 
   return (
-    <Container maxWidth="sm" style={{padding: '20px', height: '700px', overflow: 'scroll'}}>
+    <Container maxWidth='sm' style={{padding: '20px', height: '700px', overflow: 'scroll'}}>
       <h2>Add a new recipe:</h2>
       <form className={classes.root}>
         <div>
@@ -146,20 +147,20 @@ export const AddRecipe = () => {
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="add-recipe-category-label">Category</InputLabel>
             <Select required id="add-recipe-category" name="add-recipe-category" defaultValue="Breakfast" label="Category" onChange={handleRecipeChange}>
-              <MenuItem value={"Breakfast"}>Breakfast</MenuItem>
-              <MenuItem value={"Lunch"}>Lunch</MenuItem>
-              <MenuItem value={"Dinner"}>Dinner</MenuItem>
-              <MenuItem value={"Dessert"}>Dessert</MenuItem>
-              <MenuItem value={"Beverage"}>Beverage</MenuItem>
-              <MenuItem value={"Snack"}>Snack</MenuItem>
+              <MenuItem value={'Breakfast'}>Breakfast</MenuItem>
+              <MenuItem value={'Lunch'}>Lunch</MenuItem>
+              <MenuItem value={'Dinner'}>Dinner</MenuItem>
+              <MenuItem value={'Dessert'}>Dessert</MenuItem>
+              <MenuItem value={'Beverage'}>Beverage</MenuItem>
+              <MenuItem value={'Snack'}>Snack</MenuItem>
             </Select>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="add-share-with-lable">Share With</InputLabel>
             <Select required id="add-recipe-share-with" name="add-recipe-shared-with" defaultValue="Everyone" label="Share With" onChange={handleRecipeChange}>
-              <MenuItem value={"Only Me"}>Only Me</MenuItem>
-              <MenuItem value={"Friends Only"}>Friends Only</MenuItem>
-              <MenuItem value={"Everyone"}>Everyone</MenuItem>
+              <MenuItem value={'Only Me'}>Only Me</MenuItem>
+              <MenuItem value={'Friends Only'}>Friends Only</MenuItem>
+              <MenuItem value={'Everyone'}>Everyone</MenuItem>
             </Select>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
@@ -183,11 +184,11 @@ export const AddRecipe = () => {
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="add-recipe-difficulty-label">Difficulty</InputLabel>
             <Select required id="add-recipe-difficulty" name="add-recipe-difficulty" defaultValue="Medium" label="Difficulty" onChange={handleRecipeChange}>
-              <MenuItem value={"Very Easy"}>Very Easy</MenuItem>
-              <MenuItem value={"Easy"}>Easy</MenuItem>
-              <MenuItem value={"Medium"}>Medium</MenuItem>
-              <MenuItem value={"Hard"}>Hard</MenuItem>
-              <MenuItem value={"Very Hard"}>Very Hard</MenuItem>
+              <MenuItem value={'Very Easy'}>Very Easy</MenuItem>
+              <MenuItem value={'Easy'}>Easy</MenuItem>
+              <MenuItem value={'Medium'}>Medium</MenuItem>
+              <MenuItem value={'Hard'}>Hard</MenuItem>
+              <MenuItem value={'Very Hard'}>Very Hard</MenuItem>
             </Select>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
