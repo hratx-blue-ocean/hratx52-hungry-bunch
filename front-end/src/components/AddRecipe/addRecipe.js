@@ -63,6 +63,13 @@ export const AddRecipe = () => {
     imageUrl: ''
   };
 
+  console.log(newRecipe);
+
+  const clearRecipe = () => {
+    dispatch({type: 'SET_NEW_RECIPE_DEFAULT'});
+    console.log(newRecipe);
+  };
+
   const handleRecipeChange = (event) => {
     event.preventDefault();
     if (event.target.id === 'add-recipe-ingredient') {
@@ -97,6 +104,7 @@ export const AddRecipe = () => {
       dispatch({type: 'SET_MODAL', payload: false});
       alert('Recipe Saved');
     }, 1000);
+    clearRecipe();
   };
 
   const handleAddIngredient = (event) => {
