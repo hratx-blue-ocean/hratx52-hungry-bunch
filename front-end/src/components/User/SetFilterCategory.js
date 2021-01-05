@@ -14,7 +14,11 @@ class SetFilterCategory extends React.Component {
   setCurrCategory(e) {
     e.preventDefault();
     console.log(e.target.innerHTML, 'was clicked...this is top');
-    this.setState({currCategory: e.target.innerHTML});
+    if (this.state.currCategory !== e.target.innerHTML) {
+      this.setState({currCategory: e.target.innerHTML});
+    } else {
+      this.setState({currCategory: undefined});
+    }
   }
 
   render() {
