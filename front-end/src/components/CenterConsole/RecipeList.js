@@ -48,20 +48,23 @@ class RecipeList extends Component {
   }
 
 
-  filterByCatagorie (arrOfRecipes, filterTerm) {
-    if (filterTerm === undefined) {
+  filterByCatagorie (arrOfRecipes, objOfProps) {
+    if (objOfProps.userFilter === undefined) {
       return arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
     } else {
-      return arrOfRecipes.filter((currRecipe) => currRecipe.category === filterTerm).slice(this.state.startOfSlice, this.state.endOfSlice);
+      return arrOfRecipes.filter((currRecipe) => currRecipe.category === objOfProps.userFilter).slice(this.state.startOfSlice, this.state.endOfSlice);
     }
   }
 
   filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
+
+
     const searchArr = arrOfRecipes.filter (function (singleRecipe) {
-      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || singleRecipe.recipeName.toLowerCase() === objOfSearchTerms.searchBarInput.toLowerCase()) {
+      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || singleRecipe.recipeName === objOfSearchTerms.searchBarInput) {
         return true;
       }
     });
+
     return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
   }
 
@@ -73,20 +76,26 @@ class RecipeList extends Component {
     });
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    if (this.props.userFilter !== prevProps.userFilter) {
-      this.filterByCatagorie(this.props.userFilter);
-    } else if (this.props.searchBarInput !== prevProps.searchBarInput || this.props.searchBarCategory !== prevProps.searchBarCategory || this.props.searchBarDifficulty !== prevProps.searchBarDifficulty) {
-      this.filterBySearchBar(this.state.recipeList, this.props);
-    }
-  }
+  // componentDidMount() {
+  //   if(this.props.userFilter === undefined) {
+  //     return this.mapHelper(this.state.recipeList)
+  //   }
+  // }
+
+  // componentDidUpdate (prevProps, prevState) {
+  //   if (this.props.userFilter !== prevProps.userFilter) {
+  //     this.filterByCatagorie(this.state.recipeList, this.props.userFilter);
+  //   } else if (this.props.searchBarInput !== prevProps.searchBarInput || this.props.searchBarCategory !== prevProps.searchBarCategory || this.props.searchBarDifficulty !== prevProps.searchBarDifficulty) {
+  //     this.filterBySearchBar(this.state.recipeList, this.props);
+  //   }
+  // }
 
   render() {
     return (
 
       <Grid container spacing={1}>
         <Grid container item xs={12} spacing={3}>
-          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.recipeList, this.props.userFilter)) : this.mapHelper(this.filterBySearchBar(this.state.recipeList, this.props))}
+          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.recipeList, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.recipeList, this.props))}
         </Grid>
         <Grid container spacing={10}>
           <Grid item >
