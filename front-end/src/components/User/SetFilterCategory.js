@@ -4,7 +4,7 @@ import CenterConsole from '../CenterConsole/CenterConsole.js';
 
 import axios from 'axios';
 
-//send friendData in array form
+//friendData are an array of the friend's recipes
 
 class SetFilterCategory extends React.Component {
   constructor(props) {
@@ -13,7 +13,8 @@ class SetFilterCategory extends React.Component {
       currCategory: undefined,
       friendData: undefined,
       userId: '',
-      loggedInUser: {}
+      userUrlRecipes: []
+
     };
 
     this.setCurrCategory = this.setCurrCategory.bind(this);
@@ -24,10 +25,13 @@ class SetFilterCategory extends React.Component {
     console.log('this is component did mount');
     console.warn('these are props: ', this.props);
     this.setState({userId: this.props.userId});
-    this.setState({loggedInUser: this.props.userInfo});
-  }
 
-  //friendData are an array of the friend's recipes
+    axios.get(`http://localhost:3000/userRecipes/${this.props.userId}`)
+      .then((userUrlRecipesDb)=>{
+        this.setState({userUrlRecipes: userUrlRecipesDb.data});
+      })
+      .catch((error)=>{ console.log('error in axios request in setFilterCategory: ', error); });
+  }
 
   setCurrCategory(e, categoryName) {
     e.preventDefault();
@@ -41,31 +45,28 @@ class SetFilterCategory extends React.Component {
 
   render() {
 
-    if (this.state.loggedInUser.friends) {
 
-      if (this.state.currCategory) {
-        return (
-          <>
-            {console.log('MONICA IT FILTERED!: ', this.state.loggedInUser.friends)}
-            <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
-            <br></br>
-            <CenterConsole userFilter={this.state.currCategory} friendData={this.state.friendData}/>
-          </>
-        );
-      } else {
-        return (
-          <>
-            {console.log('MONICA IT FILTERED!: ', this.state.loggedInUser.friends)}
-            <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
-            <br></br>
-            {/*this.state.friendData is passing the entire user's info from database...or would you rather have the recipes?*/}
-            <CenterConsole friendData={this.state.friendData}/>
-          </>
-        );
-      }
+    if (this.state.currCategory) {
+      return (
+        <>
+          {/*console.log('MONICA IT FILTERED!: ')*/}
+          <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
+          <br></br>
+          <CenterConsole userFilter={this.state.currCategory} friendData={this.state.friendData}/>
+        </>
+      );
     } else {
-      return ( <></> );
+      return (
+        <>
+          {/*console.log('MONICA IT FILTERED!: ')*/}
+          <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
+          <br></br>
+          {/*this.state.friendData is passing the entire user's info from database...or would you rather have the recipes?*/}
+          <CenterConsole friendData={this.state.friendData}/>
+        </>
+      );
     }
+
   }
 }
 
