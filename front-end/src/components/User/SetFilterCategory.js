@@ -21,13 +21,9 @@ class SetFilterCategory extends React.Component {
   componentDidMount() {
     console.log('this is component did mount');
     console.warn('these are props: ', this.props);
-
-
-
-
   }
 
-
+  //friendData are an array of the friend's recipes
 
   setCurrCategory(e, categoryName) {
     e.preventDefault();

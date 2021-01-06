@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import { useAuth0 } from '@auth0/auth0-react';
@@ -27,6 +28,7 @@ const User = () => {
   const classes = useStyles();
   const { user } = useAuth0();
   const [currCategory, setCurrCategory] = useState('');
+  const state = useSelector(state => state);
 
   //React router to grab pathname
   const location = useLocation();
@@ -38,6 +40,8 @@ const User = () => {
     /*can either use: location.pathname OR history.location.pathname*/
     let userId = location.pathname.split('/')[2];
 
+
+
     return (
       <>
         <TopToolbar nickname={nickname} picture={picture}/>
@@ -46,13 +50,18 @@ const User = () => {
           <Container>
             <Grid container>
               <Grid item xs={3}>
+                {/*THIS IS THE FRIENDLIST*/}
                 <LeftToolbar/>
               </Grid>
               <Grid item xs={9}>
-                <SetFilterCategory userId={userId}/>
+                <SetFilterCategory userId={userId} userInfo={state.userReducer.user}/>
               </Grid>
             </Grid>
           </Container>
+        </div>
+        <div>
+          <p>Hello?</p>
+          {console.warn(state.userReducer)}
         </div>
       </>
     );
