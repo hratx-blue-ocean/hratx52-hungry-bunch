@@ -94,9 +94,14 @@ class RecipeList extends Component {
   //   })
   // }
 
-  // componentDidMount() {
-  //   this.fetchUserInfo()
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+      this.setState({
+        userRecipes: this.props.user.recipes
+      });
+    }
+  }
+
 
   // componentDidUpdate (prevProps, prevState) {
   //   if (this.props.userFilter !== prevProps.userFilter) {
@@ -110,7 +115,6 @@ class RecipeList extends Component {
     return (
 
       <Grid container spacing={1}>
-        {console.log(this.state)}
         <Grid container item xs={12} spacing={3}>
           {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.recipeList, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.recipeList, this.props))}
         </Grid>
