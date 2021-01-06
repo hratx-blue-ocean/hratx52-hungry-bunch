@@ -50,7 +50,6 @@ export const AddRecipe = () => {
 
   var ingredient = '';
   var step = '';
-  console.log(user);
 
   var newRecipe = {
     recipeName: recipeName,
@@ -68,7 +67,6 @@ export const AddRecipe = () => {
 
   const clearRecipe = () => {
     dispatch({type: 'SET_NEW_RECIPE_DEFAULT'});
-    console.log(newRecipe);
   };
 
   const handleRecipeChange = (event) => {
@@ -94,18 +92,18 @@ export const AddRecipe = () => {
     }
   };
 
-  const handleSubmit = (event) => {
-    console.log(event);
-    console.log(newRecipe);
-    //using dummy image url
+  const handleSubmit = async (event) => {
     newRecipe.imageUrl = 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
 
-    postNewRecipe(newRecipe, '5ff4903962127775787d7d8f');
-    setTimeout(() => {
-      dispatch({type: 'SET_MODAL', payload: false});
+    var response = await postNewRecipe(newRecipe, user['_id']);
+
+    if (response.status === 200) {
       alert('Recipe Saved');
-    }, 1000);
-    clearRecipe();
+      dispatch({type: 'SET_MODAL', payload: false});
+      clearRecipe();
+    } else {
+      alert('Sorry, the recipe was not able to be saved. Please try again.');
+    }
   };
 
   const handleAddIngredient = (event) => {
