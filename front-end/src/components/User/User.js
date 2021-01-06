@@ -41,8 +41,6 @@ const User = () => {
     /*can either use: location.pathname OR history.location.pathname*/
     let userId = location.pathname.split('/')[2];
 
-
-
     return (
       <>
         <TopToolbar nickname={nickname} picture={picture}/>
@@ -59,10 +57,6 @@ const User = () => {
               </Grid>
             </Grid>
           </Container>
-        </div>
-        <div>
-          <p>Hello?</p>
-          {console.warn(state.userReducer)}
         </div>
       </>
     );
