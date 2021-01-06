@@ -37,6 +37,21 @@ app.get('/userInfo/:id', (req, res) => {
     }
   });
 });
+
+app.get('/friends/:name', (req, res) => {
+  log(chalk.cyan(req.params.name));
+  const { name } = req.params;
+  // get Friends query - fuzzy search for friends
+  queries.GetFriends({ name }, (err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed(err, 'ERROR GETTING FRIENDS FROM DATABASE'));
+    } else {
+      res.status(200).send(response);
+    }
+  });
+});
+
 // -------------- POST ---------------------------------------------------------------------------------------------
 
 app.post('/checkUser', (req, res) => {
