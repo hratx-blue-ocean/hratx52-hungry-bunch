@@ -10,8 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 const RightToolBar = () => {
 
   const [userInput, setUserInput] = useState('');
-  const [users, setUser] = useState(Users.fetchedUsers);
-  const [friends, setFriends] = useState(Users.fetchedUsers[0].friends);
+  // const [users, setUser] = useState(Users.fetchedUsers);
+  // const [friends, setFriends] = useState(Users.fetchedUsers[0].friends);
   const state = useSelector(state => state);
 
   const handleFriendsSearch = (e) => {
@@ -37,7 +37,7 @@ const RightToolBar = () => {
               </IconButton>
             </Paper>
           </Grid>
-          <FriendsList friendsList={friends} friends={state.userReducer.user.friends}/>
+          <FriendsList friends={state.userReducer.user.friends} searchInput={userInput}/>
         </Grid>
       </>
     );

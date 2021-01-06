@@ -3,7 +3,9 @@ import { Grid, Container, Paper, IconButton } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
 
+
 const IndividualFriend = (props) => {
+
   //userId for a friend will be in the original user's object received from the GET request
   //the User component will then use the url to make its own axios request
 
