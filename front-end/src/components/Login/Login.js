@@ -4,7 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const LoginButton = (props) => {
   const { loginWithRedirect } = useAuth0();
 
-  const [time, setTime] = useState('!^!!!');
+  const [time, setTime] = useState(':)^!!!');
 
   const getTimeFunction = () => {
     var foodTime = ':)^!!!';
@@ -22,9 +22,9 @@ const LoginButton = (props) => {
     } else if (n >= 17 && n < 20) {
       foodTime = 'You`re a souper!^dinner';
     } else if (n >= 20 && n <= 24) {
-      foodTime = 'before bed cravings';
+      foodTime = 'Dill with it!^before bed cravings';
     } else {
-      foodTime = 'midnight snack';
+      foodTime = 'Sending you encourage mint!^midnight snack';
     }
     console.log('hereeeeee:', foodTime);
     return foodTime;
