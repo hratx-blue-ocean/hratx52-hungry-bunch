@@ -7,8 +7,6 @@ const LoginCarousel = () => {
   const settings = {
     dots: true,
     fade: true,
-    // variableWidth: true,
-    // centerMode: true,
     initialSlide: 0,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -29,7 +27,6 @@ const LoginCarousel = () => {
 
   return (
     <div className="login-landing-page-carousel-placeholder">
-      <h2>AutoPlay</h2>
       <Slider className="login-landing-page-carousel" {...settings}>
         {imageSourcesToDisplay.map((image, index) => {
           return (

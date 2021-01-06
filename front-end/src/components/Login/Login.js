@@ -6,7 +6,6 @@ const LoginButton = (props) => {
 
   const [time, setTime] = useState('!^!!!');
 
-
   const getTimeFunction = () => {
     var foodTime = ':)^!!!';
     var date = new Date();
@@ -19,17 +18,16 @@ const LoginButton = (props) => {
     } else if (n >= 11 && n <= 15) {
       foodTime = 'Taco`bout awesome!^lunch';
     } else if (n >= 15 && n < 17) {
-      foodTime = 'Guac`n`Roll!^ quick snack';
+      foodTime = 'Guac`n`Roll!^a quick snack';
     } else if (n >= 17 && n < 20) {
       foodTime = 'You`re a souper!^dinner';
     } else if (n >= 20 && n <= 24) {
       foodTime = 'before bed cravings';
     } else {
-      foodTime = 'midnight snacks';
+      foodTime = 'midnight snack';
     }
     console.log('hereeeeee:', foodTime);
     return foodTime;
-
   };
 
   console.log('local time here globally: ', time.split('^')[1]);
@@ -43,7 +41,7 @@ const LoginButton = (props) => {
       className="login-button"
       onClick={() => loginWithRedirect()}
     >
-      {time.split('^')[0]} Join us for {time.split('^')[1]}
+      {time.split('^')[0]}<br/> Join us for {time.split('^')[1]}
     </button>
   );
 };
