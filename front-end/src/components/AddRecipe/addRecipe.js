@@ -8,6 +8,7 @@ import { selectUser } from '../../containers/addUserContainer.js';
 import { AddedIngredients } from './addedIngredients.js';
 import { AddedInstructions } from './addedInstructions.js';
 import { postNewRecipe } from '../../utils/apiCalls.js';
+import { listOfImages } from '../../assets/foodImageUrls.js';
 import Container from '@material-ui/core/Container';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -63,6 +64,11 @@ export const AddRecipe = () => {
     imageUrl: ''
   };
 
+  const randomImage = () => {
+    var index = Math.floor(Math.random() * listOfImages.length);
+    return listOfImages[index];
+  };
+
   const clearRecipe = () => {
     dispatch({type: 'SET_NEW_RECIPE_DEFAULT'});
   };
@@ -91,7 +97,7 @@ export const AddRecipe = () => {
   };
 
   const handleSubmit = async (event) => {
-    newRecipe.imageUrl = 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
+    newRecipe.imageUrl = randomImage();
 
     var response = await postNewRecipe(newRecipe, user['_id']);
 

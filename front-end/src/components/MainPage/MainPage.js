@@ -28,7 +28,6 @@ const MainPage = () => {
     <>
       <TopToolbar />
       <SearchBar />
-      <AddFriend/>
     </>
   );
 };
