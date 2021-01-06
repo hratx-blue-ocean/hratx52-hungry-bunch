@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { userReducer } from './user.js';
-import { addRecipeReducer } from './addRecipeReducer';
 // import reducer functions
 
 // when rootReducer is called, redcuers are invoked to build new state object
@@ -10,8 +9,7 @@ combineReducers is a helper function which turns an object (whose values are dif
 */
 var rootReducer = combineReducers({
   // insert reducer functions
-  userReducer,
-  addRecipes: addRecipeReducer
+  users: userReducer
 });
 
 

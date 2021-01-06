@@ -4,11 +4,11 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import { Link } from 'react-router-dom';
 
 const SingleRecipe = ({oneRecipe}) => {
-  const link = `/recipe/${oneRecipe.recipeId}`;
+
 
   return (
     <Grid item xs={4}>
-      <Link to={link}>
+      <Link to='/recipe'>
         <Card>
           <CardActionArea>
             <CardMedia

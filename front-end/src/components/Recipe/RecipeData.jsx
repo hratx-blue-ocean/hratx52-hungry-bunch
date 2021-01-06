@@ -1,16 +1,14 @@
 import {recipe} from '../../data/recipeDummyData.js';
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const RecipeData = () => {
-
-  const user = `/user/${recipe.ownerId}`;
 
   return (
     <div className='recipe-data'>
       <div className='recipe-name-and-user'>
         <h1>{recipe.recipeName}</h1>
-        <Link to={user}>
+        <Link to='/user'>
           <div>{recipe.ownerId} - username goes here!</div>
         </Link>
       </div>
@@ -20,7 +18,9 @@ const RecipeData = () => {
         ))}</ul>
       </div>
       <div className='optional-recipe-data'>
-        Category: {recipe.category}
+        Category: {recipe.category.length < 2 ? recipe.category : recipe.category.map(string => (
+          <li key={string}>{string}</li>
+        ))}
 
         Time: {recipe.time} minutes,
 
