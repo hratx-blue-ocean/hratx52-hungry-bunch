@@ -20,11 +20,15 @@ const RecipeData = () => {
         ))}</ul>
       </div>
       <div className='optional-recipe-data'>
+        <div>
         Category: {recipe.category}
-
-        Time: {recipe.time} minutes,
-
+        </div>
+        <div>
+        Time: {recipe.time} minutes
+        </div>
+        <div>
         Difficulty: {recipe.difficulty}
+        </div>
         {recipe.vegan ? ', Vegan' : null}
       </div>
       <div className='recipe-steps'>

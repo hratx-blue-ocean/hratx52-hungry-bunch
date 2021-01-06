@@ -12,3 +12,13 @@ export const postNewRecipe = (recipe, userId) => {
       console.log(err);
     });
 };
+
+export const uploadAvatar = (image) => {
+  axios.post('http://localhost:3000/uploadAvatar', image)
+    .then(res => {
+      console.log('avatar uploaded!: ', res);
+    })
+    .catch(err => {
+      console.log('avatar could not be uploaded :^( : ', err);
+    });
+};
