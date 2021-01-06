@@ -17,18 +17,16 @@ const App = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const newUser = useSelector(selectUser);
 
-
   const dispatch = useDispatch();
-  // maybe possible to use context.stats.loginCount???????
 
   useEffect(() => {
+    console.log(newUser);
     isAuthenticated && user ? dispatch(postUser(user))
       :
       console.log('user has not logged in yet:', user);
-  }, []);
+  }, user);
 
   const isAuthenticatedWithMongoDB = () => {
-    debugger;
     return isAuthenticated && newUser._id !== null;
   };
 

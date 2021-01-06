@@ -1,6 +1,7 @@
 import makeActionCreator from '../utils/makeActionCreator';
 import { createSelector } from 'reselect';
 
+
 const url = 'http://localhost:3000';
 
 export const setUser = makeActionCreator('SET_USER', 'user');
@@ -48,11 +49,11 @@ export const postUser = (Auth0User) => {
   return async (dispatch, getState) => {
     fetch(url + '/checkUser', {
       method: 'POST',
-      // headers: {
-      //   'Accept': 'application/json',
-      //   'Content-Type': 'application/json',
-      //   'Access-Control-Allow-Origin': '*'
-      // },
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify(Auth0User)
     })
       .then((res) => {
@@ -73,7 +74,6 @@ export const postUser = (Auth0User) => {
             friends: data.friends,
             sub: data.sub,
           };
-          debugger;
           dispatch(setUser(newUser));
         })
       .catch((error) => {
