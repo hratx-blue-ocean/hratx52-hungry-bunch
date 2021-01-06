@@ -52,16 +52,6 @@ const SingleCategory = (props) => {
       </Card>
     </Grid>
   );
-
-
-  // return (
-  //   <Grid container spacing={1}>
-  //     <Grid item xs={12}>
-  //       <img src = {props.picture} style={{width: '200px', height: '150px'}} onClick={handleClick} className={classes.borderOverlay}/>
-  //     <Typography className={classes.centerText} variant='body1'> {props.categoryName} </Typography>
-  //     </Grid>
-  //   </Grid>
-  // );
 };
 
 export default SingleCategory;
