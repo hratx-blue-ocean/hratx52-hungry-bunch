@@ -23,6 +23,17 @@ const GetUser = ({ id }, callback) => {
   });
 };
 
+const GetFriends = ({ name }, callback) => {
+  User.fuzzySearch(name, (err, friends) => {
+    if (err) {
+      callback(err);
+    } else {
+      log(chalk.green(friends));
+      callback(friends);
+    }
+  });
+};
+
 const CheckUser = ({ check }, callback) => {
   User.findOne({ sub: check }, (err, user) => {
     if (err) {
@@ -143,4 +154,5 @@ module.exports = {
   AddNewFavoriteRecipe,
   UpdateUserName,
   CheckUser,
+  GetFriends,
 };
