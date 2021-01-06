@@ -18,7 +18,6 @@ export default function RecipePage() {
   return (
     <>
       <TopToolbar />
-      <SearchBar />
       <div>
         <Container>
           <Grid container>

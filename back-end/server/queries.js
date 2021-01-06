@@ -39,7 +39,16 @@ const CheckUser = ({ check }, callback) => {
     if (err) {
       callback(err);
     } else {
-      callback(null, user);
+      user.
+        populate('recipes').
+        populate('friends').
+        populate('favoriteRecipes').
+        execPopulate((err, user) => {
+          if (err) { callback(err); }
+          log(chalk.green('success getting user'));
+          log(user);
+          callback(null, user);
+        });
     }
   });
 };

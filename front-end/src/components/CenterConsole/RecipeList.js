@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { userCookbook } from '../../data/recipeDummyData.js';
 import SingleRecipe from './SingleRecipe.js';
 import { Grid, Button, Container } from '@material-ui/core/';
+import axios from 'axios';
+
+
 
 class RecipeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipeList: userCookbook.recipes,
-      filterList: [],
       disableShowMoreButton: false,
       disablePreviousButton: true,
       startOfSlice: 0,
@@ -16,6 +18,7 @@ class RecipeList extends Component {
       selectedCatagorie: this.props.selectedCatagorie
     };
   }
+
 
   showPreviousClickHandler (e) {
     var previousButtonToggle = this.state.disablePreviousButton;
@@ -48,36 +51,68 @@ class RecipeList extends Component {
     });
   }
 
-  filterByCatagorie (arrOfRecipes, filterTerm) {
-    if (filterTerm === undefined) {
-      return arrOfRecipes;
+
+  filterByCatagorie (arrOfRecipes, objOfProps) {
+    if (objOfProps.userFilter === undefined) {
+      return arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
     } else {
-      return arrOfRecipes.filter((currRecipe) => currRecipe.category === filterTerm);
+      return arrOfRecipes.filter((currRecipe) => currRecipe.category === objOfProps.userFilter).slice(this.state.startOfSlice, this.state.endOfSlice);
     }
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    if (this.props.userFilter !== prevProps.userFilter) {
-      this.filterByCatagorie(this.props.userFilter);
-    }
+  filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
+    const searchArr = arrOfRecipes.filter (function (singleRecipe) {
+      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || singleRecipe.recipeName === objOfSearchTerms.searchBarInput) {
+        return true;
+      }
+    });
+    return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
   }
 
-
-
-  componentDidMount() {
-    this.filterByCatagorie(this.state.userFilter);
+  mapHelper(arr) {
+    return arr.map((singleItem) => {
+      return (
+        <SingleRecipe oneRecipe={singleItem} key={singleItem.recipeId}/>
+      );
+    });
   }
+
+  // fetchUserInfo() {
+  //   axios.get(`http://localhost:3000/userInfo/5ff4903962127775787d7d8f`, {
+  //     auth: {
+  //       username: 'hungrybunch',
+  //       password: 'eateateat'
+  //     },
+  //   })
+  //   .then((results) => {
+  //     this.setState({
+  //       fetchedList:results.recipes
+  //     })
+  //   })
+  //   .catch((err) =>{
+  //     console.log(err)
+  //   })
+  // }
+
+  // componentDidMount() {
+  //   this.fetchUserInfo()
+  // }
+
+  // componentDidUpdate (prevProps, prevState) {
+  //   if (this.props.userFilter !== prevProps.userFilter) {
+  //     this.filterByCatagorie(this.state.recipeList, this.props.userFilter);
+  //   } else if (this.props.searchBarInput !== prevProps.searchBarInput || this.props.searchBarCategory !== prevProps.searchBarCategory || this.props.searchBarDifficulty !== prevProps.searchBarDifficulty) {
+  //     this.filterBySearchBar(this.state.recipeList, this.props);
+  //   }
+  // }
 
   render() {
     return (
+
       <Grid container spacing={1}>
-        {console.log(this.props)}
+        {console.log(this.state)}
         <Grid container item xs={12} spacing={3}>
-          {this.filterByCatagorie(this.state.recipeList, this.props.userFilter).slice(this.state.startOfSlice, this.state.endOfSlice).map((oneRecipe) => {
-            return (
-              <SingleRecipe oneRecipe={oneRecipe} key={oneRecipe.recipeId}/>
-            );
-          })}
+          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.recipeList, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.recipeList, this.props))}
         </Grid>
         <Grid container spacing={10}>
           <Grid item >

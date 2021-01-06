@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 // --------------------- GET  ---------------------------------------------------------------------------------------------
 // get user info will send user object back to client with user info and user recipes
 app.get('/userInfo/:id', (req, res) => {
+
   log(chalk.cyan(req.params.id));
   const { id } = req.params;
   // get User query - query user collection
