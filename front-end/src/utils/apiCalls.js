@@ -12,3 +12,7 @@ export const postNewRecipe = (recipe, userId) => {
       return err;
     });
 };
+
+export const addFriend = (user, friend) => {
+
+};
