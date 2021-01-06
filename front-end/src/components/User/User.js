@@ -35,6 +35,7 @@ const User = () => {
   const history = useHistory();
 
   if (user) {
+
     const { name, picture, email, nickname } = user;
 
     /*can either use: location.pathname OR history.location.pathname*/

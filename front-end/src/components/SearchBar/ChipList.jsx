@@ -29,7 +29,7 @@ const ChipsList = ({ category, Difficulty, Preferences }) => {
       />
       <Chip
         size="small"
-        label={Difficulty}
+        label={'Difficulty'}
         color="secondary"
         className={classes.chip}
       />

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const mongoose_fuzzy_searching = require('mongoose-fuzzy-searching');
+
 
 const userSchema = new mongoose.Schema({
   _id: Schema.Types.ObjectId,
@@ -27,6 +29,8 @@ const recipeSchema = new mongoose.Schema({
   steps: [String],
   imageUrl: String
 });
+
+userSchema.plugin(mongoose_fuzzy_searching, { fields: ['name'] });
 
 module.exports = {
   Recipe: mongoose.model('Recipe', recipeSchema),
