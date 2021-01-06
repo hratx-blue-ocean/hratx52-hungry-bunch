@@ -34,6 +34,17 @@ const GetFriends = ({ name }, callback) => {
   });
 };
 
+const GetUserRecipes = ({ id }, callback) => {
+  Recipe.find({ owner: id }, (err, recipes) => {
+    if (err) {
+      log(chalk.redBright('err', err));
+      callback(err);
+    } else {
+      callback(null, recipes);
+    }
+  });
+};
+
 const CheckUser = ({ check }, callback) => {
   User.findOne({ sub: check }, (err, user) => {
     if (err) {
@@ -164,4 +175,5 @@ module.exports = {
   UpdateUserName,
   CheckUser,
   GetFriends,
+  GetUserRecipes,
 };
