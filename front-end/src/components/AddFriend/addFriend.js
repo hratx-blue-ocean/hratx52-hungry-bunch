@@ -7,14 +7,24 @@ import Button from '@material-ui/core/Button';
 export const AddFriend = () => {
   const user = useSelector(selectUser);
   console.log('user: ', user);
+  var areFriends = false;
 
-  const areFriends = () => {
+  const checkIfFriends = () => {
+    if (user['_id'].indexOf()) {
+      areFriends = true;
+    } else {
+      areFriends = false;
+    }
+  };
+
+  const handleAddFriend = () => {
 
   };
 
   return (
     <div>
       <Button
+        onClick={handleAddFriend}
       >
         Add Friend
       </Button>
