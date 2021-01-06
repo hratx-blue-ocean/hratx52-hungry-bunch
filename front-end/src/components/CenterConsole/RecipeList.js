@@ -77,22 +77,6 @@ class RecipeList extends Component {
     });
   }
 
-  // fetchUserInfo() {
-  //   axios.get(`http://localhost:3000/userInfo/5ff4903962127775787d7d8f`, {
-  //     auth: {
-  //       username: 'hungrybunch',
-  //       password: 'eateateat'
-  //     },
-  //   })
-  //   .then((results) => {
-  //     this.setState({
-  //       fetchedList:results.recipes
-  //     })
-  //   })
-  //   .catch((err) =>{
-  //     console.log(err)
-  //   })
-  // }
 
   componentDidUpdate(prevProps) {
     if (this.props.user !== prevProps.user) {
@@ -115,7 +99,6 @@ class RecipeList extends Component {
     return (
 
       <Grid container spacing={1}>
-        {console.log(this.props)}
         <Grid container item xs={12} spacing={3}>
           {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.userRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
