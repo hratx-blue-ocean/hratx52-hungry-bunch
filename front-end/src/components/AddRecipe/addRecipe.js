@@ -63,8 +63,6 @@ export const AddRecipe = () => {
     imageUrl: ''
   };
 
-  console.log(newRecipe);
-
   const clearRecipe = () => {
     dispatch({type: 'SET_NEW_RECIPE_DEFAULT'});
   };
