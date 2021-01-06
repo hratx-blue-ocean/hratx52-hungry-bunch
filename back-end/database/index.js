@@ -10,7 +10,7 @@ class DB {
   }
 
   _connect() {
-    mongoose.connect(EC2_URI)
+    mongoose.connect(EC2_URI, { useCreateIndex: true })
       .then(() => {
         console.log(chalk.blue('Successfully connected to database!'));
       })
