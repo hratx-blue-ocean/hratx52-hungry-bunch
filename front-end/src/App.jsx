@@ -1,5 +1,5 @@
 import { hot } from 'react-hot-loader/root';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './reducers/user.js';
 import LoginLandingPage from './components/Login/LoginLandingPage.js';
@@ -22,19 +22,21 @@ const App = (props) => {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-  if (isLoading) {
-    return <Loading />;
+  // if (isLoading) {
+  //   return <Loading />;
 
-  if (isAuthenticated) {
-    console.log('user IS AUTHENTICATED');
-    axios.post('http://localhost:3000/checkUser', user)
-      .then(results => {
-        dispatch(receiveLogin(results.data));
-      })
-      .catch(err => console.log('an error occured attempting to hit the checkUser endpoint...', err));
-  } else {
-    console.log('user still not authenticated');
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      console.log('user IS AUTHENTICATED');
+      axios.post('http://localhost:3000/checkUser', user)
+        .then(results => {
+          dispatch(receiveLogin(results.data));
+        })
+        .catch(err => console.log('an error occured attempting to hit the checkUser endpoint...', err));
+    } else {
+      console.log('user still not authenticated');
+    }
+  });
 
   return (
     <Switch>
@@ -57,5 +59,6 @@ const App = (props) => {
     </Switch>
   );
 };
+// };
 
 export default hot(connect()(App));
