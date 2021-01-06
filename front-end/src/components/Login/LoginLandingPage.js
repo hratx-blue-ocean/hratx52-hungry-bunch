@@ -6,8 +6,9 @@ const LoginLandingPage = () => {
 
   return (
     <>
-      <LoginButton />
+
       <LoginCarousel />
+      <LoginButton />
     </>
   );
 };
