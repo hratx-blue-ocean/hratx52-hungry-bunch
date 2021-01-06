@@ -5,7 +5,16 @@ import { Container, Grid } from '@material-ui/core';
 
 const CenterConsole = (props) => {
   return (
-    <RecipeList userFilter={props.userFilter}/>
+    <div>
+      <RecipeList
+        userFilter={props.userFilter}
+        searchBarCategory={props.searchBarCategory}
+        searchBarDifficulty={props.searchBarDifficulty}
+        searchBarPreferences={props.searchBarPreferences}
+        searchBarInput={props.searchBarInput}
+      />
+    </div>
+
   );
 };
 

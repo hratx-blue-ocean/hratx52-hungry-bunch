@@ -32,6 +32,7 @@ const User = () => {
   const [currCategory, setCurrCategory] = useState('');
 
   if (user) {
+
     const { name, picture, email, nickname } = user;
 
     return (
