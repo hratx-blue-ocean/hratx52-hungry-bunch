@@ -6,18 +6,30 @@ const log = console.log;
 const GetUser = ({ id }, callback) => {
   console.log(id);
   User.findById(id, (err, doc) => {
-    if (err) { callback(err); }
+    if (err) {
+      callback(err);
+    } else {
+      doc.
+        populate('recipes').
+        populate('friends').
+        populate('favoriteRecipes').
+        execPopulate((err, user) => {
+          if (err) { callback(err); }
+          log(chalk.green('success getting user'));
+          log(user);
+          callback(null, user);
+        });
+    }
+  });
+};
 
-    doc.
-      populate('recipes').
-      populate('friends').
-      populate('favoriteRecipes').
-      execPopulate((err, user) => {
-        if (err) { callback(err); }
-        log(chalk.green('success getting user'));
-        log(user);
-        callback(null, user);
-      });
+const CheckUser = ({ check }, callback) => {
+  User.findOne({ sub: check }, (err, user) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, user);
+    }
   });
 };
 /*
@@ -55,33 +67,46 @@ const AddNewRecipe = ({ id, recipe }, callback) => {
 };
 
 const AddNewUser = ({userInfo}, callback) => {
-  const { username, name, picture, updated_at, email } = userInfo;
+  const { username, name, picture, updated_at, email, sub } = userInfo;
+  let parsedSub = sub.split('|')[1];
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     username: username,
     name: name,
     picture: picture,
     updated_at: updated_at,
-    email: email
+    email: email,
+    sub: parsedSub,
   });
 
   user.save((err, newUser) => {
-    if (err) { callback(err); }
-    callback(null, newUser);
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, newUser);
+    }
   });
 };
 
 const AddNewFriend = ({id, friendId}, callback) => {
   User.findByIdAndUpdate(id, { $push: { friends: friendId }}, (err, newFriend) => {
-    if (err) { callback(err); }
-    callback(null, newFriend);
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, newFriend);
+    }
+
   });
 };
 
 const AddNewFavoriteRecipe = ({id, recipeId}, callback) => {
   User.findByIdAndUpdate(id, { $push: { favoriteRecipes: recipeId }}, (err, newFavorite) => {
-    if (err) { callback(err); }
-    callback(null, newFavorite);
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, newFavorite);
+    }
+
   });
 };
 
@@ -117,4 +142,5 @@ module.exports = {
   UpdateUserPhoto,
   AddNewFavoriteRecipe,
   UpdateUserName,
+  CheckUser,
 };

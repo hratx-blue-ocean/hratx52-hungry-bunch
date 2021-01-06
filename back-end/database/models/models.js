@@ -10,13 +10,14 @@ const userSchema = new mongoose.Schema({
   email: String,
   recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe'}],
   favoriteRecipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe'}],
-  friends: [{ type: Schema.Types.ObjectId, ref: 'User'}]
+  friends: [{ type: Schema.Types.ObjectId, ref: 'User'}],
+  sub: String
 });
 
 const recipeSchema = new mongoose.Schema({
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
   recipeName: String,
-  category: [String],
+  category: String,
   shared: String,
   ingredients: [String],
   time: Number,
