@@ -6,9 +6,9 @@ const FriendsList = ({ friendsList, friends }) => {
   return (
     <Container>
       <Grid container direction='column' item spacing={3} xs={12}>
-        {friends.map((friendId)=>{
+        {friends.map((friend)=>{
           return (
-            <IndividualFriend key={friendId} friendId={friendId}/>
+            <IndividualFriend key={friend._id} friend={friend}/>
           );
         })}
       </Grid>
