@@ -53,6 +53,20 @@ app.get('/friends/:name', (req, res) => {
   });
 });
 
+app.get('/userRecipes/:id', (req, res) => {
+  const { id } = req.params;
+  // get Friends query - fuzzy search for friends
+  queries.GetUserRecipes({ id }, (err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed(err, 'ERROR GETTING RECIPES FROM DATABASE'));
+    } else {
+      log(chalk.green(response));
+      res.status(200).send(response);
+    }
+  });
+});
+
 // -------------- POST ---------------------------------------------------------------------------------------------
 
 app.post('/checkUser', (req, res) => {

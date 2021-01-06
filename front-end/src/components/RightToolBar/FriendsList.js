@@ -13,10 +13,10 @@ const FriendsList = ({ friends, userInput }) => {
 
   return (
     <Container>
-      <Grid container direction='column' item spacing={5} xs={12}>
-        {friends.map((singleFriend)=>{
+      <Grid container direction='column' item spacing={3} xs={12}>
+        {friends.map((friend)=>{
           return (
-            <IndividualFriend friend={singleFriend}/>
+            <IndividualFriend key={friend._id} friend={friend}/>
           );
         })}
       </Grid>
