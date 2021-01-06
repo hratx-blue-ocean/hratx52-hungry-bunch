@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { userCookbook } from '../../data/recipeDummyData.js';
 import SingleRecipe from './SingleRecipe.js';
 import { Grid, Button, Container } from '@material-ui/core/';
+import axios from 'axios';
+
+
 
 class RecipeList extends Component {
   constructor(props) {
@@ -15,6 +18,7 @@ class RecipeList extends Component {
       selectedCatagorie: this.props.selectedCatagorie
     };
   }
+
 
   showPreviousClickHandler (e) {
     var previousButtonToggle = this.state.disablePreviousButton;
@@ -57,14 +61,11 @@ class RecipeList extends Component {
   }
 
   filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
-
-
     const searchArr = arrOfRecipes.filter (function (singleRecipe) {
       if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || singleRecipe.recipeName === objOfSearchTerms.searchBarInput) {
         return true;
       }
     });
-
     return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
   }
 
@@ -76,10 +77,25 @@ class RecipeList extends Component {
     });
   }
 
+  // fetchUserInfo() {
+  //   axios.get(`http://localhost:3000/userInfo/5ff4903962127775787d7d8f`, {
+  //     auth: {
+  //       username: 'hungrybunch',
+  //       password: 'eateateat'
+  //     },
+  //   })
+  //   .then((results) => {
+  //     this.setState({
+  //       fetchedList:results.recipes
+  //     })
+  //   })
+  //   .catch((err) =>{
+  //     console.log(err)
+  //   })
+  // }
+
   // componentDidMount() {
-  //   if(this.props.userFilter === undefined) {
-  //     return this.mapHelper(this.state.recipeList)
-  //   }
+  //   this.fetchUserInfo()
   // }
 
   // componentDidUpdate (prevProps, prevState) {
@@ -94,6 +110,7 @@ class RecipeList extends Component {
     return (
 
       <Grid container spacing={1}>
+        {console.log(this.state)}
         <Grid container item xs={12} spacing={3}>
           {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.recipeList, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.recipeList, this.props))}
         </Grid>
