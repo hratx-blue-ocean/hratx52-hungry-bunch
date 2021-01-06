@@ -21,6 +21,15 @@ class SetFilterCategory extends React.Component {
   componentDidMount() {
     console.log('this is component did mount');
     console.warn('these are props: ', this.props);
+
+    axios.get(`http://localhost:3000/userInfo/${this.props.userId}`)
+      .then((currentUrlUser)=>{
+        //console.log('Got data in axios request: ', currentUrlUser.data)
+        this.setState({friendData: currentUrlUser.data});
+      })
+      .catch((error)=>{
+        console.log('Error in axios request: ', error);
+      });
   }
 
   //friendData are an array of the friend's recipes
@@ -41,7 +50,7 @@ class SetFilterCategory extends React.Component {
         <>
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
           <br></br>
-          <CenterConsole userFilter={this.state.currCategory} friendData={undefined}/>
+          <CenterConsole userFilter={this.state.currCategory} friendData={this.state.friendData}/>
         </>
       );
     } else {
@@ -49,7 +58,8 @@ class SetFilterCategory extends React.Component {
         <>
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
           <br></br>
-          <CenterConsole />
+          {/*this.state.friendData is passing the entire user's info from database...or would you rather have the recipes?*/}
+          <CenterConsole friendData={this.state.friendData}/>
         </>
       );
     }
