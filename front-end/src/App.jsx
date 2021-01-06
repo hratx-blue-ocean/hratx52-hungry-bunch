@@ -22,8 +22,7 @@ const App = (props) => {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-  // if (isLoading) {
-  //   return <Loading />;
+
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -40,25 +39,22 @@ const App = (props) => {
 
   return (
     <Switch>
-      { /* Route components are rendered if the path prop matches the current URL */}
       {!isAuthenticated ?
         <Route path="/"><LoginLandingPage/></Route>
         :
         <>
           <Route exact path="/"><MainPage/></Route>
-          {/* Profile component contains the information that we get from a user (different info for sign in and continue with google) */}
           <Route path="/recipe">
             <RecipePage />
           </Route>
           <Route path="/user">
             <User/>
           </Route>
-          <Auth0Profile />
+          {/* <Auth0Profile /> */}
         </>
       }
     </Switch>
   );
 };
-// };
 
 export default hot(connect()(App));
