@@ -15,7 +15,7 @@ class RecipeList extends Component {
       disablePreviousButton: true,
       startOfSlice: 0,
       endOfSlice: 6,
-      selectedCatagorie: this.props.selectedCatagorie
+      userRecipes: this.props.user ? this.props.user.recipes : []
     };
   }
 
@@ -40,7 +40,7 @@ class RecipeList extends Component {
     var newEnd = this.state.endOfSlice + 6;
     var newShowMoreButtonToggle = this.state.disableShowMoreButton;
 
-    if (this.state.recipeList.length < newEnd) {
+    if (this.state.userRecipes.length < newEnd) {
       newShowMoreButtonToggle = true;
     }
     this.setState({
@@ -105,9 +105,9 @@ class RecipeList extends Component {
 
   // componentDidUpdate (prevProps, prevState) {
   //   if (this.props.userFilter !== prevProps.userFilter) {
-  //     this.filterByCatagorie(this.state.recipeList, this.props.userFilter);
+  //     this.filterByCatagorie(this.state.userRecipes, this.props.userFilter);
   //   } else if (this.props.searchBarInput !== prevProps.searchBarInput || this.props.searchBarCategory !== prevProps.searchBarCategory || this.props.searchBarDifficulty !== prevProps.searchBarDifficulty) {
-  //     this.filterBySearchBar(this.state.recipeList, this.props);
+  //     this.filterBySearchBar(this.state.userRecipes, this.props);
   //   }
   // }
 
@@ -115,8 +115,9 @@ class RecipeList extends Component {
     return (
 
       <Grid container spacing={1}>
+        {console.log(this.props)}
         <Grid container item xs={12} spacing={3}>
-          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.recipeList, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.recipeList, this.props))}
+          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.userRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
         <Grid container spacing={10}>
           <Grid item >

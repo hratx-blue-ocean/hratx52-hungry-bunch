@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Grid, Container, Paper, IconButton } from '@material-ui/core';
 import IndividualFriend from './IndividualFriend.js';
 
-const FriendsList = ({ friendsList, friends }) => {
+const FriendsList = ({ friends }) => {
   return (
     <Container>
-      <Grid container direction='column' item spacing={3} xs={12}>
-        {friendsList.map((friend)=>{
+      <Grid container direction='column' item spacing={5} xs={12}>
+        {friends.map((singleFriend)=>{
           return (
-            <IndividualFriend key={friend.userId} singleFriend={friend} friend={friends}/>
+            <IndividualFriend friend={singleFriend}/>
           );
         })}
       </Grid>

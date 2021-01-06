@@ -37,7 +37,7 @@ const RightToolBar = () => {
               </IconButton>
             </Paper>
           </Grid>
-          <FriendsList friendsList={friends} friends={state.userReducer.user.friends}/>
+          <FriendsList friends={state.userReducer.user.friends}/>
         </Grid>
       </>
     );

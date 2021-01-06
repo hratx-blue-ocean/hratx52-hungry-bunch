@@ -3,7 +3,7 @@ import { Grid, Container, Paper, IconButton } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
 
-const IndividualFriend = ({ singleFriend, friend }) => {
+const IndividualFriend = ({ friend }) => {
   //userId for a friend will be in the original user's object received from the GET request
   //the User component will then use the url to make its own axios request
 
@@ -14,12 +14,12 @@ const IndividualFriend = ({ singleFriend, friend }) => {
     <Grid container item spacing={2}>
       <Grid item>
         <Link to={friendLink}>
-          <Avatar src={singleFriend.picture}></Avatar>
+          <Avatar src={friend.picture}></Avatar>
         </Link>
       </Grid>
       <Grid item>
         <Link to={friendLink}>
-          {singleFriend.name}
+          {friend.name}
         </Link>
       </Grid>
     </Grid>
