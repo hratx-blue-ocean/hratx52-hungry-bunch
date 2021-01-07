@@ -2,20 +2,23 @@ import React, { Component } from 'react';
 import { userCookbook } from '../../data/recipeDummyData.js';
 import SingleRecipe from './SingleRecipe.js';
 import { Grid, Button, Container } from '@material-ui/core/';
+import axios from 'axios';
+
+
 
 class RecipeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipeList: userCookbook.recipes,
-      filterList: [],
       disableShowMoreButton: false,
       disablePreviousButton: true,
       startOfSlice: 0,
       endOfSlice: 6,
-      selectedCatagorie: this.props.selectedCatagorie
+      userRecipes: this.props.user ? this.props.user.recipes : []
     };
   }
+
 
   showPreviousClickHandler (e) {
     var previousButtonToggle = this.state.disablePreviousButton;
@@ -37,7 +40,7 @@ class RecipeList extends Component {
     var newEnd = this.state.endOfSlice + 6;
     var newShowMoreButtonToggle = this.state.disableShowMoreButton;
 
-    if (this.state.recipeList.length < newEnd) {
+    if (this.state.userRecipes.length < newEnd) {
       newShowMoreButtonToggle = true;
     }
     this.setState({
@@ -48,36 +51,56 @@ class RecipeList extends Component {
     });
   }
 
-  filterByCatagorie (arrOfRecipes, filterTerm) {
-    if (filterTerm === undefined) {
-      return arrOfRecipes;
+
+  filterByCatagorie (arrOfRecipes, objOfProps) {
+    if (objOfProps.userFilter === undefined) {
+      return arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
     } else {
-      return arrOfRecipes.filter((currRecipe) => currRecipe.category === filterTerm);
+      return arrOfRecipes.filter((currRecipe) => currRecipe.category === objOfProps.userFilter).slice(this.state.startOfSlice, this.state.endOfSlice);
     }
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    if (this.props.userFilter !== prevProps.userFilter) {
-      this.filterByCatagorie(this.props.userFilter);
+  filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
+    const searchArr = arrOfRecipes.filter (function (singleRecipe) {
+      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || singleRecipe.recipeName === objOfSearchTerms.searchBarInput) {
+        return true;
+      }
+    });
+    return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
+  }
+
+  mapHelper(arr) {
+    return arr.map((singleItem) => {
+      return (
+        <SingleRecipe oneRecipe={singleItem} key={singleItem._id}/>
+      );
+    });
+  }
+
+
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+      this.setState({
+        userRecipes: this.props.user.recipes
+      });
     }
   }
 
 
-
-  componentDidMount() {
-    this.filterByCatagorie(this.state.userFilter);
-  }
+  // componentDidUpdate (prevProps, prevState) {
+  //   if (this.props.userFilter !== prevProps.userFilter) {
+  //     this.filterByCatagorie(this.state.userRecipes, this.props.userFilter);
+  //   } else if (this.props.searchBarInput !== prevProps.searchBarInput || this.props.searchBarCategory !== prevProps.searchBarCategory || this.props.searchBarDifficulty !== prevProps.searchBarDifficulty) {
+  //     this.filterBySearchBar(this.state.userRecipes, this.props);
+  //   }
+  // }
 
   render() {
     return (
+
       <Grid container spacing={1}>
-        {console.log(this.props)}
         <Grid container item xs={12} spacing={3}>
-          {this.filterByCatagorie(this.state.recipeList, this.props.userFilter).slice(this.state.startOfSlice, this.state.endOfSlice).map((oneRecipe) => {
-            return (
-              <SingleRecipe oneRecipe={oneRecipe} key={oneRecipe.recipeId}/>
-            );
-          })}
+          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.userRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
         <Grid container spacing={10}>
           <Grid item >

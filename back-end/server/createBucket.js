@@ -1,16 +1,13 @@
 const AWS = require('aws-sdk');
-
-const ID = 'AKIAIZ2RR4N3VM44OJ2A';
-const SECRET = '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';
-const BUCKET_NAME = 'hratx52-hungry-bunch';
+const {S3_ID, S3_SECRET, S3_BUCKET_NAME} = require('../config.js');
 
 const s3 = new AWS.S3({
-  accessKeyId: ID,
-  secretAccessKey: SECRET
+  accessKeyId: S3_ID,
+  secretAccessKey: S3_SECRET
 });
 
 const params = {
-  Bucket: BUCKET_NAME,
+  Bucket: S3_BUCKET_NAME,
   CreateBucketConfiguration: {
     LocationConstraint: 'us-east-2'
   }

@@ -66,7 +66,6 @@ export default function UserInfoToolbar() {
               <Button onClick={(e, file)=>{
                 e.preventDefault();
                 uploadAvatar(file);
-                // TODO: also send user ID
                 toggleVisibility(!isVisible);
               }}>
                 upload
