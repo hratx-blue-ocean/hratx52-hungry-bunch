@@ -165,6 +165,28 @@ const UpdateUserPhoto = ({ id, photoUrl }, callback) => {
   });
 };
 
+const GetAllRecipes = (callback) => {
+  Recipe.find((err, recipes) => {
+    if (err) {
+      log(chalk.redBright('err', err));
+      callback(err);
+    } else {
+      callback(null, recipes);
+    }
+  });
+};
+
+// UpdateFavoritedBy
+const UpdateFavoritedBy = ({ userId, recipeId }, callback) => {
+  Recipe.findByIdAndUpdate(recipeId, { $push: { favoritedBy: userId } }, (err, favorites) => {
+    if (err) {
+      log(chalk.redBright('err', err));
+      callback(err);
+    } else {
+      callback(null, favorites);
+    }
+  });
+};
 
 module.exports = {
   GetUser,
@@ -177,4 +199,6 @@ module.exports = {
   CheckUser,
   GetFriends,
   GetUserRecipes,
+  GetAllRecipes,
+  UpdateFavoritedBy
 };
