@@ -8,6 +8,7 @@ import { selectUser } from '../../containers/addUserContainer.js';
 import { AddedIngredients } from './addedIngredients.js';
 import { AddedInstructions } from './addedInstructions.js';
 import { postNewRecipe } from '../../utils/apiCalls.js';
+import { listOfImages } from '../../assets/foodImageUrls.js';
 import Container from '@material-ui/core/Container';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -63,11 +64,13 @@ export const AddRecipe = () => {
     imageUrl: ''
   };
 
-  console.log(newRecipe);
+  const randomImage = () => {
+    var index = Math.floor(Math.random() * listOfImages.length);
+    return listOfImages[index];
+  };
 
   const clearRecipe = () => {
     dispatch({type: 'SET_NEW_RECIPE_DEFAULT'});
-    console.log(newRecipe);
   };
 
   const handleRecipeChange = (event) => {
@@ -93,36 +96,36 @@ export const AddRecipe = () => {
     }
   };
 
-  const handleSubmit = (event) => {
-    console.log(event);
-    console.log(newRecipe);
-    //using dummy image url
-    newRecipe.imageUrl = 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
+  const handleSubmit = async (event) => {
+    newRecipe.imageUrl = randomImage();
 
-    postNewRecipe(newRecipe, '5ff4903962127775787d7d8f');
-    setTimeout(() => {
-      dispatch({type: 'SET_MODAL', payload: false});
+    var response = await postNewRecipe(newRecipe, user['_id']);
+
+    if (response.status === 200) {
       alert('Recipe Saved');
-    }, 1000);
-    clearRecipe();
+      dispatch({type: 'SET_MODAL', payload: false});
+      clearRecipe();
+    } else {
+      alert('Sorry, the recipe was not able to be saved. Please try again.');
+    }
   };
 
   const handleAddIngredient = (event) => {
     event.preventDefault();
     dispatch({type: 'SET_CURRENT_INGREDIENTS', payload: ingredient});
     ingredient = '';
-    document.getElementById("add-recipe-ingredient").value = '';
+    document.getElementById('add-recipe-ingredient').value = '';
   };
 
   const handleAddInstruction = (event) => {
     event.preventDefault();
     dispatch({type: 'SET_CURRENT_STEPS', payload: step});
     step = '';
-    document.getElementById("add-recipe-step").value = '';
+    document.getElementById('add-recipe-step').value = '';
   };
 
   return (
-    <Container maxWidth="sm" style={{padding: '20px', height: '700px', overflow: 'scroll'}}>
+    <Container maxWidth='sm' style={{padding: '20px', height: '700px', overflow: 'scroll'}}>
       <h2>Add a new recipe:</h2>
       <form className={classes.root}>
         <div>
@@ -146,20 +149,20 @@ export const AddRecipe = () => {
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="add-recipe-category-label">Category</InputLabel>
             <Select required id="add-recipe-category" name="add-recipe-category" defaultValue="Breakfast" label="Category" onChange={handleRecipeChange}>
-              <MenuItem value={"Breakfast"}>Breakfast</MenuItem>
-              <MenuItem value={"Lunch"}>Lunch</MenuItem>
-              <MenuItem value={"Dinner"}>Dinner</MenuItem>
-              <MenuItem value={"Dessert"}>Dessert</MenuItem>
-              <MenuItem value={"Beverage"}>Beverage</MenuItem>
-              <MenuItem value={"Snack"}>Snack</MenuItem>
+              <MenuItem value={'Breakfast'}>Breakfast</MenuItem>
+              <MenuItem value={'Lunch'}>Lunch</MenuItem>
+              <MenuItem value={'Dinner'}>Dinner</MenuItem>
+              <MenuItem value={'Dessert'}>Dessert</MenuItem>
+              <MenuItem value={'Beverage'}>Beverage</MenuItem>
+              <MenuItem value={'Snack'}>Snack</MenuItem>
             </Select>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="add-share-with-lable">Share With</InputLabel>
             <Select required id="add-recipe-share-with" name="add-recipe-shared-with" defaultValue="Everyone" label="Share With" onChange={handleRecipeChange}>
-              <MenuItem value={"Only Me"}>Only Me</MenuItem>
-              <MenuItem value={"Friends Only"}>Friends Only</MenuItem>
-              <MenuItem value={"Everyone"}>Everyone</MenuItem>
+              <MenuItem value={'Only Me'}>Only Me</MenuItem>
+              <MenuItem value={'Friends Only'}>Friends Only</MenuItem>
+              <MenuItem value={'Everyone'}>Everyone</MenuItem>
             </Select>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
@@ -183,11 +186,11 @@ export const AddRecipe = () => {
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="add-recipe-difficulty-label">Difficulty</InputLabel>
             <Select required id="add-recipe-difficulty" name="add-recipe-difficulty" defaultValue="Medium" label="Difficulty" onChange={handleRecipeChange}>
-              <MenuItem value={"Very Easy"}>Very Easy</MenuItem>
-              <MenuItem value={"Easy"}>Easy</MenuItem>
-              <MenuItem value={"Medium"}>Medium</MenuItem>
-              <MenuItem value={"Hard"}>Hard</MenuItem>
-              <MenuItem value={"Very Hard"}>Very Hard</MenuItem>
+              <MenuItem value={'Very Easy'}>Very Easy</MenuItem>
+              <MenuItem value={'Easy'}>Easy</MenuItem>
+              <MenuItem value={'Medium'}>Medium</MenuItem>
+              <MenuItem value={'Hard'}>Hard</MenuItem>
+              <MenuItem value={'Very Hard'}>Very Hard</MenuItem>
             </Select>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>

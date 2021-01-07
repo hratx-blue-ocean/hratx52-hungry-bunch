@@ -5,6 +5,7 @@ import Menu from '@material-ui/core/Menu';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { AddRecipe } from '../AddRecipe/addRecipe.js';
+import { AddFriend } from '../AddFriend/addFriend.js';
 
 import { Link, Route, Switch } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';

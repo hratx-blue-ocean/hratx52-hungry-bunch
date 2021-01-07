@@ -20,6 +20,7 @@ const SingleRecipe = ({oneRecipe}) => {
             <CardContent>
               {oneRecipe.recipeName}
               <Grid>
+                {oneRecipe.favoritedBy.length}
                 <StarRateIcon/>
                 <StarRateIcon/>
                 <StarRateIcon/>

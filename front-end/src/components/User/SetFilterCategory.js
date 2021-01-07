@@ -49,20 +49,17 @@ class SetFilterCategory extends React.Component {
     if (this.state.currCategory) {
       return (
         <>
-          {/*console.log('MONICA IT FILTERED!: ')*/}
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
           <br></br>
-          <CenterConsole userFilter={this.state.currCategory} friendData={this.state.friendData}/>
+          <CenterConsole userFilter={this.state.currCategory} friendData={this.state.userUrlRecipes}/>
         </>
       );
     } else {
       return (
         <>
-          {/*console.log('MONICA IT FILTERED!: ')*/}
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
           <br></br>
-          {/*this.state.friendData is passing the entire user's info from database...or would you rather have the recipes?*/}
-          <CenterConsole friendData={this.state.friendData}/>
+          <CenterConsole friendData={this.state.userUrlRecipes}/>
         </>
       );
     }
