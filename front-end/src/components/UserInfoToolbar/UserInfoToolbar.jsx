@@ -63,7 +63,7 @@ export default function UserInfoToolbar() {
           {isVisible ?
             <div>
               <input type="file"></input>
-              <Button onClick={(e)=>{
+              <Button onClick={(e, file)=>{
                 e.preventDefault();
                 uploadAvatar(file);
                 // TODO: also send user ID

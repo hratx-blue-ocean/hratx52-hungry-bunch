@@ -7,6 +7,7 @@ const log = console.log;
 const queries = require('./queries');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const uploadImage = require('./uploadImage');
 
 const { User } = require('../database/data');
 
@@ -126,6 +127,19 @@ app.post('/addUserName', (req, res) => {
       res.send(500);
     } else {
       // send status success back to client
+      res.send(200);
+    }
+  });
+});
+
+// handles uploading of avatar image to s3 bucket, returns a photo url
+app.post('/uploadAvatar', (req, res) => {
+  const image = req.body;
+  uploadImage(image, (err, response) => {
+    if (err) {
+      res.send(500);
+      console.log(err);
+    } else {
       res.send(200);
     }
   });
