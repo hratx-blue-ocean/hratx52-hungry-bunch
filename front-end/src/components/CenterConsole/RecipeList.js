@@ -15,7 +15,7 @@ class RecipeList extends Component {
       disablePreviousButton: true,
       startOfSlice: 0,
       endOfSlice: 6,
-      selectedCatagorie: this.props.selectedCatagorie
+      userRecipes: this.props.user ? this.props.user.recipes : []
     };
   }
 
@@ -40,7 +40,7 @@ class RecipeList extends Component {
     var newEnd = this.state.endOfSlice + 6;
     var newShowMoreButtonToggle = this.state.disableShowMoreButton;
 
-    if (this.state.recipeList.length < newEnd) {
+    if (this.state.userRecipes.length < newEnd) {
       newShowMoreButtonToggle = true;
     }
     this.setState({
@@ -72,37 +72,26 @@ class RecipeList extends Component {
   mapHelper(arr) {
     return arr.map((singleItem) => {
       return (
-        <SingleRecipe oneRecipe={singleItem} key={singleItem.recipeId}/>
+        <SingleRecipe oneRecipe={singleItem} key={singleItem._id}/>
       );
     });
   }
 
-  // fetchUserInfo() {
-  //   axios.get(`http://localhost:3000/userInfo/5ff4903962127775787d7d8f`, {
-  //     auth: {
-  //       username: 'hungrybunch',
-  //       password: 'eateateat'
-  //     },
-  //   })
-  //   .then((results) => {
-  //     this.setState({
-  //       fetchedList:results.recipes
-  //     })
-  //   })
-  //   .catch((err) =>{
-  //     console.log(err)
-  //   })
-  // }
 
-  // componentDidMount() {
-  //   this.fetchUserInfo()
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+      this.setState({
+        userRecipes: this.props.user.recipes
+      });
+    }
+  }
+
 
   // componentDidUpdate (prevProps, prevState) {
   //   if (this.props.userFilter !== prevProps.userFilter) {
-  //     this.filterByCatagorie(this.state.recipeList, this.props.userFilter);
+  //     this.filterByCatagorie(this.state.userRecipes, this.props.userFilter);
   //   } else if (this.props.searchBarInput !== prevProps.searchBarInput || this.props.searchBarCategory !== prevProps.searchBarCategory || this.props.searchBarDifficulty !== prevProps.searchBarDifficulty) {
-  //     this.filterBySearchBar(this.state.recipeList, this.props);
+  //     this.filterBySearchBar(this.state.userRecipes, this.props);
   //   }
   // }
 
@@ -110,9 +99,8 @@ class RecipeList extends Component {
     return (
 
       <Grid container spacing={1}>
-        {console.log(this.state)}
         <Grid container item xs={12} spacing={3}>
-          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.recipeList, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.recipeList, this.props))}
+          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.userRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
         <Grid container spacing={10}>
           <Grid item >
