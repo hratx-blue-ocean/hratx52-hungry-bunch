@@ -72,7 +72,7 @@ class RecipeList extends Component {
   mapHelper(arr) {
     return arr.map((singleItem) => {
       return (
-        <SingleRecipe oneRecipe={singleItem} key={singleItem.recipeId}/>
+        <SingleRecipe oneRecipe={singleItem} key={singleItem._id}/>
       );
     });
   }
