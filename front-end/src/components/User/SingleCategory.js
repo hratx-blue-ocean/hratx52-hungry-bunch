@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import Typography from '@material-ui/core/Typography';
-import { Grid, Button, Container } from '@material-ui/core/';
+import { Grid, Container } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, CardActions, CardContent, CardMedia} from '@material-ui/core';
 
@@ -19,7 +19,6 @@ const useStyles = makeStyles(()=>({
     background: 'rgba(255,255,255,0.6)'
   }
 }));
-
 
 const SingleCategory = (props) => {
   const classes = useStyles();
