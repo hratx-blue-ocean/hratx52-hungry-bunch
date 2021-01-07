@@ -68,6 +68,19 @@ app.get('/userRecipes/:id', (req, res) => {
   });
 });
 
+app.get('/allRecipes', (req, res) => {
+
+  queries.GetAllRecipes((err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed(err, 'ERROR GETTING RECIPES FROM DATABASE'));
+    } else {
+      log(chalk.green(response));
+      res.status(200).send(response);
+    }
+  });
+});
+
 // -------------- POST ---------------------------------------------------------------------------------------------
 
 app.post('/checkUser', (req, res) => {
@@ -190,8 +203,8 @@ app.post('/addUserPhoto', (req, res) => {
   });
 });
 
-app.post('/updateFuzzy', (req, res) => {
-  queries.updateOldRecordsWithFuzzy((err, result) => {
+app.post('/updateFavoritedBy', (req, res) => {
+  queries.UpdateFavoritedBy((err, result) => {
     if (err) {
       log(chalk.red(err));
       res.send(500);
