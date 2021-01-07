@@ -22,7 +22,7 @@ const LoginButton = (props) => {
     } else if (n >= 17 && n < 20) {
       foodTime = 'You`re a souper!^dinner';
     } else if (n >= 20 && n <= 24) {
-      foodTime = 'Dill with it!^before bed cravings';
+      foodTime = 'Dill with it!^night cravings';
     } else {
       foodTime = 'Sending you encourage mint!^midnight snack';
     }
