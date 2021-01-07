@@ -176,6 +176,18 @@ app.post('/addUserPhoto', (req, res) => {
   });
 });
 
+app.post('/updateFuzzy', (req, res) => {
+  queries.updateOldRecordsWithFuzzy((err, result) => {
+    if (err) {
+      log(chalk.red(err));
+      res.send(500);
+    } else {
+      console.log(result);
+      res.send(result);
+    }
+  });
+});
+
 app.listen(port, () => {
   log(chalk.magenta('HUNGRY BACK-END app listening at ') + chalk.bold.greenBright(`http://localhost:${port}`));
 });

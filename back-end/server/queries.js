@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const { Friend, Recipe, User } = require('../database/models/models');
+const { Recipe, User } = require('../database/models/models');
 const mongoose = require('mongoose');
 const log = console.log;
 
@@ -29,7 +29,7 @@ const GetFriends = ({ name }, callback) => {
       callback(err);
     } else {
       log(chalk.green(friends));
-      callback(friends);
+      callback(null, friends);
     }
   });
 };
@@ -165,6 +165,18 @@ const UpdateUserPhoto = ({ id, photoUrl }, callback) => {
   });
 };
 
+const updateOldRecordsWithFuzzy = (callback) => {
+  User.find((err, doc) => {
+    if (err) {
+      log(err);
+      callback(err);
+    } else {
+      log(doc);
+      callback(null, doc);
+    }
+  });
+};
+
 module.exports = {
   GetUser,
   AddNewRecipe,
@@ -176,4 +188,5 @@ module.exports = {
   CheckUser,
   GetFriends,
   GetUserRecipes,
+  updateOldRecordsWithFuzzy
 };
