@@ -12,6 +12,7 @@ import SetFilterCategory from './SetFilterCategory.js';
 import CategoryCarousel from './CategoryCarousel.js';
 import CenterConsole from '../CenterConsole/CenterConsole.js';
 import { default as LeftToolbar } from '../RightToolBar/RightToolBar.js';
+import UserDbCalls from './UserDbCall.js'
 
 
 //wireframe: https://www.figma.com/file/C9TLcX8c0DNBW3xsYlv6kO/Untitled?node-id=60%3A2
@@ -46,25 +47,7 @@ const User = () => {
 
     return (
       <>
-        <TopToolbar nickname={nickname} picture={picture}/>
-        <br></br>
-        <div>
-          <Container>
-            <Grid container>
-              <Grid item xs={3}>
-                {/*THIS IS THE FRIENDLIST*/}
-                <LeftToolbar/>
-              </Grid>
-              <Grid item xs={9}>
-                <SetFilterCategory userId={userId} userInfo={state.userReducer.user}/>
-              </Grid>
-            </Grid>
-          </Container>
-        </div>
-        <div>
-          <p>Hello?</p>
-          {console.warn(state.userReducer)}
-        </div>
+        <UserDbCalls location={location}/>
       </>
     );
   } else {
