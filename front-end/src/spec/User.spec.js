@@ -9,20 +9,18 @@ provides a React renderer that can be used to render React components to pure Ja
 without depending on the DOM or a native mobile environment..
 */
 import renderer from 'react-test-renderer';
+import { renderHook, act } from '@testing-library/react-hooks'
 
-
-import UserCookbook from '../components/UserCookbook/UserCookbook.js';
-
+import User from '../components/User/User.js';
 
 import configureMockStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
 
-describe('Cookbook component', () => {
-
+describe('User component', () => {
   it('should render', () => {
-    const wrapper = shallow(<UserCookbook />);
+    const wrapper = shallow(<User />);
   });
 
   /** */
