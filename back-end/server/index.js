@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
 // --------------------- GET  ---------------------------------------------------------------------------------------------
 // get user info will send user object back to client with user info and user recipes
 app.get('/userInfo/:id', (req, res) => {
-
   log(chalk.cyan(req.params.id));
   const { id } = req.params;
   // get User query - query user collection
@@ -38,35 +37,6 @@ app.get('/userInfo/:id', (req, res) => {
     }
   });
 });
-
-app.get('/friends/:name', (req, res) => {
-  log(chalk.cyan(req.params.name));
-  const { name } = req.params;
-  // get Friends query - fuzzy search for friends
-  queries.GetFriends({ name }, (err, response) => {
-    if (err) {
-      res.send(500);
-      log(chalk.bgRed(err, 'ERROR GETTING FRIENDS FROM DATABASE'));
-    } else {
-      res.status(200).send(response);
-    }
-  });
-});
-
-app.get('/userRecipes/:id', (req, res) => {
-  const { id } = req.params;
-  // get Friends query - fuzzy search for friends
-  queries.GetUserRecipes({ id }, (err, response) => {
-    if (err) {
-      res.send(500);
-      log(chalk.bgRed(err, 'ERROR GETTING RECIPES FROM DATABASE'));
-    } else {
-      log(chalk.green(response));
-      res.status(200).send(response);
-    }
-  });
-});
-
 // -------------- POST ---------------------------------------------------------------------------------------------
 
 app.post('/checkUser', (req, res) => {

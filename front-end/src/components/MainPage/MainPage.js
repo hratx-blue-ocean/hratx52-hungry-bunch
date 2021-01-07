@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
+import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import MenuIcon from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -10,6 +12,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
+import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
 
 //import styles from './mainpage.css';
 
@@ -27,6 +30,25 @@ const MainPage = () => {
     <>
       <TopToolbar />
       <SearchBar />
+      <div>
+        {/* The Grid system below should be able to hold the left tool bar, center console, and
+          * right toolbar in the proper format and can easily be moved from mainPage if needed.
+         */}
+        <Container>
+          <Grid container>
+            <Grid item xs={3}>
+              {/* Replace with Left ToolBar*/}
+              <UserInfoToolbar/>
+            </Grid>
+            <Grid item xs={6}>
+              <CenterConsole/>
+            </Grid>
+            <Grid item xs={3}>
+              <RightToolBar/>
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
     </>
   );
 };
