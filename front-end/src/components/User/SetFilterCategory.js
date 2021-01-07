@@ -4,33 +4,34 @@ import CenterConsole from '../CenterConsole/CenterConsole.js';
 
 import axios from 'axios';
 
-//friendData are an array of the friend's recipes
-
 class SetFilterCategory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currCategory: undefined,
-      friendData: undefined,
       userId: '',
       userUrlRecipes: []
-
     };
 
     this.setCurrCategory = this.setCurrCategory.bind(this);
-
   }
 
   componentDidMount() {
-    console.log('this is component did mount');
-    console.warn('these are props: ', this.props);
-    this.setState({userId: this.props.userId});
+    //console.log('Props in componentDidMount: ', this.props);
 
-    axios.get(`http://localhost:3000/userRecipes/${this.props.userId}`)
-      .then((userUrlRecipesDb)=>{
-        this.setState({userUrlRecipes: userUrlRecipesDb.data});
-      })
-      .catch((error)=>{ console.log('error in axios request in setFilterCategory: ', error); });
+    this.setState({
+      userId: this.props.userInfo._id,
+      userUrlRecipes: this.props.userInfo.recipes
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.userId !== this.props.userId) {
+      this.setState({
+        userId: this.props.userId,
+        userUrlRecipes: this.props.userInfo.recipes
+      });
+    }
   }
 
   setCurrCategory(e, categoryName) {
@@ -44,14 +45,12 @@ class SetFilterCategory extends React.Component {
   }
 
   render() {
-
-
     if (this.state.currCategory) {
       return (
         <>
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
           <br></br>
-          <CenterConsole userFilter={this.state.currCategory} friendData={this.state.userUrlRecipes}/>
+          <CenterConsole userFilter={this.state.currCategory} friendRecipes={this.state.userUrlRecipes}/>
         </>
       );
     } else {
@@ -59,11 +58,10 @@ class SetFilterCategory extends React.Component {
         <>
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
           <br></br>
-          <CenterConsole friendData={this.state.userUrlRecipes}/>
+          <CenterConsole friendRecipes={this.state.userUrlRecipes}/>
         </>
       );
     }
-
   }
 }
 
