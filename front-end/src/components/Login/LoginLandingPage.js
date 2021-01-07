@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LoginButton from './Login.js';
 import LoginCarousel from './LoginCarousel.js';
 import Header from './Header.js';
+import Footer from './Footer.js';
 
 const LoginLandingPage = () => {
 
@@ -10,6 +11,7 @@ const LoginLandingPage = () => {
       <Header />
       <LoginCarousel />
       <LoginButton />
+      <Footer/>
     </>
   );
 };

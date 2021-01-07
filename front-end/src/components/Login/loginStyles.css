@@ -8,6 +8,21 @@
   align-items: center;
   justify-content: center;
 }
+.login-landing-page-header-title{
+  padding-right: 10px;
+}
+
+.login-landing-page-footer{
+  display: flex;
+  background-color: white;
+  color: black;
+  padding: 60px 20px 10px 20px;
+  width: 98%;
+  height: 151px;
+  font-size: 18px;
+  /* align-items: center; */
+  justify-content: space-between;
+}
 
 .login-landing-page-carousel-container{
  width :100%
@@ -27,7 +42,7 @@
   margin-left: 25%;
   color: white;
   text-align: center;
-  font-size: 50px;
+  font-size: 36px;
   padding: 10px;
   height: 10%;
   width: 50%;
