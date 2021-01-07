@@ -1,9 +1,9 @@
 const AWS = require('aws-sdk');
-const {S3_ID, S3_SECRET, S3_BUCKET_NAME} = require('../config.js');
+const {S3_ID, S3_SECRET, S3_BUCKET_NAME} = require('./bucketConfig');
 
 const s3 = new AWS.S3({
   accessKeyId: S3_ID,
-  secretAccessKey: S3_SECRET
+  secretAccessKey: S3_SECRET,
 });
 
 const params = {

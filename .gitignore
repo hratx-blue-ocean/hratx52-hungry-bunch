@@ -2,3 +2,4 @@
 /front-end/node_modules
 .DS_Store
 *.pem
+/back-end/server/bucketConfig.js

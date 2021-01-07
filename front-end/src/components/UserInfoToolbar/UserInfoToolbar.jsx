@@ -65,7 +65,9 @@ export default function UserInfoToolbar() {
               <input type="file"></input>
               <Button onClick={(e, file)=>{
                 e.preventDefault();
-                uploadAvatar(file);
+                const formData = new FormData();
+                formData.append('file', file);
+                uploadAvatar(formData);
                 toggleVisibility(!isVisible);
               }}>
                 upload

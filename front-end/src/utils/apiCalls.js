@@ -13,9 +13,7 @@ export const postNewRecipe = (recipe, userId) => {
     });
 };
 
-export const uploadAvatar = (image) => {
-  let formData = new FormData();
-  formData.append('file', image);
+export const uploadAvatar = (formData) => {
   let config = {
     headers: { 'Content-Type': 'multipart/form-data' }
   };
@@ -28,6 +26,30 @@ export const uploadAvatar = (image) => {
       console.log('avatar could not be uploaded :^( : ', err);
     });
 };
+
+/*
+const onImageGetScores = (e) => {
+    // Create an object of formData
+    const formData = new FormData();
+    // Update the formData object
+    formData.append(
+      "image",
+      images[0].file,
+      selectedItem
+    );
+    // Request made to the backend api
+    // Send formData object
+    axios.post("http://localhost:5000/drawings/PostImage", formData)
+    .then(function (response) {
+      // handle success
+      setScore(response.data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+  }
+*/
 
 export const addFriend = (user, friend) => {
 
