@@ -24,7 +24,7 @@ const GetUser = ({ id }, callback) => {
 };
 
 const GetFriends = ({ name }, callback) => {
-  User.fuzzySearch(name, (err, friends) => {
+  User.find({ 'name': { '$regex': name, '$options': 'i' }}, (err, friends) => {
     if (err) {
       callback(err);
     } else {
@@ -165,17 +165,6 @@ const UpdateUserPhoto = ({ id, photoUrl }, callback) => {
   });
 };
 
-const updateOldRecordsWithFuzzy = (callback) => {
-  User.find((err, doc) => {
-    if (err) {
-      log(err);
-      callback(err);
-    } else {
-      log(doc);
-      callback(null, doc);
-    }
-  });
-};
 
 module.exports = {
   GetUser,
@@ -188,5 +177,4 @@ module.exports = {
   CheckUser,
   GetFriends,
   GetUserRecipes,
-  updateOldRecordsWithFuzzy
 };
