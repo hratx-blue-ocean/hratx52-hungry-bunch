@@ -23,12 +23,43 @@ const GetUser = ({ id }, callback) => {
   });
 };
 
+const GetFriends = ({ name }, callback) => {
+  User.fuzzySearch(name, (err, friends) => {
+    if (err) {
+      callback(err);
+    } else {
+      log(chalk.green(friends));
+      callback(friends);
+    }
+  });
+};
+
+const GetUserRecipes = ({ id }, callback) => {
+  Recipe.find({ owner: id }, (err, recipes) => {
+    if (err) {
+      log(chalk.redBright('err', err));
+      callback(err);
+    } else {
+      callback(null, recipes);
+    }
+  });
+};
+
 const CheckUser = ({ check }, callback) => {
   User.findOne({ sub: check }, (err, user) => {
     if (err) {
       callback(err);
     } else {
-      callback(null, user);
+      user.
+        populate('recipes').
+        populate('friends').
+        populate('favoriteRecipes').
+        execPopulate((err, user) => {
+          if (err) { callback(err); }
+          log(chalk.green('success getting user'));
+          log(user);
+          callback(null, user);
+        });
     }
   });
 };
@@ -143,4 +174,6 @@ module.exports = {
   AddNewFavoriteRecipe,
   UpdateUserName,
   CheckUser,
+  GetFriends,
+  GetUserRecipes,
 };
