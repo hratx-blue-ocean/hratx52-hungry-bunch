@@ -13,6 +13,7 @@ import CategoryCarousel from './CategoryCarousel.js';
 import CenterConsole from '../CenterConsole/CenterConsole.js';
 import { default as LeftToolbar } from '../RightToolBar/RightToolBar.js';
 
+
 //wireframe: https://www.figma.com/file/C9TLcX8c0DNBW3xsYlv6kO/Untitled?node-id=60%3A2
 
 const useStyles = makeStyles(theme => ({
