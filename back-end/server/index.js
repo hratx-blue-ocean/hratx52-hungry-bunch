@@ -39,6 +39,21 @@ app.get('/userInfo/:id', (req, res) => {
   });
 });
 
+app.get('/recipe/:id', (req, res) => {
+
+  log(chalk.cyan(req.params.id));
+  const { id } = req.params;
+  // get User query - query user collection
+  queries.GetRecipe({ id }, (err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed(err, 'ERROR GETTING A RECIPE FROM DATABASE'));
+    } else {
+      res.status(200).send(response);
+    }
+  });
+});
+
 app.get('/friends/:name', (req, res) => {
   log(chalk.cyan(req.params.name));
   const { name } = req.params;
