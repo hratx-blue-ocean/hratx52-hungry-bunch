@@ -1,0 +1,51 @@
+.login-landing-page-header{
+  display: flex;
+  background-color: white;
+  color: black;
+  width: 100%;
+  height: 151px;
+  font-size: 58px;
+  align-items: center;
+  justify-content: center;
+}
+.login-landing-page-header-title{
+  padding-right: 10px;
+}
+
+.login-landing-page-footer{
+  display: flex;
+  background-color: white;
+  color: black;
+  padding: 60px 20px 10px 20px;
+  width: 98%;
+  height: 151px;
+  font-size: 18px;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.login-landing-page-carousel-container{
+ width :100%
+}
+
+.login-landing-page-image{
+  width: 100%;
+}
+
+.spinner{
+  width: 100%;
+}
+
+.login-button{
+  background-color: black;
+  margin-top: 50px;
+  margin-left: 25%;
+  color: white;
+  text-align: center;
+  font-size: 36px;
+  padding: 10px;
+  height: 10%;
+  width: 50%;
+  border-radius: 10px;
+  cursor: pointer;
+}
