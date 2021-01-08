@@ -14,28 +14,34 @@ const RecipeData = (props) => {
     return (
       <div className='recipe-data'>
         <div className='recipe-name-and-user'>
-          <h1>{recipe.recipeName}</h1>
-          <Link to={`/user/${props.recipeData.owner}`}>
-            <div>{props.recipeData.owner} - username goes here!</div>
+          <h1>{props.recipeData.recipeName}</h1>
+          <Link to={`/user/${props.recipeData.owner._id}`}>
+            <div>{props.recipeData.owner.name}</div>
           </Link>
         </div>
         <div className='recipe-ingredients'>
+
           <ul>{props.recipeData.ingredients.map((ingredient, i) => (
             <li key={i}>{ingredient}</li>
-          ))}</ul>
+          ))}
+          </ul>
+
         </div>
         <div className='optional-recipe-data'>
           Category: {props.recipeData.category}
-
+          <br></br>
           Time: {props.recipeData.time} minutes,
-
+          <br></br>
           Difficulty: {props.recipeData.difficulty}
           {props.recipeData.vegan ? ', Vegan' : null}
         </div>
         <div className='recipe-steps'>
+
           <ol>{props.recipeData.steps.map((step, i) => (
             <li key={i}>{step}</li>
-          ))}</ol>
+          ))}
+          </ol>
+
         </div>
       </div>
     );
