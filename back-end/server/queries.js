@@ -29,7 +29,14 @@ const GetRecipe = ({ id }, callback) => {
       log(chalk.redBright('err', err));
       callback(err);
     } else {
-      callback(null, recipe);
+      recipe.
+        populate('owner', 'name').
+        execPopulate((err, doc) => {
+          if (err) { callback(err); }
+          log(chalk.green('success getting user'));
+          log(doc);
+          callback(null, doc);
+        });
     }
   });
 };
