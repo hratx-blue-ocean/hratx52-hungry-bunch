@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom';
 
 const RecipeData = (props) => {
-  const user = `/user/${recipe.ownerId}`;
+  const user = `/user/${props.recipeData.owner._id}`;
 
   if (props.recipeData && props.recipeData.owner) {
     return (
