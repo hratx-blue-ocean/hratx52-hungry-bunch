@@ -1,0 +1,396 @@
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Summer Spanish Salad",
+"category":"Dinner",
+"shared":"Everyone",
+"ingredients":[
+   "2 large tomatoes",
+    "1 large cucumber",
+    "1 medium onion",
+    "1 large green pepper",
+    "2 cloves garlic minced",
+    "A pinch of cumin",
+    "½ teaspoon salt",
+    "3 tablespoons extra virgin olive oil",
+    "2 tablespoon red wine vinegar"
+],
+"time":60,
+"difficulty":"Easy",
+"favoritedBy":[ 14, 25, 34, 56, 66
+
+],
+"vegan":false,
+"steps":[
+   "Chop the onion in small cubes and soak in water.",
+    "Chop the tomatoes, cucumber and pepper and place in a bowl.",
+    "Drain the onions and add them to the rest of the vegetables.",
+    "Place the garlic in a mortar with a pinch of cumin and a pinch of salt and a few drops of olive oil until you have a paste. In another small bowl mix the rest of the olive oil, vinegar and salt, add the garlic paste and mix well.",
+    "Add the dressing to the salad and mix well. Cover and refrigerate.",
+    "Serve chilled with bread or rusks."
+],
+"imageUrl":"https://www.olivetomato.com/wp-content/uploads/2018/06/Spanish-Salad-pipirrana-320x320.jpg"
+}}
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Authentic Tzatziki – Greek Garlic Yogurt Dip",
+"category":"Snack",
+"shared":"Everyone",
+"ingredients":[
+   "8 ounces full fat Greek yogurt",
+    "2 garlic cloves",
+    "Salt",
+    "1-2 tablespoons red wine vinegar",
+    "2 tablespoons olive oil",
+    "1 medium cucumber (5-6 inches)",
+    "Fresh dill"
+],
+"time":20,
+"difficulty":"Easy",
+"favoritedBy":[ 14, 25, 34, 56, 66
+
+],
+"vegan":false,
+"steps":[
+    "Crush the garlic with a little bit of salt and pepper.",
+    "Peel the cucumber and grate. Squeeze well to get rid of water.",
+    "Whip the yogurt in a bowl and then add the garlic paste, mixing well and then add the cucumber and mix again.",
+    "Start adding small amounts of olive oil alternating with the vinegar while mixing.",
+    "Add about 2 teaspoons fresh dill and mix well.",
+    "Let it sit at least an hour in the refrigerator before serving."
+],
+"imageUrl":"https://www.olivetomato.com/wp-content/uploads/2012/02/Tzatziki-320x320.jpg"
+}}
+
+
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Mediterranean Eggplant & Feta Tarts",
+"category":"Snack",
+"shared":"Everyone",
+"ingredients":[
+    "14 sheets defrosted phyllo dough",
+    "Olive Oil for brushing phyllo + 2 tablespoons for sautéing the eggplant",
+    "12 ounces crumbled feta (350 grams)",
+    "2 medium eggplant",
+    "2 tablespoons honey",
+    "Pepper"
+],
+"time":40,
+"difficulty":"Medium",
+"favoritedBy":[ 14, 25, 34, 56, 66, 12, 45, 444, 545
+],
+"vegan":false,
+"steps":[
+    "Preheat oven to 350 F (180 degrees C).",
+    "Line a pan with parchment paper.",
+    "Thinly slice the eggplant.",
+    "In a large pan heat the olive oil and sauté the eggplant for 3 minutes carefully, not to smash the eggplant. Remove eggplant from pan and set aside.",
+    "On a clean surface lay a sheet of phyllo and brush with olive oil. Layer a total of 7 sheets one on top of each other while brushing with olive oil in between layers.",
+    "Now cut a circle into the phyllo (through all the layers) of about 6-7 inches (15 cm) in diameter (I used a bowl for the circle).",
+    "Place the phyllo discs on the pan and turn in the outer part to form a little border.",
+    "Repeat this for the other 7 phyllo sheets. You should have 6 medium phyllo discs in total.",
+    "Sprinkle each dish with about 1-2 tablespoons crumbled feta and then place the eggplant slices on top.",
+    "Bake for about 25-30 minutes until phyllo is golden and base of phyllo has hardened.",
+    "Remove and let them cool.",
+    "When ready to serve, heat the honey for a few seconds and drizzle over the tarts."
+],
+"imageUrl":"https://www.olivetomato.com/wp-content/uploads/2019/07/Eggplant-and-feta-tart-1.jpg"
+}}
+
+
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Spanakopita",
+"category":"Snack",
+"shared":"Everyone",
+"ingredients":[
+    "1 pound frozen spinach thawed",
+    "1 onion finely chopped or 3-4 spring onions chopped only white parts",
+    "2 tablespoons olive oil plus more for brushing the phyllo",
+    "3 tablespoons chopped parsley",
+    "2 tablespoons chopped dill",
+    "1/4 cup chopped fresh mint (or 2 tbs dry)",
+    "1/4 teaspoon nutmeg",
+    "1 teaspoon sugar",
+    "10-12 ounces crumbled and grated feta",
+    "3 eggs",
+    "12 phyllo sheets"
+],
+"time":120,
+"difficulty":"Hard",
+"favoritedBy":[ 14, 25, 34, 56, 66, 12, 45, 444, 545, 44555, 1145, 44868644, 44564566
+],
+"vegan":false,
+"steps":[
+    "Preheat oven at 350 degrees Fahrenheit (180 Celsius)",
+"Heat a medium pan with one tablespoon olive oil.",
+"Sauté the onions until soft.",
+"Add the spinach (make sure you have squeezed out the water).",
+"Sauté spinach with onion for a few minutes.",
+"Add the herbs, nutmeg and sugar and sauté for 2-3 minutes more. Set aside and let it cool.",
+"Grate half of the feta and crumble the rest.",
+"In a small bowl beat the egg and add the feta.",
+"Add the egg mixture to the spinach and add the other tablespoon of olive oil. Mix so that all the ingredients are blended.",
+"Brush a pan that is about 10 X 15 inches with olive oil.",
+"Place a sheet of phyllo in the pan and brush with olive oil. Repeat with 5 more phyllo sheets.",
+"Spread the spinach mixture evenly.",
+"Cover with 6 more phyllo sheets brushing each one with olive oil. Cut the phyllo hanging over the pan or roll in.",
+"Score the top with a knife (do not cut all the way through, just through the top phyllo sheets) for about 10-12 pieces.",
+"Bake for about 40 minutes until phyllo is golden.",
+"Remove from oven and let the pita cool. Cut in pieces.",
+"Enjoy at room temperature or if you want the phyllo crunchy, warm in the oven before serving."
+],
+"imageUrl":"https://www.olivetomato.com/wp-content/uploads/2020/05/Greek-spankopita-Spinach-and-feta-pie-150x150.jpeg"
+}}
+
+
+
+
+
+
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Pastry with Honey and Walnuts – Diples",
+"category":"Dessert",
+"shared":"Everyone",
+"ingredients":[
+    "1 cup all purpose flour",
+    "¼ teaspoon baking powder",
+    "1 egg",
+    "½ teaspoon ouzo",
+    "1 teaspoon vanilla extract",
+    "1 teaspoon lemon juice",
+    "Warm water",
+    "Honey for drizzling",
+    "Chopped walnuts",
+    "Cinnamon"
+],
+"time":120,
+"difficulty":"Hard",
+"favoritedBy":[ 14, 25, 34, 56, 66, 12, 45, 444, 545, 44555, 1145, 44868644, 44564566
+],
+"vegan":false,
+"steps":[
+    "In a medium bowl mix the flour and baking powder.",
+    "In larger bowl mix all the wet ingredients (egg, ouzo, vanilla, lemon juice)",
+    "Add the flour slowly to the egg mixture and mix until all the flour has been absorbed.",
+    "If the dough is too dry, add about 1 -2 tablespoons of warm water and knead with your hands. The dough should not be sticky, but should be soft.",
+    "Roll the dough in 2 balls and let it rest for 30 minutes.",
+    "On a well floured surface, roll out the dough with a well floured rolling pin until it is ¼ of an inch or less, (roll it around the pin and turn it over so it does not stick on the surface).",
+    "Using a pastry wheel or pizza cutter cut the sheet that you have rolled out in 8 rectangles about 2 inches by 5 inches each. You will have about 16 rectangles, 8 each sheet, depending on how thin you roll out the dough",
+    "Pinch each rectangle in the middle to form a bow.",
+    "Pour some olive oil in a pan, enough so that it barely covers a bow once it is in the pan.",
+    "Heat the olive oil, it should be hot enough when tiny bubbles start forming on the surface, but it should not be smoking.",
+    "Drop 4-5 bows (depending on the size of your pan) and fry them until slightly golden, this will take about 30-50 seconds.",
+    "Remove with slotted spoon and place on a plate lined with paper towels.",
+    "Once they are cool place on a large platter.",
+    "Heat some honey and pour on the diples and sprinkle with walnuts and cinnamon"
+],
+"imageUrl":"https://www.olivetomato.com/wp-content/uploads/2015/12/SAM4720-11-1-300x300.jpg"
+}}
+
+
+
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"French Pear Dessert",
+"category":"Dessert",
+"shared":"Everyone",
+"ingredients":[
+  "2 whole cinnamon sticks",
+    "3/4 cup granulated sugar",
+    "2 1/2 cups water (divided)",
+    "4 firm Bosc pears (peeled, cored (see below) and with stem intact)",
+    "8 small scoops vanilla ice cream",
+    "1 /2 cup ​chocolate sauce (for drizzling)"
+],
+"time":120,
+"difficulty":"Medium",
+"favoritedBy":[ 14, 25, 34, 56, 66, 12, 45, 444, 545, 44555, 1145, 44868644, 44564566
+],
+"vegan":false,
+"steps":[
+    "Gather the ingredients.",
+    "Combine the cinnamon sticks, sugar, and 1/2 cup of water in a medium saucepan.",
+    "Bring the mixture to a boil, and then reduce the heat and simmer for 2 to 5 minutes, until it becomes a thick-like syrup and turns golden brown.",
+    "Turn the heat to the lowest setting and gently whisk in the remaining 2 cups water, until the syrup is completely incorporated into the water.",
+    "Add the prepared pears to the sugar syrup mixture and bring to a gentle simmer for 15 minutes. Test the doneness with a knife by pricking in the thickest part of the fruit; the pears are poached when they are just cooked through, but not completely soft. Be careful not to overcook or the pears will collapse, Bosc pears are renowned for doing dissolving too quickly.",
+    "Allow the pears to cool in the syrup until they are at room temperature. Lift the pears carefully from the pan with a slotted spoon.",
+    "Serve with two small scoops of vanilla ice cream and a drizzle of chocolate sauce. ",
+    "Enjoy!"
+],
+"imageUrl":"https://www.thespruceeats.com/thmb/U18Z--TKZxncaQt7Tz8jhwGAb60=/3000x3000/smart/filters:no_upscale()/french-pear-dessert-poires-belle-helene-1375196-hero-5c3c0506c9e77c0001df07d0.jpg"
+}}
+
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Pineapple Sunrise Mimosas",
+"category":"Beverage",
+"shared":"Everyone",
+"ingredients":[
+    "4 ½ cups pineapple juice",
+    "1 ⅛ cups orange juice",
+    "⅓ cup lime juice",
+    "¼ fresh pineapple, sliced",
+    "½ blood orange, sliced",
+    "½ lime, sliced",
+    "1 (750 milliliter) bottle Prosecco (Italian sparkling wine)",
+    "¼ cup Campari",
+    "4 slices pineapple and orange slices, for garnish"
+],
+"time":120,
+"difficulty":"Medium",
+"favoritedBy":[ 14, 25, 34, 56, 66, 12, 45, 444, 545, 44555, 1145, 44868644, 44564566
+],
+"vegan":false,
+"steps":[
+   "Stir pineapple juice, orange juice, and lime juice together in a large pitcher or punch bowl. Add pineapple, blood orange, and lime slices. Cover; refrigerate 2 to 24 hours",
+   "To serve, pour 1/2 cup juice mixture into each glass or champagne flute. Add 1/4 cup Prosecco per serving. Slowly drizzle in 1 teaspoon Campari. Garnish with a fresh pineapple or orange slice, if desired."
+],
+"imageUrl":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F4579246.jpg"
+}}
+
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Grilled Grapefruit Paloma Cocktail",
+"category":"Beverage",
+"shared":"Everyone",
+"ingredients":[
+    "2 limes",
+    "¼ cup white sugar",
+    "1 red grapefruit, halved widthwise",
+    "¼ cup kosher sal",
+    "1 cup ice cubes, or as needed",
+    "4 fluid ounces tequila",
+    "2 tablespoons simple syrup, or to taste",
+    "4 fluid ounces club soda"
+],
+"time":120,
+"difficulty":"Medium",
+"favoritedBy":[ 14, 25, 34, 56, 66, 12, 45, 444, 545, 44555, 1145, 44868644, 44564566
+],
+"vegan":false,
+"steps":[
+   "Preheat an outdoor grill for medium-high heat and lightly oil the grate.",
+   "Cut limes in half widthwise. Cut 1 half into 3 wheels.",
+   "Pour sugar into a shallow bowl. Dip lime halves, 2 of the lime wheels, and grapefruit into sugar to coat thoroughly.",
+   "Place limes and grapefruit cut-side down on the hot grill. Cook, turning lime wheels occasionally, until browned and grill marks form, 5 to 10 minutes. Transfer to a rimmed baking sheet to cool.",
+   "Rub remaining lime wheel over the rim of 2 highball glasses. Dip rims in kosher salt. Fill glasses with ice.",
+   "Juice grilled lime halves and grapefruit into a small pitcher. Pour in any juices that accumulated on the baking sheet. Stir in tequila and simple syrup. Divide mixture between glasses and top off with club soda. Garnish with grilled lime wheels."
+
+],
+"imageUrl":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F3807059.jpg&w=596&h=596&c=sc&poi=face&q=85"
+}}
+
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Quick and Easy Authentic Chicken Souvlaki in the Oven",
+"category":"Lunch",
+"shared":"Everyone",
+"ingredients":[
+    "1 pound chicken breasts",
+    "Wooden skewers",
+    "¼ cup olive oil",
+    "Juice from 1 lemon plus more for serving",
+    "1 tablespoons dry oregano",
+    "Salt/Pepper"
+],
+"time":120,
+"difficulty":"Medium",
+"favoritedBy":[ 14, 25, 34, 56, 66, 12, 45, 444, 545, 44555, 1145, 44868644, 44564566
+],
+"vegan":false,
+"steps":[
+   "Cut the souvlaki in bite size pieces (not larger than an inch)",
+    "In a plastic bag or a shallow baking dish add and mix all the other ingredients, add the chicken and mix well so that all the chicken is coated in the marinade. Cover and let it sit in the refrigerator for 2-3 hours. You can also soak ","the wooden skewers in water to avoid burning them (I forgot to this time).",
+    "Preheat the oven at 480 F (250 C)",
+    "Skewer the chicken on the skewers (I put about 6-7 pieces on each)",
+    "Place the souvlaki on the tray or baking dish as shown in the photo above.",
+    "Roast and check the temperature at about 12 min, (it should read 165 F when ready).",
+    "Once ready or about ready, place under the broiler for 1-2 minutes to get them slightly grilled.",
+    "Serve hot with plenty of lemon."
+],
+"imageUrl":"https://www.olivetomato.com/wp-content/uploads/2017/12/SAM6294.jpg"
+}}
+
+
+
+
+
+
+{"id": "yourID",
+"recipe":
+{
+"owner":"yourID",
+"recipeName":"Scrambled Eggs with Cherry Tomatoes and Feta – Kagianas",
+"category":"Breakfast",
+"shared":"Everyone",
+"ingredients":[
+    "2 tablespoons olive oil",
+    "1 small onion chopped",
+    "1 garlic clove minced",
+    "10 ounces of cherry tomatoes sliced in half (2 cups)",
+    "1 tablespoon tomato paste mixed with 2-3 tablespoons water",
+    "2 eggs",
+    "1 tablespoon crumbled feta",
+    "1-2 teaspoons dried oregano",
+    "1 teaspoon fresh mint",
+    "Salt/pepper"
+],
+"time":14,
+"difficulty":"Easy",
+"favoritedBy":[ 14, 25, 34, 56, 66, 12, 45, 444, 545, 44555, 1145, 44868644, 44564566, 154586464, 4645646, 464466464
+],
+"vegan":false,
+    "steps":[
+    "Heat the olive oil in a medium pan on medium fire, sauté onion until soft, add the minced garlic and sauté for 1 minute.",
+    "Add the tomatoes and sauté for another 2 minutes.",
+    "In a small bowl mix the tomato paste with 2-3 tablespoons water. It should be thick and creamy. Add it to the pan and simmer for 5-7 minutes until tomatoes wilt.",
+    "Beat the eggs in a small bowl and pour into pan, increase heat, mix quickly with a spoon carefully not smashing the tomatoes and heat for about 2 minutes until the eggs thicken.",
+    "Remove from pan, serve on plate. Add salt (as needed.",
+    "Sprinkle with crumbled feta, dried oregano and mint."
+],
+"imageUrl":"https://www.olivetomato.com/wp-content/uploads/2016/07/SAM5409-1.jpg"
+}}
