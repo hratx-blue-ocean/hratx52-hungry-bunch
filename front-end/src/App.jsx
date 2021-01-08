@@ -47,7 +47,6 @@ const App = (props) => {
           <Route path="/user">
             <User/>
           </Route>
-          <Profile/>
         </>
       }
     </Switch>

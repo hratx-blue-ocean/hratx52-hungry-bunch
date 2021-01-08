@@ -13,6 +13,15 @@ export const postNewRecipe = (recipe, userId) => {
     });
 };
 
-export const addFriend = (user, friend) => {
-
+export const addFriend = (userId, friendId) => {
+  return axios.post('http://localhost:3000/addFriend', {
+    id: userId,
+    friendId: friendId
+  })
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      return err;
+    });
 };
