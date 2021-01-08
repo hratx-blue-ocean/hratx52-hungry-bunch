@@ -1,43 +1,52 @@
-import {recipe} from '../../data/recipeDummyData.js';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const RecipeData = () => {
+import { useHistory, useLocation } from 'react-router-dom';
 
-  const user = `/user/${recipe.ownerId}`;
+const RecipeData = (props) => {
+  const user = `/user/${props.recipeData.owner._id}`;
 
-  return (
-    <div className='recipe-data'>
-      <div className='recipe-name-and-user'>
-        <h1>{recipe.recipeName}</h1>
-        <Link to={user}>
-          <div>{recipe.ownerId} - username goes here!</div>
-        </Link>
+  if (props.recipeData && props.recipeData.owner) {
+    return (
+      <div className='recipe-data'>
+        <div className='recipe-name-and-user'>
+          <h1>{props.recipeData.recipeName}</h1>
+          <Link to={`/user/${props.recipeData.owner._id}`}>
+            <div>{props.recipeData.owner.name}</div>
+          </Link>
+        </div>
+        <div className='recipe-ingredients'>
+
+          <ul>{props.recipeData.ingredients.map((ingredient, i) => (
+            <li key={i}>{ingredient}</li>
+          ))}
+          </ul>
+
+        </div>
+        <div className='optional-recipe-data'>
+          Category: {props.recipeData.category}
+          <br></br>
+          Time: {props.recipeData.time} minutes,
+          <br></br>
+          Difficulty: {props.recipeData.difficulty}
+          {props.recipeData.vegan ? ', Vegan' : null}
+        </div>
+        <div className='recipe-steps'>
+
+          <ol>{props.recipeData.steps.map((step, i) => (
+            <li key={i}>{step}</li>
+          ))}
+          </ol>
+
+        </div>
       </div>
-      <div className='recipe-ingredients'>
-        <ul>{recipe.ingredients.map((ingredient, i) => (
-          <li key={i}>{ingredient}</li>
-        ))}</ul>
-      </div>
-      <div className='optional-recipe-data'>
-        Category: {recipe.category}
-
-        Time: {recipe.time} minutes,
-
-        Difficulty: {recipe.difficulty}
-        {recipe.vegan ? ', Vegan' : null}
-      </div>
-      <div className='recipe-steps'>
-        <ol>{recipe.steps.map((step, i) => (
-          <li key={i}>{step}</li>
-        ))}</ol>
-      </div>
-    </div>
-  );
+    );
+  }
+  return (<></>);
 };
-
-// recipe name, ingredients, time/vegan/difficulty, steps
 
 export default RecipeData;
 
-// TODO: styling, use ownerId to get username, figure out how to use router to make username a link to that user's profile
+
+
