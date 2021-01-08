@@ -8,6 +8,7 @@ import {connect, useSelector, useDispatch } from 'react-redux';
 import { selectModal } from '../../containers/addRecipeContainer.js';
 import { uploadAvatar } from '../../utils/apiCalls.js';
 import { selectUser } from '../../containers/addUserContainer.js';
+import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -21,6 +22,7 @@ export default function UserInfoToolbar() {
   const user = useSelector(selectUser);
 
   const [isVisible, toggleVisibility] = useState(false);
+  const [file, handleFile] = useState(null);
   const modalState = useSelector(selectModal);
   const dispatch = useDispatch();
 
@@ -64,14 +66,27 @@ export default function UserInfoToolbar() {
           </Button>
           {isVisible ?
             <div>
-              <input type="file"></input>
-              <Button onClick={(e, file)=>{
-                e.preventDefault();
-                const formData = new FormData();
-                formData.append('file', file);
-                uploadAvatar(formData);
-                toggleVisibility(!isVisible);
-              }}>
+              <input
+                type="file"
+                onChange={e => {
+                  e.preventDefault();
+                  handleFile(e.target.files[0]);
+                  console.log(file);
+                }}></input>
+              <Button
+                onClick={(e)=>{
+                  e.preventDefault();
+                  const formData = new FormData();
+                  formData.append('avatar', file);
+                  const config = {
+                    headers: {
+                      'content-type': 'multipart/form-data'
+                    }
+                  };
+                  uploadAvatar(formData);
+                }}
+                // toggleVisibility(!isVisible);
+              >
                 upload
               </Button>
             </div>
