@@ -1,10 +1,19 @@
-import {recipe} from '../../data/recipeDummyData.js';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const RecipeData = () => {
+//delete later
+import {recipe} from '../../data/recipeDummyData.js';
 
+const RecipeData = (props) => {
+
+  //delete later
   const user = `/user/${recipe.ownerId}`;
+
+  const [currRecipe] = useState({});
+  useEffect(() => {
+
+  });
 
   return (
     <div className='recipe-data'>

@@ -9,7 +9,7 @@ provides a React renderer that can be used to render React components to pure Ja
 without depending on the DOM or a native mobile environment..
 */
 import renderer from 'react-test-renderer';
-import { renderHook, act } from '@testing-library/react-hooks'
+import { renderHook, act } from '@testing-library/react-hooks';
 
 import User from '../components/User/User.js';
 
@@ -19,8 +19,14 @@ import { configureStore } from '@reduxjs/toolkit';
 
 
 describe('User component', () => {
+  const user = () => {
+    const props = User({});
+    return <div {...props} />;
+  };
   it('should render', () => {
-    const wrapper = shallow(<User />);
+    //const wrapper = shallow(<User />);
+    const wrapper = shallow(<user />);
+
   });
 
   /** */
