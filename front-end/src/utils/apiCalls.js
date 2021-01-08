@@ -25,3 +25,13 @@ export const addFriend = (userId, friendId) => {
       return err;
     });
 };
+
+export const searchForFriends = (userSearchTerm) => {
+  return axios.get(`http://localhost:3000/friends/${userSearchTerm}`)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) =>{
+      return err;
+    });
+};
