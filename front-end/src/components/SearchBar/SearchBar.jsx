@@ -20,9 +20,8 @@ import DifficultySelect from './DifficultySelect';
 import Badge from '@material-ui/core/Badge';
 import Chip from '@material-ui/core/Chip';
 import ChipsList from './ChipList';
-import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
 import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
-import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -100,7 +99,7 @@ const SearchBar = () => {
 
   return (
     <div className={classes.mainDiv}>
-      <Grid container spacing={3} direction="column" alignItems="center">
+      <Grid container direction="column" justify="space-between">
         <Grid item xs={12}>
           <Badge
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -159,9 +158,6 @@ const SearchBar = () => {
       </Grid>
       <Container>
         <Grid container>
-          <Grid item xs={3}>
-            <UserInfoToolbar/>
-          </Grid>
           <Grid item xs={6}>
             <CenterConsole
               searchBarCategory={category}
@@ -169,9 +165,6 @@ const SearchBar = () => {
               searchBarPreferences={Preferences}
               searchBarInput={input}
             />
-          </Grid>
-          <Grid item xs={3}>
-            <RightToolBar/>
           </Grid>
         </Grid>
       </Container>
