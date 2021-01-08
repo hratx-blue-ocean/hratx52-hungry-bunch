@@ -15,25 +15,26 @@ green - passing tests
 red - failed tests
 
 */
-describe('user reducer', () => {
-  it('should return the initial state', () => {
-    expect(reducer.userReducer(undefined, {})).toEqual(
-      {
-        user: null
-      }
-    );
-  });
 
-  it('should handle SET_USER', () => {
-    expect(
-      reducer.userReducer({}, {
-        type: 'SET_USER',
-        user: 'testUser'
-      })
-    ).toEqual(
-      {
-        user: 'testUser'
-      }
-    );
-  });
-});
+// describe('user reducer', () => {
+//   it('should return the initial state', () => {
+//     expect(reducer.userReducer(undefined, {})).toEqual(
+//       {
+//         user: null
+//       }
+//     );
+//   });
+
+//   it('should handle SET_USER', () => {
+//     expect(
+//       reducer.userReducer({}, {
+//         type: 'SET_USER',
+//         user: 'testUser'
+//       })
+//     ).toEqual(
+//       {
+//         user: 'testUser'
+//       }
+//     );
+//   });
+// });
