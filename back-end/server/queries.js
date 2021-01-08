@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const { Friend, Recipe, User } = require('../database/models/models');
+const { Recipe, User } = require('../database/models/models');
 const mongoose = require('mongoose');
 const log = console.log;
 
@@ -24,12 +24,12 @@ const GetUser = ({ id }, callback) => {
 };
 
 const GetFriends = ({ name }, callback) => {
-  User.fuzzySearch(name, (err, friends) => {
+  User.find({ 'name': { '$regex': name, '$options': 'i' }}, (err, friends) => {
     if (err) {
       callback(err);
     } else {
       log(chalk.green(friends));
-      callback(friends);
+      callback(null, friends);
     }
   });
 };
@@ -165,6 +165,29 @@ const UpdateUserPhoto = ({ id, photoUrl }, callback) => {
   });
 };
 
+const GetAllRecipes = (callback) => {
+  Recipe.find((err, recipes) => {
+    if (err) {
+      log(chalk.redBright('err', err));
+      callback(err);
+    } else {
+      callback(null, recipes);
+    }
+  });
+};
+
+// UpdateFavoritedBy
+const UpdateFavoritedBy = ({ userId, recipeId }, callback) => {
+  Recipe.findByIdAndUpdate(recipeId, { $push: { favoritedBy: userId } }, (err, favorites) => {
+    if (err) {
+      log(chalk.redBright('err', err));
+      callback(err);
+    } else {
+      callback(null, favorites);
+    }
+  });
+};
+
 module.exports = {
   GetUser,
   AddNewRecipe,
@@ -176,4 +199,6 @@ module.exports = {
   CheckUser,
   GetFriends,
   GetUserRecipes,
+  GetAllRecipes,
+  UpdateFavoritedBy
 };

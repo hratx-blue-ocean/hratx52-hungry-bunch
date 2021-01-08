@@ -67,6 +67,19 @@ app.get('/userRecipes/:id', (req, res) => {
   });
 });
 
+app.get('/allRecipes', (req, res) => {
+
+  queries.GetAllRecipes((err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed(err, 'ERROR GETTING RECIPES FROM DATABASE'));
+    } else {
+      log(chalk.green(response));
+      res.status(200).send(response);
+    }
+  });
+});
+
 // -------------- POST ---------------------------------------------------------------------------------------------
 
 app.post('/checkUser', (req, res) => {
@@ -172,6 +185,18 @@ app.post('/addUserPhoto', (req, res) => {
       // send status success back to client
       res.send(200);
       log(chalk.magentaBright('NEW USER PHOTO ADDED SUCCESFULLY'));
+    }
+  });
+});
+
+app.post('/updateFavoritedBy', (req, res) => {
+  queries.UpdateFavoritedBy((err, result) => {
+    if (err) {
+      log(chalk.red(err));
+      res.send(500);
+    } else {
+      console.log(result);
+      res.send(result);
     }
   });
 });

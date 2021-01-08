@@ -19,15 +19,12 @@ const useStyles = makeStyles(()=>({
   }
 }));
 
-
 const CategoryCarousel = (props) => {
-
   //categories images are currently static but can be changed if needed
   const categories = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Beverage', 'Snack'];
   const categorypictures = ['https://i.imgur.com/mAyXMl3.jpg', 'https://i.imgur.com/UmYs1Jx.jpg', 'https://i.imgur.com/i6P7pGX.jpg', 'https://i.imgur.com/NyGCFS0.jpg', 'https://i.imgur.com/y5NeQZN.jpg', 'https://i.imgur.com/OGPlFzj.jpg'];
 
   const classes = useStyles();
-
 
   return (
     <>
@@ -49,10 +46,6 @@ const CategoryCarousel = (props) => {
         dotListClass="custom-dot-list-style"
         //itemClass={classes.padding}
       >
-        {/*
-           autoPlay={this.props.deviceType !== "mobile" ? true : false}
-           deviceType={this.props.deviceType}
-        */}
 
         {categories.map(function(currentCategory, index) {
           //console.warn(currentCategory, index)
@@ -64,13 +57,9 @@ const CategoryCarousel = (props) => {
             />
           </div>);
         })}
-
-
       </Carousel>
-
     </>
   );
-
 };
 
 export default CategoryCarousel;
