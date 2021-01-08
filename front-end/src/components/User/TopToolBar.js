@@ -60,7 +60,7 @@ const TopToolbar = (props) => {
             </Typography>
           </Box>
           <Box>
-            <AddFriend profileId={props.userId}/>
+            <AddFriend/>
           </Box>
 
           {/* sign out link*/}

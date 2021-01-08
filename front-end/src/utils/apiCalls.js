@@ -35,3 +35,13 @@ export const searchForFriends = (userSearchTerm) => {
       return err;
     });
 };
+
+export const getUserData = (userId) => {
+  return axios.get(`http://localhost:3000/userInfo/${userId}`)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) =>{
+      return err;
+    });
+};
