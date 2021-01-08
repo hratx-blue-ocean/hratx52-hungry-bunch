@@ -2,9 +2,21 @@ import React from 'react';
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Grid } from '@material-ui/core';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import { Link } from 'react-router-dom';
+import FavoritedByDisplay from './favoritedByDisplay.js';
+
 
 const SingleRecipe = ({oneRecipe}) => {
   const link = `/recipe/${oneRecipe._id}`;
+
+  const checkFavoriteAmount = (arrLength) => {
+    if (arrLength <= 2) {
+      return 1;
+    }
+    if (arrLength >= 5) {
+      return 3;
+    }
+    return 2;
+  };
 
   return (
     <Grid item xs={4}>
@@ -20,10 +32,7 @@ const SingleRecipe = ({oneRecipe}) => {
             <CardContent>
               {oneRecipe.recipeName}
               <Grid>
-                {oneRecipe.favoritedBy.length}
-                <StarRateIcon/>
-                <StarRateIcon/>
-                <StarRateIcon/>
+                <FavoritedByDisplay value={checkFavoriteAmount(oneRecipe.favoritedBy.length)}/>
               </Grid>
             </CardContent>
           </CardActionArea>
