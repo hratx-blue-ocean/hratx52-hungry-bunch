@@ -14,7 +14,7 @@ const FriendsList = ({ friends, searchInput }) => {
   };
 
   return (
-    <div id='friendList'>
+    <div id='friendList' style={{maxHeight:'600px', overflow:'scroll'}}>
       <Container>
         <Grid container direction='column' item spacing={3} xs={12}>
           {userFriendSearch(searchInput).map((friend)=>{
