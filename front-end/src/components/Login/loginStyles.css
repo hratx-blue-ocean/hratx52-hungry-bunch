@@ -49,3 +49,11 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+.login-linked-in{
+  color:black;
+  text-decoration: none;
+}
+.login-linked-in:hover{
+  text-decoration: underline;
+}
