@@ -51,7 +51,6 @@ export default function UserInfoToolbar() {
     formData.append('userId', user['_id']);
     var uploadedAvatar = await uploadAvatar(formData);
     var updatedUser = await getUserData(user['_id']);
-    console.log('Updated User: ', updatedUser);
     dispatch(receiveLogin(updatedUser.data));
   };
 
