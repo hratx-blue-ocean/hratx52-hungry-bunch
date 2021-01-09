@@ -6,22 +6,24 @@ const Footer = () => {
   return (
     <>
       <div className="login-landing-page-footer">
+        <div>Hungry Bunch App was built by 7 amazing people</div>
         <div>
-          Project Manager : Kela Kealakai<br/>
-          Architects : Lucy Armstrong & Rick Hawley <br/>
-          UI : Kornelija Janusaite-Laucius & Jonathan Garcia <br/>
-          Test Engineers : Monica Chao & David Lichter <br/>
+          Project Manager : <a className="login-linked-in" href="https://www.linkedin.com/in/kela-kealakai/">Kela Kealakai</a><br/>
+          Architects : <a className="login-linked-in" href="https://www.linkedin.com/in/lucyarmstrong1/">Lucy Armstrong</a> & <a className="login-linked-in" href="https://www.linkedin.com/in/rhawley1/">Rick Hawley</a><br/>
+          UI : <a className="login-linked-in" href="https://www.linkedin.com/in/kornelija-janu%C5%A1ait%C4%97-laucius-2797541b9/">Kornelija Janusaite-Laucius</a> & <a className="login-linked-in" href="https://www.linkedin.com/in/jonagarcia/">Jonathan Garcia</a><br/>
+          Test Engineers : <a className="login-linked-in" href="https://www.linkedin.com/in/monica-chao/">Monica Chao</a> & <a className="login-linked-in" href="https://www.linkedin.com/in/david-lichter/">David Lichter</a><br/>
         </div>
         <div>Software developers:</div>
-        <div> Lucy Armstrong<br/>
-          Monica Chao<br/>
-          Jonathan Garcia<br/>
-          Rick Hawley<br/>
+        <div>
+          <a className="login-linked-in" href="https://www.linkedin.com/in/lucyarmstrong1/">Lucy Armstrong</a><br/>
+          <a className="login-linked-in" href="https://www.linkedin.com/in/monica-chao/">Monica Chao</a><br/>
+          <a className="login-linked-in" href="https://www.linkedin.com/in/jonagarcia/">Jonathan Garcia</a><br/>
+          <a className="login-linked-in" href="https://www.linkedin.com/in/rhawley1/">Rick Hawley</a><br/>
         </div>
         <div>
-          Kornelija Janusaite-Laucius<br/>
-          Kela Kealakai<br/>
-          David Lichter<br/>
+          <a className="login-linked-in" href="https://www.linkedin.com/in/kornelija-janu%C5%A1ait%C4%97-laucius-2797541b9/">Kornelija Janusaite-Laucius</a><br/>
+          <a className="login-linked-in" href="https://www.linkedin.com/in/kela-kealakai/">Kela Kealakai</a><br/>
+          <a className="login-linked-in" href="https://www.linkedin.com/in/david-lichter/">David Lichter</a><br/>
         </div>
       </div>
     </>
