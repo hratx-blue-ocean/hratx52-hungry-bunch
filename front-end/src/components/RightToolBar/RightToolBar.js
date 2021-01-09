@@ -22,6 +22,7 @@ const RightToolBar = () => {
   };
 
   const searchBarClickHandler = async (e) => {
+    e.preventDefault();
 
     const fetchedUsers = await searchForFriends(userInput);
 
@@ -30,6 +31,7 @@ const RightToolBar = () => {
     } else {
       setSearchResults([state.userReducer.user]);
     }
+
   };
 
   useEffect(()=> {
@@ -44,13 +46,14 @@ const RightToolBar = () => {
             <GroupIcon fontSize='large'/>
           </Grid>
           <Grid item>
-            <Paper component='form'>
+            <Paper component='form' onSubmit={searchBarClickHandler}>
               <InputBase
                 onChange={handleFriendsSearch}
                 value={userInput}
                 placeholder='search for friends'
+
               />
-              <IconButton onClick={searchBarClickHandler}>
+              <IconButton onClick={searchBarClickHandler} >
                 <SearchIcon/>
               </IconButton>
             </Paper>
