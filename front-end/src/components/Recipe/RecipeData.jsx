@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { useHistory, useLocation } from 'react-router-dom';
 import { List, ListItem, ListItemText, Checkbox, Avatar } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 
 const styles = theme => ({
@@ -33,31 +34,35 @@ const RecipeData = (props) => {
             <li key={i}>{ingredient}</li>
           ))}
           </ul>
-
         </div>
-        <div className='optional-recipe-data'>
+        <br></br>
+
+        <Typography variant="body1">
           Category: {props.recipeData.category}
           <br></br>
-          Time: {props.recipeData.time} minutes,
+          Time: {props.recipeData.time} minutes
           <br></br>
           Difficulty: {props.recipeData.difficulty}
+          <br></br>
           {props.recipeData.vegan ? ', Vegan' : null}
-        </div>
+        </Typography>
+        <br></br>
+        <br></br>
+
         <div className='recipe-steps'>
-          <List dense={true} disableGutters={true}	>
+          <Typography variant="h6">
+            Check off steps as you complete them!
+            <Checkbox checked={true} color={'primary'}/>
+          </Typography>
+
+          <List dense={true} disableGutters={true}>
             {props.recipeData.steps.map((step, i) => (
               <ListItem key={i} margin={1} padding={0}>
                 <ListItemText>{i + 1}. {step}</ListItemText>
-                <Checkbox />
+                <Checkbox color={'primary'}/>
               </ListItem>
             ))}
           </List>
-
-          <ol>{props.recipeData.steps.map((step, i) => (
-            <li key={i}>{step}</li>
-          ))}
-          </ol>
-
         </div>
       </div>
     );
