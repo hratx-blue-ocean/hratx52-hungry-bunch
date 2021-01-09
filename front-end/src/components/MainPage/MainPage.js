@@ -6,28 +6,51 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { AddRecipe } from '../AddRecipe/addRecipe.js';
 import { AddFriend } from '../AddFriend/addFriend.js';
-
 import { Link, Route, Switch } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
+import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
+import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
+import styles from './mainpage.css';
 
-//import styles from './mainpage.css';
 
-const useStyles = makeStyles(theme => ({
-  title: {
-    flexGrow: 1,
-    textAlign: 'center',
-  },
-}));
+// --------this seems to do nothing at the moment
+// const useStyles = makeStyles(theme => ({
+//   title: {
+//     flexGrow: 1,
+//     textAlign: 'center',
+//   },
+// }));
+//---------
 
 const MainPage = () => {
-
-  const classes = useStyles();
+  //---------------
+  // const classes = useStyles();
+  //---------------
   return (
     <>
-      <TopToolbar />
-      <SearchBar />
+      <div className="main-header">
+        <TopToolbar />
+      </div>
+      <Grid
+        container
+        direction="row"
+        alignItems="flex-start"
+      >
+        <Grid item xs={2}>
+          <UserInfoToolbar/>
+        </Grid>
+        <Grid item xs={8}>
+          <SearchBar />
+        </ Grid>
+        <Grid item xs={2}>
+          <RightToolBar/>
+        </ Grid>
+      </Grid>
+      <div>
+        HERE GOES FOOOTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      </div>
     </>
   );
 };
