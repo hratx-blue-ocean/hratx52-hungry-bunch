@@ -1,17 +1,24 @@
 import React, {useState} from 'react';
+import { Avatar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { AddRecipe } from '../AddRecipe/addRecipe.js';
 import Button from '@material-ui/core/Button';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Grid, Container, Paper, InputBase, IconButton, Typography, Modal } from '@material-ui/core';
 import {connect, useSelector, useDispatch } from 'react-redux';
 import { selectModal } from '../../containers/addRecipeContainer.js';
+import { uploadAvatar } from '../../utils/apiCalls.js';
 import { selectUser } from '../../containers/addUserContainer.js';
+import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
     textAlign: 'center',
+  },
+  large: {
+    width: theme.spacing(8),
+    height: theme.spacing(8),
   },
 }));
 
@@ -20,6 +27,7 @@ export default function UserInfoToolbar() {
   const user = useSelector(selectUser);
 
   const [isVisible, toggleVisibility] = useState(false);
+  const [file, handleFile] = useState(null);
   const modalState = useSelector(selectModal);
   const dispatch = useDispatch();
 
@@ -44,7 +52,7 @@ export default function UserInfoToolbar() {
       <Container>
         <Grid>
           <Link to={userLink}>
-            <img src={picture}></img>
+            <Avatar alt={name} src={picture} className={classes.large}/>
           </Link>
         </Grid>
         <Grid>
@@ -63,12 +71,24 @@ export default function UserInfoToolbar() {
           </Button>
           {isVisible ?
             <div>
-              <input type="file"></input>
-              <Button onClick={(e)=>{
-                e.preventDefault();
-                alert('avatar updated!');
-                toggleVisibility(!isVisible);
-              }}>
+              <input
+                type="file"
+                onChange={e => {
+                  e.preventDefault();
+                  handleFile(e.target.files[0]);
+                }}></input>
+
+
+              <Button
+                onClick={(e)=>{
+                  e.preventDefault();
+                  const formData = new FormData();
+                  formData.append('avatar', file);
+                  formData.append('userId', _id);
+                  uploadAvatar(formData);
+                  toggleVisibility(!isVisible);
+                }}
+              >
                 upload
               </Button>
             </div>
