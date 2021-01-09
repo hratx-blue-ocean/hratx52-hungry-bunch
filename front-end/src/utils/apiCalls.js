@@ -13,6 +13,22 @@ export const postNewRecipe = (recipe, userId) => {
     });
 };
 
+// uploads avatar to S3 bucket and receives a url back
+export const uploadAvatar = (formData) => {
+  axios.post('http://localhost:3000/uploadAvatar', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      //handle error
+      console.log(err);
+    });
+};
+
 export const addFriend = (userId, friendId) => {
   return axios.post('http://localhost:3000/addFriend', {
     id: userId,
