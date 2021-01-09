@@ -16,29 +16,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchPreferences = ({ updatePreferences }) => {
+const SearchPreferences = ({ updateFavoriteSearchBar, updateVeganSearchBar }) => {
   const classes = useStyles();
-  const [state, setState] = useState({
-    Favorites: false,
-    Vegan: false,
-  });
 
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-    updatePreferences([state.Favorites, state.Vegan]);
+  const [Favorites, setFavorites] = useState(false);
+  const [Vegan, setVegan] = useState(false);
+
+
+  const handleFavoritesChange = (event) => {
+    // setState([event.target.checked, state[1]]);
+    setFavorites(event.target.checked);
+    updateFavoriteSearchBar(event.target.checked);
+
   };
 
-  const { Favorites, Vegan } = state;
+  const handleVeganChange = (event) => {
+    // setState([state[0], event.target.checked]);
+    setVegan(event.target.checked);
+    updateVeganSearchBar(event.target.checked);
+  };
+
+
   return (
     <FormControl component="fieldset" className={classes.formControl}>
       <FormLabel component="legend">Preferences</FormLabel>
       <FormGroup row>
         <FormControlLabel
-          control={<Checkbox checked={Favorites} onChange={handleChange} name="Favorites" />}
+          control={<Checkbox checked={Favorites} onChange={handleFavoritesChange} name="Favorites" />}
           label="Favorites"
         />
         <FormControlLabel
-          control={<Checkbox checked={Vegan} onChange={handleChange} name="Vegan" />}
+          control={<Checkbox checked={Vegan} onChange={handleVeganChange} name="Vegan" />}
           label="Vegan"
         />
       </FormGroup>

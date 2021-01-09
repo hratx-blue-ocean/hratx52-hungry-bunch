@@ -52,6 +52,7 @@ const CategorySelect = ({ updateCategory }) => {
         <MenuItem value={'Dinner'}>Dinner</MenuItem>
         <MenuItem value={'Snack'}>Snack</MenuItem>
         <MenuItem value={'Dessert'}>Dessert</MenuItem>
+        <MenuItem value={'Beverages'}>Beverages</MenuItem>
       </Select>
     </FormControl>
   );
