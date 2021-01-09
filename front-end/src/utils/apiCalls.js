@@ -13,14 +13,29 @@ export const postNewRecipe = (recipe, userId) => {
     });
 };
 
+// uploads avatar to S3 bucket and receives a url back
 export const uploadAvatar = (formData) => {
-
-  axios.post('http://localhost:3000/uploadAvatar', formData)
+  axios.post('http://localhost:3000/uploadAvatar', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
     .then(res => {
-      console.log('avatar uploaded at: ', res);
+      console.log(res);
     })
     .catch(err => {
-      console.log('avatar could not be uploaded :^( : ', err);
+      //handle error
+      console.log(err);
+    });
+};
+
+export const searchForFriends = (userSearchTerm) => {
+  return axios.get(`http://localhost:3000/friends/${userSearchTerm}`)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) =>{
+      return err;
     });
 };
 

@@ -71,21 +71,18 @@ export default function UserInfoToolbar() {
                 onChange={e => {
                   e.preventDefault();
                   handleFile(e.target.files[0]);
-                  console.log(file);
                 }}></input>
+
+
               <Button
                 onClick={(e)=>{
                   e.preventDefault();
                   const formData = new FormData();
                   formData.append('avatar', file);
-                  const config = {
-                    headers: {
-                      'content-type': 'multipart/form-data'
-                    }
-                  };
+                  formData.append('userId', _id);
                   uploadAvatar(formData);
+                  toggleVisibility(!isVisible);
                 }}
-                // toggleVisibility(!isVisible);
               >
                 upload
               </Button>
