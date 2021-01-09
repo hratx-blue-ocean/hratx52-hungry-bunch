@@ -7,8 +7,9 @@ import { selectCurrentSteps, selectCurrentIngredients, selectRecipeName, selectC
 import { selectUser } from '../../containers/addUserContainer.js';
 import { AddedIngredients } from './addedIngredients.js';
 import { AddedInstructions } from './addedInstructions.js';
-import { postNewRecipe } from '../../utils/apiCalls.js';
+import { postNewRecipe, getUserData } from '../../utils/apiCalls.js';
 import { listOfImages } from '../../assets/foodImageUrls.js';
+import { receiveLogin } from '../../actions/action';
 import Container from '@material-ui/core/Container';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -105,6 +106,8 @@ export const AddRecipe = () => {
       alert('Recipe Saved');
       dispatch({type: 'SET_MODAL', payload: false});
       clearRecipe();
+      var updatedUser = await getUserData(user['_id']);
+      dispatch(receiveLogin(updatedUser.data));
     } else {
       alert('Sorry, the recipe was not able to be saved. Please try again.');
     }
