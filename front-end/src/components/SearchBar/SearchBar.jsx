@@ -157,6 +157,7 @@ const SearchBar = () => {
           </Badge>
         </Grid>
       </Grid>
+      <br></br>
       <Container>
         <Grid container>
           <Grid item xs={3}>

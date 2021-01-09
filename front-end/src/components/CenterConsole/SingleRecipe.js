@@ -32,6 +32,7 @@ const SingleRecipe = ({oneRecipe}) => {
             <CardContent>
               {oneRecipe.recipeName}
               <Grid>
+                <br></br>
                 <FavoritedByDisplay value={checkFavoriteAmount(oneRecipe.favoritedBy.length)}/>
               </Grid>
             </CardContent>
