@@ -38,13 +38,13 @@ const MainPage = () => {
         direction="row"
         alignItems="flex-start"
       >
-        <Grid item xs={2}>
+        <Grid xs={2}>
           <UserInfoToolbar/>
         </Grid>
-        <Grid item xs={8}>
+        <Grid xs={8}>
           <SearchBar />
         </ Grid>
-        <Grid item xs={2}>
+        <Grid xs={2}>
           <RightToolBar/>
         </ Grid>
       </Grid>

@@ -92,7 +92,7 @@ class RecipeList extends Component {
 
   render() {
     return (
-      <Grid container >
+      <Grid >
         <Grid container item lg={12} spacing={3}>
           {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.userRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
