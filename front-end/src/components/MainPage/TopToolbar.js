@@ -17,23 +17,18 @@ export default function TopToolbar() {
 
   const classes = useStyles();
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
+    <div className="main-page-header">
+      <div></div>
+      <div>
+        <Link to="/" >
+          <div className="titile-and-logo">
+            <div className="title">HUNGRY BUNCH</div>
+            <img className="logo" src="https://i.pinimg.com/originals/60/ed/ab/60edabe557e8139d52dae12f380205dc.png" ></img>
+          </div>
 
-        </IconButton>
-
-        { /**<img src="../../assets/spoonforkplate.png"></img>  **/}
-        <Link to="/">
-          <img src="https://i.pinimg.com/originals/60/ed/ab/60edabe557e8139d52dae12f380205dc.png" width="100" height="100" ></img>
         </Link>
-
-        <Typography variant="h6" className={classes.title}>
-    HUNGRY BUNCH
-        </Typography>
-
-        <Link to="/"><Logout /></Link>
-      </Toolbar>
-    </AppBar>
+      </div>
+      <Link to="/"><Logout /></Link>
+    </div>
   );
 }

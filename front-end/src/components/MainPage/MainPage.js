@@ -12,7 +12,6 @@ import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
 import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
-import styles from './mainpage.css';
 
 
 // --------this seems to do nothing at the moment
