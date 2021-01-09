@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 import { Grid, Container, Paper, InputBase, IconButton, Typography, Modal } from '@material-ui/core';
 import {connect, useSelector, useDispatch } from 'react-redux';
 import { selectModal } from '../../containers/addRecipeContainer.js';
-import { uploadAvatar } from '../../utils/apiCalls.js';
+import { uploadAvatar, getUserData } from '../../utils/apiCalls.js';
 import { selectUser } from '../../containers/addUserContainer.js';
 import axios from 'axios';
+import { receiveLogin } from '../../actions/action';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -43,7 +44,17 @@ export default function UserInfoToolbar() {
     dispatch({type: 'SET_MODAL', payload: false});
     clearRecipe();
   };
-  // app, recipe page, user
+
+  const handleUpload = async () => {
+    const formData = new FormData();
+    formData.append('avatar', file);
+    formData.append('userId', user['_id']);
+    var uploadedAvatar = await uploadAvatar(formData);
+    var updatedUser = await getUserData(user['_id']);
+    console.log('Updated User: ', updatedUser);
+    dispatch(receiveLogin(updatedUser.data));
+  };
+
   if (user) {
     const { name, picture, email, _id } = user;
     // change to userID
@@ -81,11 +92,8 @@ export default function UserInfoToolbar() {
 
               <Button
                 onClick={(e)=>{
-                  e.preventDefault();
-                  const formData = new FormData();
-                  formData.append('avatar', file);
-                  formData.append('userId', _id);
-                  uploadAvatar(formData);
+                  // e.preventDefault();
+                  handleUpload();
                   toggleVisibility(!isVisible);
                 }}
               >
