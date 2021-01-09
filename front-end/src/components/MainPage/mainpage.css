@@ -1,7 +1,13 @@
-.center {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
-  justify-content: center;
+.main-header{
+  padding-bottom: 20px;
 }
+.MuiGrid-container {
+  width: 114%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.recipe-search-bar{
+  width: 5000px
+}
+

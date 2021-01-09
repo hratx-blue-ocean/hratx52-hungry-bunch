@@ -12,11 +12,10 @@ import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
 import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
+import styles from './mainpage.css';
 
-//import styles from './mainpage.css';
 
-
-// --------this seems to do nothing at all
+// --------this seems to do nothing at the moment
 // const useStyles = makeStyles(theme => ({
 //   title: {
 //     flexGrow: 1,
@@ -31,27 +30,26 @@ const MainPage = () => {
   //---------------
   return (
     <>
-      <div>
+      <div className="main-header">
         <TopToolbar />
       </div>
       <Grid
         container
         direction="row"
-        justify="space-between"
         alignItems="flex-start"
       >
-        <Grid item >
+        <Grid item xs={2}>
           <UserInfoToolbar/>
         </Grid>
-        <Grid item >
+        <Grid item xs={8}>
           <SearchBar />
         </ Grid>
-        <Grid item >
+        <Grid item xs={2}>
           <RightToolBar/>
         </ Grid>
       </Grid>
       <div>
-        HERE GEOS FOOOTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        HERE GOES FOOOTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       </div>
     </>
   );
