@@ -8,7 +8,7 @@ const s3 = new AWS.S3({
   secretAccessKey: S3_SECRET
 });
 
-const uploadAvatarToS3 = (fileName, callback) => {
+const uploadImageToS3 = (fileName, callback) => {
   var fileLoc = path.join(__dirname, `uploads/${fileName}`);
   // Read content from the file
   const fileContent = fs.readFileSync(fileLoc);
@@ -34,5 +34,5 @@ const uploadAvatarToS3 = (fileName, callback) => {
 };
 
 module.exports = {
-  uploadAvatarToS3,
+  uploadImageToS3,
 };
