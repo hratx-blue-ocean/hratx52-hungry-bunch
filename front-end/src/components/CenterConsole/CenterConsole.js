@@ -15,6 +15,8 @@ const CenterConsole = (props) => {
         searchBarPreferences={props.searchBarPreferences}
         searchBarInput={props.searchBarInput}
         user={state.userReducer.user}
+        friendId={props.friendId}
+        friendRecipes={props.friendRecipes}
       />
     </div>
 

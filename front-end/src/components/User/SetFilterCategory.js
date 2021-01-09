@@ -50,7 +50,7 @@ class SetFilterCategory extends React.Component {
         <>
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
           <br></br>
-          <CenterConsole userFilter={this.state.currCategory} friendRecipes={this.state.userUrlRecipes}/>
+          <CenterConsole userFilter={this.state.currCategory} friendRecipes={this.state.userUrlRecipes} friendId={this.state.userId}/>
         </>
       );
     } else {
@@ -58,7 +58,7 @@ class SetFilterCategory extends React.Component {
         <>
           <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
           <br></br>
-          <CenterConsole friendRecipes={this.state.userUrlRecipes}/>
+          <CenterConsole friendRecipes={this.state.userUrlRecipes} friendId={this.state.userId}/>
         </>
       );
     }

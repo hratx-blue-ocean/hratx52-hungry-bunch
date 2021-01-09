@@ -1,47 +1,71 @@
-import {recipe} from '../../data/recipeDummyData.js';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const RecipeData = () => {
+import { useHistory, useLocation } from 'react-router-dom';
+import { List, ListItem, ListItemText, Checkbox, Avatar } from '@material-ui/core';
 
-  const user = `/user/${recipe.ownerId}`;
 
-  return (
-    <div className='recipe-data'>
-      <div className='recipe-name-and-user'>
-        <h1>{recipe.recipeName}</h1>
-        <Link to={user}>
-          <div>{recipe.ownerId} - username goes here!</div>
-        </Link>
-      </div>
-      <div className='recipe-ingredients'>
-        <ul>{recipe.ingredients.map((ingredient, i) => (
-          <li key={i}>{ingredient}</li>
-        ))}</ul>
-      </div>
-      <div className='optional-recipe-data'>
-        <div>
-        Category: {recipe.category}
+const styles = theme => ({
+  root: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+    padding: 0
+  }
+});
+
+const RecipeData = (props) => {
+  const user = `/user/${props.recipeData.owner._id}`;
+
+  if (props.recipeData && props.recipeData.owner) {
+    return (
+      <div className='recipe-data'>
+        <div className='recipe-name-and-user'>
+          <h1>{props.recipeData.recipeName}</h1>
+          <Link to={`/user/${props.recipeData.owner._id}`}>
+            <div>{props.recipeData.owner.name}</div>
+          </Link>
         </div>
-        <div>
-        Time: {recipe.time} minutes
+        <div className='recipe-ingredients'>
+
+          <ul>{props.recipeData.ingredients.map((ingredient, i) => (
+            <li key={i}>{ingredient}</li>
+          ))}
+          </ul>
+
         </div>
-        <div>
-        Difficulty: {recipe.difficulty}
+        <div className='optional-recipe-data'>
+          Category: {props.recipeData.category}
+          <br></br>
+          Time: {props.recipeData.time} minutes,
+          <br></br>
+          Difficulty: {props.recipeData.difficulty}
+          {props.recipeData.vegan ? ', Vegan' : null}
         </div>
-        {recipe.vegan ? ', Vegan' : null}
+        <div className='recipe-steps'>
+          <List dense={true} disableGutters={true}	>
+            {props.recipeData.steps.map((step, i) => (
+              <ListItem key={i} margin={1} padding={0}>
+                <ListItemText>{i + 1}. {step}</ListItemText>
+                <Checkbox />
+              </ListItem>
+            ))}
+          </List>
+
+          <ol>{props.recipeData.steps.map((step, i) => (
+            <li key={i}>{step}</li>
+          ))}
+          </ol>
+
+        </div>
       </div>
-      <div className='recipe-steps'>
-        <ol>{recipe.steps.map((step, i) => (
-          <li key={i}>{step}</li>
-        ))}</ol>
-      </div>
-    </div>
-  );
+    );
+  }
+  return (<></>);
 };
-
-// recipe name, ingredients, time/vegan/difficulty, steps
 
 export default RecipeData;
 
-// TODO: styling, use ownerId to get username, figure out how to use router to make username a link to that user's profile
+
+

@@ -29,6 +29,19 @@ export const uploadAvatar = (formData) => {
     });
 };
 
+export const addFriend = (userId, friendId) => {
+  return axios.post('http://localhost:3000/addFriend', {
+    id: userId,
+    friendId: friendId
+  })
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+
 export const searchForFriends = (userSearchTerm) => {
   return axios.get(`http://localhost:3000/friends/${userSearchTerm}`)
     .then((res) => {
@@ -39,6 +52,25 @@ export const searchForFriends = (userSearchTerm) => {
     });
 };
 
-export const addFriend = (user, friend) => {
+export const getUserData = (userId) => {
+  return axios.get(`http://localhost:3000/userInfo/${userId}`)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) =>{
+      return err;
+    });
+};
 
+export const removeFriend = (userId, friendId) => {
+  return axios.post('http://localhost:3000/removeFriend', {
+    id: userId,
+    friendId: friendId
+  })
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      return err;
+    });
 };

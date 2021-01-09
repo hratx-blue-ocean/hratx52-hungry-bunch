@@ -23,7 +23,7 @@ const recipeSchema = new mongoose.Schema({
   ingredients: [String],
   time: Number,
   difficulty: String,
-  favoritedBy: [Number],
+  favoritedBy: [{type: Schema.Types.ObjectId, ref: 'User'}],
   vegan: Boolean,
   steps: [String],
   imageUrl: String

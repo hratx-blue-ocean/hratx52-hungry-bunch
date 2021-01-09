@@ -6,7 +6,7 @@ import FavoritedByDisplay from './favoritedByDisplay.js';
 
 
 const SingleRecipe = ({oneRecipe}) => {
-  const link = `/recipe/${oneRecipe.recipeId}`;
+  const link = `/recipe/${oneRecipe._id}`;
 
   const checkFavoriteAmount = (arrLength) => {
     if (arrLength <= 2) {
@@ -32,6 +32,7 @@ const SingleRecipe = ({oneRecipe}) => {
             <CardContent>
               {oneRecipe.recipeName}
               <Grid>
+                <br></br>
                 <FavoritedByDisplay value={checkFavoriteAmount(oneRecipe.favoritedBy.length)}/>
               </Grid>
             </CardContent>

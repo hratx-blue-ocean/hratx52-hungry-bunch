@@ -20,9 +20,8 @@ import DifficultySelect from './DifficultySelect';
 import Badge from '@material-ui/core/Badge';
 import Chip from '@material-ui/core/Chip';
 import ChipsList from './ChipList';
-import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
 import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
-import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mainDiv: {
     flexGrow: 1,
-    paddingTop: '10px',
+    // paddingTop: '10px',
     paddingBottom: '20px'
   },
   input: {
@@ -100,78 +99,77 @@ const SearchBar = () => {
 
   return (
     <div className={classes.mainDiv}>
-      <Grid container spacing={3} direction="column" alignItems="center">
-        <Grid item xs={12}>
-          <Badge
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            badgeContent={category === '' ? 0 :
-              <Chip
-                color='secondary'
-                size='small'
-                label={category}
-                onDelete={handleDelete}>
-              </Chip>}
-          >
-            <Paper component="form" className={classes.root} variant="outlined" elevation={3}>
-              <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                <SearchIcon />
-              </IconButton>
-              <InputBase
-                className={classes.input}
-                placeholder="Search Recipes"
-                onChange={handleChange}
-                value={input}
-                inputProps={{ 'aria-label': 'search recipes' }}
-              />
-              {input === '' ? null :
-                <IconButton className={classes.iconButton} aria-label="clear" onClick={handleClick}>
-                  <ClearIcon />
-                </IconButton>}
-              <Divider className={classes.divider} orientation="vertical" />
-              <IconButton className={classes.iconButton} aria-label="add filter" onClick={handleClickOpen}>
-                <PlaylistAddIcon />
-              </IconButton>
-              <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
-                <DialogTitle className={classes.container}>Search Criteria</DialogTitle>
-                <DialogContent>
-                  <form className={classes.container}>
-                    <Container>
-                      <CategorySelect updateCategory={updateCategory} />
-                      <DifficultySelect updateDifficulty={updateDifficulty} />
-                    </Container>
-                    <Container>
-                      <SearchPreferences updatePreferences={updatePreferences}/>
-                    </Container>
-                  </form>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose} color="primary">
-            Cancel
-                  </Button>
-                  <Button onClick={handleClose} color="primary">
-            Ok
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </Paper>
-          </Badge>
+      <Grid container direction="column" justify="center" >
+        <Grid container direction="row" justify="flex-start" spacing={3}>
+          <Grid item xs={7}>
+          </Grid>
+          <Grid item xs={4}>
+            <Badge
+              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+              badgeContent={category === '' ? 0 :
+                <Chip
+                  color='secondary'
+                  size='small'
+                  label={category}
+                  onDelete={handleDelete}>
+                </Chip>}
+            >
+              <Paper component="form" className={classes.root} variant="outlined" elevation={3}>
+                <IconButton type="submit" className={classes.iconButton} aria-label="search">
+                  <SearchIcon />
+                </IconButton>
+                <InputBase
+                  className={classes.input}
+                  placeholder="Search Recipes"
+                  onChange={handleChange}
+                  value={input}
+                  inputProps={{ 'aria-label': 'search recipes' }}
+                />
+                {input === '' ? null :
+                  <IconButton className={classes.iconButton} aria-label="clear" onClick={handleClick}>
+                    <ClearIcon />
+                  </IconButton>}
+                <Divider className={classes.divider} orientation="vertical" />
+                <IconButton className={classes.iconButton} aria-label="add filter" onClick={handleClickOpen}>
+                  <PlaylistAddIcon />
+                </IconButton>
+                <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
+                  <DialogTitle className={classes.container}>Search Criteria</DialogTitle>
+                  <DialogContent>
+                    <form className={classes.container}>
+                      <Container>
+                        <CategorySelect updateCategory={updateCategory} />
+                        <DifficultySelect updateDifficulty={updateDifficulty} />
+                      </Container>
+                      <Container>
+                        <SearchPreferences updatePreferences={updatePreferences}/>
+                      </Container>
+                    </form>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+              Cancel
+                    </Button>
+                    <Button onClick={handleClose} color="primary">
+              Ok
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+              </Paper>
+            </Badge>
+          </Grid>
         </Grid>
       </Grid>
+      <br></br>
       <Container>
         <Grid container>
-          <Grid item xs={3}>
-            <UserInfoToolbar/>
-          </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <CenterConsole
               searchBarCategory={category}
               searchBarDifficulty={Difficulty}
               searchBarPreferences={Preferences}
               searchBarInput={input}
             />
-          </Grid>
-          <Grid item xs={3}>
-            <RightToolBar/>
           </Grid>
         </Grid>
       </Container>

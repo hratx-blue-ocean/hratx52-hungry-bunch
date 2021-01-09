@@ -50,6 +50,21 @@ app.get('/userInfo/:id', (req, res) => {
   });
 });
 
+app.get('/recipe/:id', (req, res) => {
+
+  log(chalk.cyan(req.params.id));
+  const { id } = req.params;
+  // get User query - query user collection
+  queries.GetRecipe({ id }, (err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed(err, 'ERROR GETTING A RECIPE FROM DATABASE'));
+    } else {
+      res.status(200).send(response);
+    }
+  });
+});
+
 app.get('/friends/:name', (req, res) => {
   log(chalk.cyan(req.params.name));
   const { name } = req.params;
@@ -155,6 +170,22 @@ app.post('/addFriend', (req, res) => {
   });
 });
 
+// remove friend - remove from friends array in friends collection
+app.post('/removeFriend', (req, res) => {
+  const { id, friendId } = req.body;
+  // add friend query
+  queries.RemoveFriend({ id, friendId }, (err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed('ERROR REMOVING FRIEND IN DATABASE'));
+    } else {
+      // send status success back to client
+      res.send(200);
+      log(chalk.magentaBright('FRIEND REMOVED SUCCESSFULLY'));
+    }
+  });
+});
+
 // add user, adds new user to users collection (default avatar if no photo)
 app.post('/addUser', (req, res) => {
   console.log(req.body);
@@ -234,6 +265,7 @@ app.post('/updateFavoritedBy', (req, res) => {
     }
   });
 });
+
 
 app.listen(port, () => {
   log(chalk.magenta('HUNGRY BACK-END app listening at ') + chalk.bold.greenBright(`http://localhost:${port}`));
