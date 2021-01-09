@@ -11,16 +11,16 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import CenterConsole from '../components/CenterConsole/CenterConsole.js';
 
-configure({ adapter: new Adapter() });
+// configure({ adapter: new Adapter() });
 
-describe('Cookbook component', () => {
+// describe('Cookbook component', () => {
 
-  it('should render', () => {
-    const wrapper = shallow(<CenterConsole />);
-  });
+//   it('should render', () => {
+//     const wrapper = shallow(<CenterConsole />);
+//   });
 
 
-});
+// });
 
 
 

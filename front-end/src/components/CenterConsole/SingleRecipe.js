@@ -6,7 +6,7 @@ import FavoritedByDisplay from './favoritedByDisplay.js';
 
 
 const SingleRecipe = ({oneRecipe}) => {
-  const link = `/recipe/${oneRecipe.recipeId}`;
+  const link = `/recipe/${oneRecipe._id}`;
 
   const checkFavoriteAmount = (arrLength) => {
     if (arrLength <= 2) {

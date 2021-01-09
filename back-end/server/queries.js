@@ -23,6 +23,24 @@ const GetUser = ({ id }, callback) => {
   });
 };
 
+const GetRecipe = ({ id }, callback) => {
+  Recipe.findById( id, (err, recipe) => {
+    if (err) {
+      log(chalk.redBright('err', err));
+      callback(err);
+    } else {
+      recipe.
+        populate('owner', 'name').
+        execPopulate((err, doc) => {
+          if (err) { callback(err); }
+          log(chalk.green('success getting user'));
+          log(doc);
+          callback(null, doc);
+        });
+    }
+  });
+};
+
 const GetFriends = ({ name }, callback) => {
   User.find({ 'name': { '$regex': name, '$options': 'i' }}, (err, friends) => {
     if (err) {
@@ -200,5 +218,6 @@ module.exports = {
   GetFriends,
   GetUserRecipes,
   GetAllRecipes,
-  UpdateFavoritedBy
+  UpdateFavoritedBy,
+  GetRecipe
 };
