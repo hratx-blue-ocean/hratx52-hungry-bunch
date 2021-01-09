@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   mainDiv: {
     flexGrow: 1,
     // paddingTop: '10px',
-    paddingBottom: '20px'
+    // paddingBottom: '20px'
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -44,8 +44,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
   },
   divider: {
-    height: 28,
-    margin: 4,
+    // height: 28,
+    // margin: 4,
   },
   container: {
     display: 'flex',

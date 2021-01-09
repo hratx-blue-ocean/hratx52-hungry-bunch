@@ -33,7 +33,6 @@ export default function TopToolbar() {
         </Typography>
 
         <Link to="/"><Logout /></Link>
-
       </Toolbar>
     </AppBar>
   );
