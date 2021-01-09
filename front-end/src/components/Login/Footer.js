@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <>
       <div className="login-landing-page-footer">
-        <div>Hungry Bunch App was built by 7 amazing people</div>
+        <div>Hungry Bunch App was built by 7 amazing people!</div>
         <div>
           Project Manager : <a className="login-linked-in" href="https://www.linkedin.com/in/kela-kealakai/">Kela Kealakai</a><br/>
           Architects : <a className="login-linked-in" href="https://www.linkedin.com/in/lucyarmstrong1/">Lucy Armstrong</a> & <a className="login-linked-in" href="https://www.linkedin.com/in/rhawley1/">Rick Hawley</a><br/>

@@ -8,3 +8,8 @@
   flex-wrap: wrap;
   box-sizing: border-box;
 }; */
+
+
+.MuiGrid-root.search-recipe-bar.MuiGrid-grid-xs-4 {
+  padding-left: 24px;
+}

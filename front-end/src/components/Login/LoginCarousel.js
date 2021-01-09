@@ -26,18 +26,16 @@ const LoginCarousel = () => {
 
 
   return (
-    <div className="login-landing-page-carousel-placeholder">
-      <Slider className="login-landing-page-carousel" {...settings}>
-        {imageSourcesToDisplay.map((image, index) => {
-          return (
-            <div key={image}>
-              <img className="login-landing-page-image" src={image} />
-            </div>
-          );
-        }
-        )}
-      </Slider>
-    </div>
+    <Slider className="login-landing-page-carousel" {...settings}>
+      {imageSourcesToDisplay.map((image, index) => {
+        return (
+          <div key={image}>
+            <img className="login-landing-page-image" src={image} />
+          </div>
+        );
+      }
+      )}
+    </Slider>
   );
 };
 

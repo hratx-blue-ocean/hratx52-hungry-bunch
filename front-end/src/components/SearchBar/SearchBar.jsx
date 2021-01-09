@@ -100,8 +100,8 @@ const SearchBar = () => {
 
   return (
     <div className={classes.mainDiv}>
-      <Grid container direction="column">
-        <Grid xs={4}>
+      <Grid container direction="column" >
+        <Grid className="search-recipe-bar" xs={4}>
           <Badge
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             badgeContent={category === '' ? 0 :
