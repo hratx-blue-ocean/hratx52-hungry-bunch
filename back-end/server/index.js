@@ -159,6 +159,22 @@ app.post('/addFriend', (req, res) => {
   });
 });
 
+// remove friend - remove from friends array in friends collection
+app.post('/removeFriend', (req, res) => {
+  const { id, friendId } = req.body;
+  // add friend query
+  queries.RemoveFriend({ id, friendId }, (err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed('ERROR REMOVING FRIEND IN DATABASE'));
+    } else {
+      // send status success back to client
+      res.send(200);
+      log(chalk.magentaBright('FRIEND REMOVED SUCCESSFULLY'));
+    }
+  });
+});
+
 // add user, adds new user to users collection (default avatar if no photo)
 app.post('/addUser', (req, res) => {
   console.log(req.body);
@@ -215,6 +231,7 @@ app.post('/updateFavoritedBy', (req, res) => {
     }
   });
 });
+
 
 app.listen(port, () => {
   log(chalk.magenta('HUNGRY BACK-END app listening at ') + chalk.bold.greenBright(`http://localhost:${port}`));

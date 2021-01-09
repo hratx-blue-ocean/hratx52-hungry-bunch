@@ -45,3 +45,16 @@ export const getUserData = (userId) => {
       return err;
     });
 };
+
+export const removeFriend = (userId, friendId) => {
+  return axios.post('http://localhost:3000/removeFriend', {
+    id: userId,
+    friendId: friendId
+  })
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
