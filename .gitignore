@@ -3,3 +3,4 @@
 .DS_Store
 *.pem
 /back-end/server/bucketConfig.js
+/back-end/server/uploads
