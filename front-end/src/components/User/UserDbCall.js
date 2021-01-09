@@ -5,7 +5,7 @@ import { Grid, Container } from '@material-ui/core';
 
 import TopToolbar from './TopToolBar.js';
 import SetFilterCategory from './SetFilterCategory.js';
-import { default as LeftToolbar } from '../RightToolBar/RightToolBar.js';
+import { default as FriendsToolbar } from '../RightToolBar/RightToolBar.js';
 
 class UserDbCalls extends React.Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class UserDbCalls extends React.Component {
             <Container>
               <Grid container>
                 <Grid item xs={3}>
-                  <LeftToolbar friends={this.state.friends}/>
+                  <FriendsToolbar friends={this.state.friends}/>
                 </Grid>
                 <Grid item xs={9}>
                   <SetFilterCategory userId={this.state.urlUserId} userInfo={this.state.urlUserInfo} />
