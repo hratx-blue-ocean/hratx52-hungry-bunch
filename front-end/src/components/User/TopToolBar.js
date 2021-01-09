@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { flexbox } from '@material-ui/system';
 import Logout from '../Login/Logout';
 import { Link, Route, Switch } from 'react-router-dom';
+import { AddFriend } from '../AddFriend/addFriend.js';
 
 const useStyles = makeStyles((theme)=>({
   root: {
@@ -57,6 +58,9 @@ const TopToolbar = (props) => {
             <Typography variant="h2">
               {props.nickname}
             </Typography>
+          </Box>
+          <Box>
+            <AddFriend/>
           </Box>
 
           {/* sign out link*/}
