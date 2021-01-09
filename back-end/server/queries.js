@@ -148,6 +148,17 @@ const AddNewFriend = ({id, friendId}, callback) => {
   });
 };
 
+const RemoveFriend = ({id, friendId}, callback) => {
+  User.findByIdAndUpdate(id, { $pull: { friends: friendId }}, (err, removedFriend) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, removedFriend);
+    }
+
+  });
+};
+
 const AddNewFavoriteRecipe = ({id, recipeId}, callback) => {
   User.findByIdAndUpdate(id, { $push: { favoriteRecipes: recipeId }}, (err, newFavorite) => {
     if (err) {
@@ -211,6 +222,7 @@ module.exports = {
   AddNewRecipe,
   AddNewUser,
   AddNewFriend,
+  RemoveFriend,
   UpdateUserPhoto,
   AddNewFavoriteRecipe,
   UpdateUserName,

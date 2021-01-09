@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../containers/addUserContainer.js';
 import Button from '@material-ui/core/Button';
 import { useHistory, useLocation } from 'react-router-dom';
-import { addFriend, getUserData } from '../../utils/apiCalls.js';
+import { addFriend, getUserData, removeFriend } from '../../utils/apiCalls.js';
 import { receiveLogin } from '../../actions/action';
 
 
@@ -51,10 +51,27 @@ export const AddFriend = () => {
     }
   };
 
+  const handleRemoveFriend = async() => {
+    var removeFriendResponse = await removeFriend(user['_id'], friendId);
+    if (removeFriendResponse.status === 200) {
+      setAreFriends(false);
+      var updatedUser = await getUserData(user['_id']);
+      dispatch(receiveLogin(updatedUser.data));
+      checkIfFriends();
+    } else {
+      alert('Unable to remove friend. Please try again.');
+    }
+  };
+
   if (areFriends) {
     return (
       <div>
         You are Friends
+        <Button
+          onClick={handleRemoveFriend}
+        >
+          Remove Friend
+        </Button>
       </div>
     );
   } else if (usersProfile) {
