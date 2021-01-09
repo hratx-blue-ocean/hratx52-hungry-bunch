@@ -19,7 +19,6 @@ const CenterConsole = (props) => {
         friendRecipes={props.friendRecipes}
       />
     </div>
-
   );
 };
 

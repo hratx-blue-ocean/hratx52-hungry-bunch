@@ -26,8 +26,9 @@ const uploadAvatarToS3 = (fileName, callback) => {
     if (err) {
       callback(err);
     } else {
+      console.log('data: ', data);
       console.log(`File uploaded successfully. ${data.Location}`);
-      callback(null, data.location);
+      callback(null, data.Location);
     }
   });
 };

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Avatar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { AddRecipe } from '../AddRecipe/addRecipe.js';
 import Button from '@material-ui/core/Button';
@@ -14,6 +15,10 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
     textAlign: 'center',
+  },
+  large: {
+    width: theme.spacing(8),
+    height: theme.spacing(8),
   },
 }));
 
@@ -47,7 +52,7 @@ export default function UserInfoToolbar() {
       <Container>
         <Grid>
           <Link to={userLink}>
-            <img src={picture}></img>
+            <Avatar alt={name} src={picture} className={classes.large}/>
           </Link>
         </Grid>
         <Grid>
