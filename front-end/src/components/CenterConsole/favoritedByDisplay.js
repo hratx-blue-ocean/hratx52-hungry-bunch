@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
@@ -9,15 +8,15 @@ import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfie
 
 const customFavIcons = {
   1: {
-    icon: <SentimentSatisfiedIcon />,
+    icon: <SentimentSatisfiedIcon fontSize='small'/>,
     label: 'Very Neutral',
   },
   2: {
-    icon: <SentimentSatisfiedAltIcon />,
+    icon: <SentimentSatisfiedAltIcon fontSize='small' />,
     label: 'Satisfied',
   },
   3: {
-    icon: <SentimentVerySatisfiedIcon />,
+    icon: <SentimentVerySatisfiedIcon fontSize='small'/>,
     label: 'Very Satisfied',
   }
 };
@@ -35,7 +34,6 @@ const FavoritedByDisplay = (props) => {
   return (
     <Rating
       max={3}
-      size='small'
       name="customized-icons"
       defaultValue={props.value}
       getLabelText={(value) => customFavIcons[value].label}

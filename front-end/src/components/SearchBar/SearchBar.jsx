@@ -160,6 +160,7 @@ const SearchBar = () => {
           </Grid>
         </Grid>
       </Grid>
+      <br></br>
       <Container>
         <Grid container>
           <Grid item xs={12}>
