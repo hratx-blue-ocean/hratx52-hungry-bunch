@@ -51,7 +51,7 @@ class UserDbCalls extends React.Component {
             <Container>
               <Grid container>
                 <Grid item xs={3}>
-                  <LeftToolbar />
+                  <LeftToolbar friends={this.state.friends}/>
                 </Grid>
                 <Grid item xs={9}>
                   <SetFilterCategory userId={this.state.urlUserId} userInfo={this.state.urlUserInfo} />
