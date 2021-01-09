@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { userCookbook } from '../../data/recipeDummyData.js';
 import SingleRecipe from './SingleRecipe.js';
 import { Grid, Button, Container } from '@material-ui/core/';
 import axios from 'axios';
@@ -10,12 +9,12 @@ class RecipeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipeList: userCookbook.recipes,
       disableShowMoreButton: false,
       disablePreviousButton: true,
       startOfSlice: 0,
       endOfSlice: 6,
-      userRecipes: this.props.user ? this.props.user.recipes : []
+      userRecipes: this.props.user ? this.props.user.recipes : [],
+      friendRecipes: this.props.friendId ? this.props.friendRecipes : []
     };
   }
 
@@ -77,30 +76,26 @@ class RecipeList extends Component {
     });
   }
 
-
   componentDidUpdate(prevProps) {
     if (this.props.user !== prevProps.user) {
       this.setState({
-        userRecipes: this.props.user.recipes
+        userRecipes: this.props.user.recipes,
+      });
+    }
+    if (this.props.friendId !== prevProps.friendId) {
+      this.setState({
+        friendRecipes: this.props.friendRecipes,
       });
     }
   }
 
-
-  // componentDidUpdate (prevProps, prevState) {
-  //   if (this.props.userFilter !== prevProps.userFilter) {
-  //     this.filterByCatagorie(this.state.userRecipes, this.props.userFilter);
-  //   } else if (this.props.searchBarInput !== prevProps.searchBarInput || this.props.searchBarCategory !== prevProps.searchBarCategory || this.props.searchBarDifficulty !== prevProps.searchBarDifficulty) {
-  //     this.filterBySearchBar(this.state.userRecipes, this.props);
-  //   }
-  // }
 
   render() {
     return (
 
       <Grid container spacing={1}>
         <Grid container item xs={12} spacing={3}>
-          {this.props.userFilter ? this.mapHelper(this.filterByCatagorie(this.state.userRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
+          {this.props.friendId ? this.mapHelper(this.filterByCatagorie(this.state.friendRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
         <Grid container spacing={10}>
           <Grid item >
