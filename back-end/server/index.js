@@ -7,7 +7,7 @@ const log = console.log;
 const queries = require('./queries');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const {uploadAvatarToS3} = require('./uploadAvatar');
+const {uploadImageToS3} = require('./uploadImageToS3');
 const fs = require('fs');
 const multer = require('multer');
 const helpers = require('./helpers');
@@ -220,7 +220,7 @@ app.post('/uploadAvatar', upload.single('avatar'), (req, res) => {
   console.log('file: ', req.file);
   const file = req.file;
   const id = req.body.userId;
-  uploadAvatarToS3(file.filename, (err, response) => {
+  uploadImageToS3(file.filename, (err, response) => {
     if (err) {
       console.log(err);
       res.status(500).send(err);
@@ -235,6 +235,20 @@ app.post('/uploadAvatar', upload.single('avatar'), (req, res) => {
           log(chalk.magentaBright('NEW USER PHOTO ADDED SUCCESFULLY'));
         }
       });
+    }
+  });
+});
+
+app.post('/uploadRecipeImage', upload.single('recipeImage'), (req, res) => {
+  console.log('file: ', req.file);
+  const file = req.file;
+  const id = req.body.userId;
+  uploadImageToS3(file.filename, (err, response) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(response);
     }
   });
 });
