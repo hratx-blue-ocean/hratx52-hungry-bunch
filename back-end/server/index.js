@@ -7,6 +7,11 @@ const log = console.log;
 const queries = require('./queries');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const {uploadImageToS3} = require('./uploadImageToS3');
+const fs = require('fs');
+const multer = require('multer');
+const helpers = require('./helpers');
+const path = require('path');
 
 const { User } = require('../database/data');
 
@@ -14,6 +19,12 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.json()).use(cors());
+
+//creates static directory to hold files temporarily
+// app.use(express.static(__dirname + '/public'));
+
+// files uploaded from client are stored on the server at /uploads/
+const upload = multer({dest: 'server/uploads/'});
 
 app.get('/', (req, res) => {
   log(chalk.magenta('hey from the server'));
@@ -201,6 +212,43 @@ app.post('/addUserName', (req, res) => {
     } else {
       // send status success back to client
       res.send(200);
+    }
+  });
+});
+
+app.post('/uploadAvatar', upload.single('avatar'), (req, res) => {
+  console.log('file: ', req.file);
+  const file = req.file;
+  const id = req.body.userId;
+  uploadImageToS3(file.filename, (err, response) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      const photoUrl = response;
+      queries.UpdateUserPhoto({ id, photoUrl }, (err, response) => {
+        if (err) {
+          res.send(500);
+        } else {
+          // send status success back to client
+          res.send(response);
+          log(chalk.magentaBright('NEW USER PHOTO ADDED SUCCESFULLY'));
+        }
+      });
+    }
+  });
+});
+
+app.post('/uploadRecipeImage', upload.single('recipeImage'), (req, res) => {
+  console.log('file: ', req.file);
+  const file = req.file;
+  const id = req.body.userId;
+  uploadImageToS3(file.filename, (err, response) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(response);
     }
   });
 });

@@ -7,12 +7,14 @@ import Footer from './Footer.js';
 const LoginLandingPage = () => {
 
   return (
-    <>
+    <div className="login-page">
       <Header />
-      <LoginCarousel />
-      <LoginButton />
+      <div className="login-landing-page-carousel-container">
+        <LoginButton />
+        <LoginCarousel />
+      </div>
       <Footer/>
-    </>
+    </div>
   );
 };
 

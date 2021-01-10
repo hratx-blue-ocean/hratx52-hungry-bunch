@@ -14,7 +14,7 @@ import axios from 'axios';
 import styles from './styles.css';
 import Loading from './components/Login/Loading.js';
 
-const App = (props) => {
+const App = () => {
 
   const dispatch = useDispatch();
 
