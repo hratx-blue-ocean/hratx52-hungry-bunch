@@ -12,7 +12,6 @@ import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
 import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
-import styles from './mainpage.css';
 
 
 // --------this seems to do nothing at the moment
@@ -38,13 +37,13 @@ const MainPage = () => {
         direction="row"
         alignItems="flex-start"
       >
-        <Grid item xs={2}>
+        <Grid xs={2}>
           <UserInfoToolbar/>
         </Grid>
-        <Grid item xs={8}>
+        <Grid xs={8}>
           <SearchBar />
         </ Grid>
-        <Grid item xs={2}>
+        <Grid xs={2}>
           <RightToolBar/>
         </ Grid>
       </Grid>

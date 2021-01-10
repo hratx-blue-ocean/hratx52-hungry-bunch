@@ -6,4 +6,38 @@ body{
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  font-family: 'Oswald', sans-serif;
+}
+
+.login-page{
+  font-family: 'Amatic SC', cursive;
+}
+
+.main-page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px 20px 40px;
+  margin-bottom: 37px;
+  background: #e2dada;
+  color: white;
+  font-size: xxx-large;
+  font-family: 'Amatic SC', cursive;
+}
+.title{
+  color:black;
+  text-decoration: dashed;
+}
+.logo{
+  padding-left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.titile-and-logo{
+  display: flex;
+  align-items: center;
+}
+.MuiGrid-root.search-recipe-bar.MuiGrid-grid-xs-4 {
+  padding-left: 25px;
 }

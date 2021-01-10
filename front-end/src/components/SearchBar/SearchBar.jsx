@@ -26,14 +26,15 @@ import CenterConsole from '../../components/CenterConsole/CenterConsole.js';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'inline-flex',
-    alignItems: 'center',
-    paddingTop: '5px',
-    width: 400,
+    // alignItems: 'center',
+    // paddingTop: '10px',
+    // width: '400px',
+    maxWidth: '500px',
   },
   mainDiv: {
     flexGrow: 1,
     // paddingTop: '10px',
-    paddingBottom: '20px'
+    // paddingBottom: '20px'
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -43,8 +44,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
   },
   divider: {
-    height: 28,
-    margin: 4,
+    // height: 28,
+    // margin: 4,
   },
   container: {
     display: 'flex',
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: '120px',
   },
 }));
 
@@ -147,106 +148,103 @@ const SearchBar = () => {
 
   return (
     <div className={classes.mainDiv}>
-      <Grid container direction="column" justify="center" >
-        <Grid container direction="row" justify="flex-start" spacing={3}>
-          <Grid item xs={7}>
-          </Grid>
-          <Grid item xs={4}>
-            <CategoryBadge
-              // anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-              badgeContent={category === '' ? 0 :
+      <Grid container direction="column" >
+        <Grid className="search-recipe-bar" xs={4}>
+          <CategoryBadge
+            // anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            badgeContent={category === '' ? 0 :
+              <Chip
+                style={{backgroundColor: '#ffc107'}}
+                color='secondary'
+                size='small'
+                label={category}
+                onDelete={handleCategoryDelete}>
+              </Chip>}
+          >
+            <DifficultyBadge
+              // anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              badgeContent={Difficulty === '' ? 0 :
                 <Chip
-                  style={{backgroundColor: '#ffc107'}}
-                  color='secondary'
+                  style={{backgroundColor: '#2196f3'}}
+                  color='primary'
                   size='small'
-                  label={category}
-                  onDelete={handleCategoryDelete}>
+                  label={Difficulty}
+                  onDelete={handleDifficultyDelete}>
                 </Chip>}
             >
-              <DifficultyBadge
-                // anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                badgeContent={Difficulty === '' ? 0 :
+              <FavoritesBadge
+                // anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+                badgeContent={FavoritesSearchBar === false ? 0 :
                   <Chip
-                    style={{backgroundColor: '#2196f3'}}
-                    color='primary'
+                    style={{backgroundColor: 'pink'}}
+                    color='default'
                     size='small'
-                    label={Difficulty}
-                    onDelete={handleDifficultyDelete}>
+                    label={'favorites'}
+                    onDelete={handlePreferencesZeroDelete}>
                   </Chip>}
               >
-                <FavoritesBadge
-                  // anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-                  badgeContent={FavoritesSearchBar === false ? 0 :
+                <VeganBadge
+                  // anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                  badgeContent={VeganSearchBar === false ? 0 :
                     <Chip
-                      style={{backgroundColor: 'pink'}}
-                      color='default'
+                      style={{backgroundColor: '#4CAF50'}}
                       size='small'
-                      label={'favorites'}
-                      onDelete={handlePreferencesZeroDelete}>
+                      label={'vegan'}
+                      onDelete={handlePreferencesOneDelete}>
                     </Chip>}
                 >
-                  <VeganBadge
-                    // anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                    badgeContent={VeganSearchBar === false ? 0 :
-                      <Chip
-                        style={{backgroundColor: '#4CAF50'}}
-                        size='small'
-                        label={'vegan'}
-                        onDelete={handlePreferencesOneDelete}>
-                      </Chip>}
-                  >
-                    <Paper component="form" className={classes.root} variant="outlined" elevation={3}>
-                      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                        <SearchIcon />
-                      </IconButton>
-                      <InputBase
-                        className={classes.input}
-                        placeholder="Search Recipes"
-                        onChange={handleChange}
-                        value={input}
-                        inputProps={{ 'aria-label': 'search recipes' }}
-                      />
-                      {input === '' ? null :
-                        <IconButton className={classes.iconButton} aria-label="clear" onClick={handleClick}>
-                          <ClearIcon />
-                        </IconButton>}
-                      <Divider className={classes.divider} orientation="vertical" />
-                      <IconButton className={classes.iconButton} aria-label="add filter" onClick={handleClickOpen}>
-                        <PlaylistAddIcon />
-                      </IconButton>
-                      <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
-                        <DialogTitle className={classes.container}>Search Criteria</DialogTitle>
-                        <DialogContent>
-                          <form className={classes.container}>
-                            <Container>
-                              <CategorySelect updateCategory={updateCategory} />
-                              <DifficultySelect updateDifficulty={updateDifficulty} />
-                            </Container>
-                            <Container>
-                              <SearchPreferences updateFavoriteSearchBar={updateFavoriteSearchBar} updateVeganSearchBar={updateVeganSearchBar}/>
-                            </Container>
-                          </form>
-                        </DialogContent>
-                        <DialogActions>
-                          <Button onClick={handleClose} color="primary">
-              Cancel
-                          </Button>
-                          <Button onClick={handleClose} color="primary">
-              Ok
-                          </Button>
-                        </DialogActions>
-                      </Dialog>
-                    </Paper>
-                  </VeganBadge>
-                </FavoritesBadge>
-              </DifficultyBadge>
-            </CategoryBadge>
-          </Grid>
+                  <Paper component="form" className={classes.root} variant="outlined" elevation={3}>
+                    <IconButton type="submit" className={classes.iconButton} aria-label="search">
+                      <SearchIcon />
+                    </IconButton>
+                    <InputBase
+                      className={classes.input}
+                      placeholder="Search Recipes"
+                      onChange={handleChange}
+                      value={input}
+                      inputProps={{ 'aria-label': 'search recipes' }}
+                    />
+                    {input === '' ? null :
+                      <IconButton className={classes.iconButton} aria-label="clear" onClick={handleClick}>
+                        <ClearIcon />
+                      </IconButton>}
+                    <Divider className={classes.divider} orientation="vertical" />
+                    <IconButton className={classes.iconButton} aria-label="add filter" onClick={handleClickOpen}>
+                      <PlaylistAddIcon />
+                    </IconButton>
+                    <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
+                      <DialogTitle className={classes.container}>Search Criteria</DialogTitle>
+                      <DialogContent>
+                        <form className={classes.container}>
+                          <Container>
+                            <CategorySelect updateCategory={updateCategory} />
+                            <DifficultySelect updateDifficulty={updateDifficulty} />
+                          </Container>
+                          <Container>
+                            <SearchPreferences updateFavoriteSearchBar={updateFavoriteSearchBar} updateVeganSearchBar={updateVeganSearchBar}/>
+                          </Container>
+                        </form>
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                          Cancel
+                        </Button>
+                        <Button onClick={handleClose} color="primary">
+                          Ok
+                        </Button>
+                      </DialogActions>
+                    </Dialog>
+                  </Paper>
+                </VeganBadge>
+              </FavoritesBadge>
+            </DifficultyBadge>
+          </CategoryBadge>
         </Grid>
+
       </Grid>
       <br></br>
-      <Container>
-        <Grid container>
+      <Container maxWidth={false} >
+        <Grid >
           <Grid item xs={12}>
             <CenterConsole
               searchBarCategory={category}

@@ -33,12 +33,13 @@ const LoginButton = (props) => {
   }, time);
 
   return (
-    <button
+    <div
       className="login-button"
       onClick={() => loginWithRedirect()}
     >
-      {time.split('^')[0]}<br/> Join us for {time.split('^')[1]}
-    </button>
+      <div>Join us for {time.split('^')[1]}</div>
+      <div className="food-quote-pun"><span>&#8220;</span>{time.split('^')[0]}<span>&#8220;</span></div>
+    </div>
   );
 };
 
