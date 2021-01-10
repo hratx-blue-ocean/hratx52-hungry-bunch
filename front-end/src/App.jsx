@@ -39,15 +39,17 @@ const App = () => {
       {!isAuthenticated ?
         <Route path="/"><LoginLandingPage/></Route>
         :
-        <>
-          <Route exact path="/"><MainPage/></Route>
-          <Route path="/recipe">
-            <RecipePage />
-          </Route>
-          <Route path="/user">
-            <User/>
-          </Route>
-        </>
+        isLoading ?
+          <Loading /> :
+          <>
+            <Route exact path="/"><MainPage/></Route>
+            <Route path="/recipe">
+              <RecipePage />
+            </Route>
+            <Route path="/user">
+              <User/>
+            </Route>
+          </>
       }
     </Switch>
 

@@ -5,6 +5,7 @@ import TopToolbar from '../MainPage/TopToolbar.js';
 import Recipe from '../Recipe/Recipe';
 import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar';
 import SearchBar from '../SearchBar/SearchBar';
+import MainPageFooter from '../MainPage/MainPageFooter';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -19,17 +20,18 @@ export default function RecipePage() {
     <>
       <TopToolbar />
       <div>
-        <Container>
+        <Container maxWidth={false}>
           <Grid container>
             <Grid item xs={3}>
               <UserInfoToolbar />
             </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={9} className="recipe-page-grid-container">
               <Recipe/>
             </Grid>
           </Grid>
         </Container>
       </div>
+      <MainPageFooter />
     </>
   );
 }
