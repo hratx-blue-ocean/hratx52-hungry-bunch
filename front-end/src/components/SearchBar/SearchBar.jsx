@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
@@ -57,13 +57,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const CategoryBadge = withStyles((theme) => ({
+  badge: {
+    right: 325,
+    top: 0,
+  },
+}))(Badge);
+
+const DifficultyBadge = withStyles((theme) => ({
+  badge: {
+    right: 240,
+    top: 0,
+  },
+}))(Badge);
+
+const FavoritesBadge = withStyles((theme) => ({
+  badge: {
+    right: 160,
+    top: 0,
+  },
+}))(Badge);
+
+const VeganBadge = withStyles((theme) => ({
+  badge: {
+    right: 85,
+    top: 0,
+  },
+}))(Badge);
+
+
 const SearchBar = () => {
 
   const [input, setInput] = useState('');
   const [open, setOpen] = useState(false);
   const [category, setCategory] = useState('');
   const [Difficulty, setDifficulty] = useState('');
-  const [Preferences, setPreferences] = useState([]);
+  const [FavoritesSearchBar, setFavoritesSearchBar] = useState(false);
+  const [VeganSearchBar, setVeganSearchBar] = useState(false);
   const classes = useStyles();
 
   const handleChange = (event) => {
@@ -90,71 +120,125 @@ const SearchBar = () => {
     setDifficulty(selectedDifficulty);
   };
 
-  const updatePreferences = (PreferencesValue) => {
-    setPreferences(PreferencesValue);
+  const updateFavoriteSearchBar = (val) => {
+    console.log(val);
+    setFavoritesSearchBar(val);
   };
 
-  const handleDelete = () => {
+  const updateVeganSearchBar = (val) => {
+    console.log(val);
+    setVeganSearchBar(val);
+  };
+
+  const handleCategoryDelete = () => {
     setCategory('');
+  };
+
+  const handleDifficultyDelete = () => {
+    setDifficulty('');
+  };
+
+  const handlePreferencesZeroDelete = () => {
+    setFavoritesSearchBar(false);
+  };
+
+  const handlePreferencesOneDelete = () => {
+    setVeganSearchBar(false);
   };
 
   return (
     <div className={classes.mainDiv}>
       <Grid container direction="column" >
         <Grid className="search-recipe-bar" xs={4}>
-          <Badge
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+          <CategoryBadge
+            // anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             badgeContent={category === '' ? 0 :
               <Chip
+                style={{backgroundColor: '#ffc107'}}
                 color='secondary'
                 size='small'
                 label={category}
-                onDelete={handleDelete}>
+                onDelete={handleCategoryDelete}>
               </Chip>}
           >
-            <Paper component="form" className={classes.root} variant="outlined" elevation={3}>
-              <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                <SearchIcon />
-              </IconButton>
-              <InputBase
-                className={classes.input}
-                placeholder="Search Recipes"
-                onChange={handleChange}
-                value={input}
-                inputProps={{ 'aria-label': 'search recipes' }}
-              />
-              {input === '' ? null :
-                <IconButton className={classes.iconButton} aria-label="clear" onClick={handleClick}>
-                  <ClearIcon />
-                </IconButton>}
-              <Divider className={classes.divider} orientation="vertical" />
-              <IconButton className={classes.iconButton} aria-label="add filter" onClick={handleClickOpen}>
-                <PlaylistAddIcon />
-              </IconButton>
-              <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
-                <DialogTitle className={classes.container}>Search Criteria</DialogTitle>
-                <DialogContent>
-                  <form className={classes.container}>
-                    <Container>
-                      <CategorySelect updateCategory={updateCategory} />
-                      <DifficultySelect updateDifficulty={updateDifficulty} />
-                    </Container>
-                    <Container>
-                      <SearchPreferences updatePreferences={updatePreferences}/>
-                    </Container>
-                  </form>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose} color="primary">
+            <DifficultyBadge
+              // anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              badgeContent={Difficulty === '' ? 0 :
+                <Chip
+                  style={{backgroundColor: '#2196f3'}}
+                  color='primary'
+                  size='small'
+                  label={Difficulty}
+                  onDelete={handleDifficultyDelete}>
+                </Chip>}
+            >
+              <FavoritesBadge
+                // anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+                badgeContent={FavoritesSearchBar === false ? 0 :
+                  <Chip
+                    style={{backgroundColor: 'pink'}}
+                    color='default'
+                    size='small'
+                    label={'favorites'}
+                    onDelete={handlePreferencesZeroDelete}>
+                  </Chip>}
+              >
+                <VeganBadge
+                  // anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                  badgeContent={VeganSearchBar === false ? 0 :
+                    <Chip
+                      style={{backgroundColor: '#4CAF50'}}
+                      size='small'
+                      label={'vegan'}
+                      onDelete={handlePreferencesOneDelete}>
+                    </Chip>}
+                >
+                  <Paper component="form" className={classes.root} variant="outlined" elevation={3}>
+                    <IconButton type="submit" className={classes.iconButton} aria-label="search">
+                      <SearchIcon />
+                    </IconButton>
+                    <InputBase
+                      className={classes.input}
+                      placeholder="Search Recipes"
+                      onChange={handleChange}
+                      value={input}
+                      inputProps={{ 'aria-label': 'search recipes' }}
+                    />
+                    {input === '' ? null :
+                      <IconButton className={classes.iconButton} aria-label="clear" onClick={handleClick}>
+                        <ClearIcon />
+                      </IconButton>}
+                    <Divider className={classes.divider} orientation="vertical" />
+                    <IconButton className={classes.iconButton} aria-label="add filter" onClick={handleClickOpen}>
+                      <PlaylistAddIcon />
+                    </IconButton>
+                    <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
+                      <DialogTitle className={classes.container}>Search Criteria</DialogTitle>
+                      <DialogContent>
+                        <form className={classes.container}>
+                          <Container>
+                            <CategorySelect updateCategory={updateCategory} />
+                            <DifficultySelect updateDifficulty={updateDifficulty} />
+                          </Container>
+                          <Container>
+                            <SearchPreferences updateFavoriteSearchBar={updateFavoriteSearchBar} updateVeganSearchBar={updateVeganSearchBar}/>
+                          </Container>
+                        </form>
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={handleClose} color="primary">
             Cancel
-                  </Button>
-                  <Button onClick={handleClose} color="primary">
+                        </Button>
+                        <Button onClick={handleClose} color="primary">
             Ok
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </Paper>
-          </Badge>
+                        </Button>
+                      </DialogActions>
+                    </Dialog>
+                  </Paper>
+                </VeganBadge>
+              </FavoritesBadge>
+            </DifficultyBadge>
+          </CategoryBadge>
         </Grid>
 
       </Grid>
@@ -165,7 +249,7 @@ const SearchBar = () => {
             <CenterConsole
               searchBarCategory={category}
               searchBarDifficulty={Difficulty}
-              searchBarPreferences={Preferences}
+              searchBarPreferences={[FavoritesSearchBar, VeganSearchBar]}
               searchBarInput={input}
             />
           </Grid>
