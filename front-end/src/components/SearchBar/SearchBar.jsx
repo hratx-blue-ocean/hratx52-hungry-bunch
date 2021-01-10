@@ -227,10 +227,10 @@ const SearchBar = () => {
                       </DialogContent>
                       <DialogActions>
                         <Button onClick={handleClose} color="primary">
-            Cancel
+                          Cancel
                         </Button>
                         <Button onClick={handleClose} color="primary">
-            Ok
+                          Ok
                         </Button>
                       </DialogActions>
                     </Dialog>
