@@ -50,6 +50,13 @@
   cursor: pointer;
   background-color: #00000080;
 }
+
+.logout-button{
+  color: black;
+  font-size: 27px;
+  font-family: 'Oswald', sans-serif;
+}
+
 .food-quote-pun{
   font-size: 24px;
 }
@@ -60,4 +67,8 @@
 }
 .login-linked-in:hover{
   text-decoration: underline;
+}
+
+.spinner{
+  width: 100%;
 }

@@ -20,7 +20,7 @@ export default function TopToolbar() {
     <div className="main-page-header">
       <div></div>
       <div>
-        <Link to="/" >
+        <Link to="/" style={{textDecoration: 'none'}}>
           <div className="titile-and-logo">
             <div className="title">HUNGRY BUNCH</div>
             <img className="logo" src="https://i.pinimg.com/originals/60/ed/ab/60edabe557e8139d52dae12f380205dc.png" ></img>
@@ -28,7 +28,7 @@ export default function TopToolbar() {
 
         </Link>
       </div>
-      <Link to="/"><Logout /></Link>
+      <Link to="/" style={{textDecoration: 'none'}}><Logout /></Link>
     </div>
   );
 }
