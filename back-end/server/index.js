@@ -269,14 +269,14 @@ app.post('/addUserPhoto', (req, res) => {
 });
 
 app.post('/updateFavoritedBy', (req, res) => {
-  const {id, recipeId} = req.body;
-  queries.UpdateFavoritedBy({id, recipeId}, (err, result) => {
+  const {userId, recipeId} = req.body;
+  queries.UpdateFavoritedBy({userId, recipeId}, (err, result) => {
     if (err) {
       log(chalk.red(err));
       res.send(500);
     } else {
-      console.log(result);
-      res.send(result);
+      log(chalk.magentaBright('NEW FAVORITE ADDED SUCCESFULLY'));
+      res.send(200);
     }
   });
 });
