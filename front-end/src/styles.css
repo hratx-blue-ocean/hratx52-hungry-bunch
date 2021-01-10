@@ -26,8 +26,8 @@ body{
 }
 .title{
   color:black;
-  text-decoration: dashed;
 }
+
 .logo{
   padding-left: 20px;
   width: 100px;
@@ -40,4 +40,18 @@ body{
 }
 .MuiGrid-root.search-recipe-bar.MuiGrid-grid-xs-4 {
   padding-left: 25px;
+}
+
+.main-footer-page{
+  display: flex;
+  align-items: center;
+  background-color: #e2dada;
+  height: 78px;
+  justify-content: space-around;
+}
+
+.show-more-previous-buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 16px 20px 0px;
 }

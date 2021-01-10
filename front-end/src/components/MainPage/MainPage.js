@@ -12,6 +12,7 @@ import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolbar';
 import RightToolBar from '../../components/RightToolBar/RightToolBar.js';
 import UserInfoToolbar from '../UserInfoToolbar/UserInfoToolbar.jsx';
+import MainPageFooter from './MainPageFooter';
 
 
 // --------this seems to do nothing at the moment
@@ -29,7 +30,7 @@ const MainPage = () => {
   //---------------
   return (
     <>
-      <div className="main-header">
+      <div>
         <TopToolbar />
       </div>
       <Grid
@@ -48,7 +49,7 @@ const MainPage = () => {
         </ Grid>
       </Grid>
       <div>
-        HERE GOES FOOOTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        <MainPageFooter />
       </div>
     </>
   );

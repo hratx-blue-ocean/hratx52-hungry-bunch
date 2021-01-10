@@ -96,26 +96,23 @@ class RecipeList extends Component {
         <Grid container item lg={12} spacing={3}>
           {this.props.friendId ? this.mapHelper(this.filterByCatagorie(this.state.friendRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
-        <Grid spacing={10}>
-          <Grid item >
-            <Button
-              disabled={this.state.disablePreviousButton}
-              color='primary'
-              onClick={() => this.showPreviousClickHandler()}
-            >
-            Show Previous
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              disabled={this.state.disableShowMoreButton}
-              color='primary'
-              onClick={() => this.showMoreClickHandler()}
-            >
-            Show More
-            </Button>
-          </Grid>
-        </Grid>
+        <div className="show-more-previous-buttons">
+          <Button
+            disabled={this.state.disablePreviousButton}
+            color='primary'
+            onClick={() => this.showPreviousClickHandler()}
+          >
+          Show Previous
+          </Button>
+          <Button
+            disabled={this.state.disableShowMoreButton}
+            color='primary'
+            onClick={() => this.showMoreClickHandler()}
+          >
+          Show More
+          </Button>
+        </div>
+
       </Grid>
     );
   }
