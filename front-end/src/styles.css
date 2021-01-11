@@ -55,3 +55,49 @@ body{
   justify-content: space-between;
   padding: 20px 16px 20px 0px;
 }
+
+.user-page-name-and-avatar{
+ display:flex;
+}
+
+.user-page-name{
+  padding-left: 20px;
+  color:black;
+}
+
+.user-friends-list{
+  padding: 0px 100px;
+}
+
+.friend-list{
+  height: 85vh;
+  overflow-y: auto;
+}
+
+.friends-list-avatar-and-name{
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.friends-list-name{
+  padding-left: 15px;
+  color: black;
+}
+
+.add-remove-profile-grid{
+  display: flex;
+  justify-content: center;
+}
+
+.add-remove-friend{
+  color: black;
+  font-size: 25px;
+  font-family: 'Oswald', sans-serif;
+  background-color: #e2dada;
+  padding: 20px;
+  cursor: default;
+}
+.add-remove-friend.add-remove-friend-button{
+  cursor:pointer;
+}

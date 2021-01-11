@@ -11,16 +11,16 @@ const IndividualFriend = (props) => {
 
   return (
     <Grid container item spacing={2}>
-      <Grid item>
-        <Link to={friendLink}>
-          <Avatar src={props.friend.picture}></Avatar>
-        </Link>
-      </Grid>
-      <Grid item>
-        <Link to={friendLink}>
-          {props.friend.name}
-        </Link>
-      </Grid>
+      <Link to={friendLink} style={{textDecoration: 'none'}}>
+        <div className="friends-list-avatar-and-name">
+          <div>
+            <Avatar src={props.friend.picture}></Avatar>
+          </div>
+          <div className="friends-list-name">
+            {props.friend.name}
+          </div>
+        </div>
+      </Link>
     </Grid>
   );
 };

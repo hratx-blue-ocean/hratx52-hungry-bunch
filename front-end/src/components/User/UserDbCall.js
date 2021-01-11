@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-
 import { Grid, Container } from '@material-ui/core';
-
 import TopToolbar from './TopToolBar.js';
 import SetFilterCategory from './SetFilterCategory.js';
 import { default as LeftToolbar } from '../RightToolBar/RightToolBar.js';
+import FriendsList from '../RightToolBar/FriendsList.js';
+import MainPageFooter from '../MainPage/MainPageFooter';
+import { AddFriend } from '../AddFriend/addFriend.js';
 
 class UserDbCalls extends React.Component {
   constructor(props) {
@@ -46,18 +47,26 @@ class UserDbCalls extends React.Component {
       return (
         <>
           <TopToolbar nickname={this.state.urlUserInfo.name} picture={this.state.urlUserInfo.picture} />
-          <br></br>
           <div>
-            <Container>
-              <Grid container>
-                <Grid item xs={3}>
-                  <LeftToolbar friends={this.state.urlUserInfo.friends}/>
-                </Grid>
-                <Grid item xs={9}>
-                  <SetFilterCategory userId={this.state.urlUserId} userInfo={this.state.urlUserInfo} />
-                </Grid>
+            <Grid container>
+              <Grid item xs={3}>
+                <div className="user-friends-list">
+                  <FriendsList friends={this.state.urlUserInfo.friends}/>
+                </div>
               </Grid>
-            </Container>
+              <Grid item xs={7}>
+                <SetFilterCategory userId={this.state.urlUserId} userInfo={this.state.urlUserInfo} />
+              </Grid>
+              <Grid item xs ={2} >
+                <div className="add-remove-profile-grid">
+                  <AddFriend/>
+                </div>
+
+              </Grid>
+            </Grid>
+          </div>
+          <div>
+            <MainPageFooter/>
           </div>
         </>);
     } else {

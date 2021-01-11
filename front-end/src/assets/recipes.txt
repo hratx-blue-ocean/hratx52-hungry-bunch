@@ -1,0 +1,34 @@
+{"id": "5ff4bce360c47174749d5321",
+"recipe":
+{
+"owner":"5ff4bce360c47174749d5321",
+"recipeName":"Summer Spanish Salad",
+"category":"Dinner",
+"shared":"Everyone",
+"ingredients":[
+   "2 large tomatoes",
+    "1 large cucumber",
+    "1 medium onion",
+    "1 large green pepper",
+    "2 cloves garlic minced",
+    "A pinch of cumin",
+    "½ teaspoon salt",
+    "3 tablespoons extra virgin olive oil",
+    "2 tablespoon red wine vinegar"
+],
+"time":60,
+"difficulty":"Easy",
+"favoritedBy":[ 14, 25, 34, 56, 66
+
+],
+"vegan":true,
+"steps":[
+   "Chop the onion in small cubes and soak in water.",
+    "Chop the tomatoes, cucumber and pepper and place in a bowl.",
+    "Drain the onions and add them to the rest of the vegetables.",
+    "Place the garlic in a mortar with a pinch of cumin and a pinch of salt and a few drops of olive oil until you have a paste. In another small bowl mix the rest of the olive oil, vinegar and salt, add the garlic paste and mix well.",
+    "Add the dressing to the salad and mix well. Cover and refrigerate.",
+    "Serve chilled with bread or rusks."
+],
+"imageUrl":"https://www.olivetomato.com/wp-content/uploads/2018/06/Spanish-Salad-pipirrana-320x320.jpg"
+}}

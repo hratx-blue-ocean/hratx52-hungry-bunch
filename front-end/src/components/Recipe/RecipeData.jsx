@@ -22,13 +22,12 @@ const RecipeData = (props) => {
     return (
       <div className='recipe-data'>
         <div className='recipe-name-and-user'>
-          <h1>{props.recipeData.recipeName}</h1>
-          <Link to={`/user/${props.recipeData.owner._id}`}>
+          <div className='recipe-name'>{props.recipeData.recipeName}</div>
+          <Link className='recipe-owner-name' to={`/user/${props.recipeData.owner._id}`} style={{textDecoration: 'none'}}>
             <div>{props.recipeData.owner.name}</div>
           </Link>
         </div>
         <div className='recipe-ingredients'>
-
           <ul>{props.recipeData.ingredients.map((ingredient, i) => (
             <li key={i}>{ingredient}</li>
           ))}
@@ -36,12 +35,10 @@ const RecipeData = (props) => {
 
         </div>
         <div className='optional-recipe-data'>
-          Category: {props.recipeData.category}
-          <br></br>
-          Time: {props.recipeData.time} minutes,
-          <br></br>
-          Difficulty: {props.recipeData.difficulty}
-          {props.recipeData.vegan ? ', Vegan' : null}
+          <div>Category: {props.recipeData.category}</div>
+          <div>Time: {props.recipeData.time} minutes</div>
+          <div>Difficulty: {props.recipeData.difficulty}</div>
+          {props.recipeData.vegan ? <div>Vegan</div> : null}
         </div>
         <div className='recipe-steps'>
           <List dense={true} disableGutters={true}	>

@@ -22,10 +22,10 @@ export default function RecipePage() {
       <div>
         <Container maxWidth={false}>
           <Grid container>
-            <Grid item xs={3}>
+            <Grid item xs={2}>
               <UserInfoToolbar />
             </Grid>
-            <Grid item xs={9} className="recipe-page-grid-container">
+            <Grid item xs={10} className="recipe-page-grid-container">
               <Recipe/>
             </Grid>
           </Grid>
