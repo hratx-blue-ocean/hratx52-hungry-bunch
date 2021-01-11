@@ -65,27 +65,18 @@ export const AddFriend = () => {
 
   if (areFriends) {
     return (
-      <div>
-        You are Friends
-        <Button
-          onClick={handleRemoveFriend}
-        >
+      <div className="add-remove-friend add-remove-friend-button" onClick={handleRemoveFriend}>
           Remove Friend
-        </Button>
       </div>
     );
   } else if (usersProfile) {
     return (
-      <div>Your Profile</div>
+      <div className="add-remove-friend">Your Profile</div>
     );
   } else {
     return (
-      <div>
-        <Button
-          onClick={handleAddFriend}
-        >
+      <div className="add-remove-friend add-remove-friend-button" onClick={handleAddFriend}>
           Add Friend
-        </Button>
       </div>
     );
   }
