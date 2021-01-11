@@ -24,6 +24,8 @@ const CategoryCarousel = (props) => {
   const categories = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Beverage', 'Snack'];
   const categorypictures = ['https://i.imgur.com/mAyXMl3.jpg', 'https://i.imgur.com/UmYs1Jx.jpg', 'https://i.imgur.com/i6P7pGX.jpg', 'https://i.imgur.com/NyGCFS0.jpg', 'https://i.imgur.com/y5NeQZN.jpg', 'https://i.imgur.com/OGPlFzj.jpg'];
 
+  // const categorypictures = ['https://previews.123rf.com/images/funandrejss/funandrejss1703/funandrejss170300046/73562315-morning-scrambled-egg-bacon-breakfast-on-white-plate.jpg', 'https://media.vogue.mx/photos/5d72acaa96e6be00084ffe5f/master/w_3492,c_limit/dieta-cetogenica-keto-02.jpg', 'https://image.freepik.com/free-photo/lentil-soup-with-vegetables-white-plate-white-background-top-view-plant-based-food-clean-eating_79830-873.jpg','https://image.freepik.com/free-photo/top-view-little-delicious-cake-with-cream-fruits-inside-white-plate-grey-blue-desk-fruit-cake-biscuit_140725-22854.jpg', 'https://st3.depositphotos.com/1665362/19295/i/1600/depositphotos_192951818-stock-photo-food-drink-holidays-party-concept.jpg', 'https://st.focusedcollection.com/7258374/i/650/focused_100487730-stock-photo-white-plate-with-healthy-salad.jpg'];
+
   const classes = useStyles();
 
   return (

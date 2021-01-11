@@ -101,3 +101,8 @@ body{
 .add-remove-friend.add-remove-friend-button{
   cursor:pointer;
 }
+
+.user-page-catergory-carousel{
+  padding-bottom: 20px;
+  padding-right: 25px;
+}
