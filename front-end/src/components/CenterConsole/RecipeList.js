@@ -61,11 +61,15 @@ class RecipeList extends Component {
 
   filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
     const searchArr = arrOfRecipes.filter (function (singleRecipe) {
-      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || (singleRecipe.vegan && objOfSearchTerms.searchBarPreferences[1]) || (singleRecipe.favoritedBy.length && objOfSearchTerms.searchBarPreferences[0])) {
+      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty) {
         return true;
       } else if (objOfSearchTerms.searchBarInput) {
         if (singleRecipe.recipeName.toLowerCase().includes(objOfSearchTerms.searchBarInput.toLowerCase())) {
           return true;
+        } else if (objOfSearchTerms.searchBarPreferences) {
+          if ((singleRecipe.vegan && objOfSearchTerms.searchBarPreferences[1]) || (singleRecipe.favoritedBy.length && objOfSearchTerms.searchBarPreferences[0])) {
+            return true;
+          }
         }
       }
     });
