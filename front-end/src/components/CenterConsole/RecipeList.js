@@ -63,15 +63,18 @@ class RecipeList extends Component {
     const searchArr = arrOfRecipes.filter (function (singleRecipe) {
       if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty) {
         return true;
-      } else if (objOfSearchTerms.searchBarInput) {
+      }
+      if (objOfSearchTerms.searchBarInput) {
         if (singleRecipe.recipeName.toLowerCase().includes(objOfSearchTerms.searchBarInput.toLowerCase())) {
           return true;
-        } else if (objOfSearchTerms.searchBarPreferences) {
-          if ((singleRecipe.vegan && objOfSearchTerms.searchBarPreferences[1]) || (singleRecipe.favoritedBy.length && objOfSearchTerms.searchBarPreferences[0])) {
-            return true;
-          }
         }
       }
+      if (objOfSearchTerms.searchBarPreferences) {
+        if ((singleRecipe.vegan === true && objOfSearchTerms.searchBarPreferences[1] === true) || (singleRecipe.favoritedBy.length && objOfSearchTerms.searchBarPreferences[0])) {
+          return true;
+        }
+      }
+
     });
     return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
   }
@@ -101,7 +104,6 @@ class RecipeList extends Component {
   render() {
     return (
       <Grid >
-        {console.log(this.state.userRecipes[0])}
         <Grid container item lg={12} spacing={3}>
           {this.props.friendId ? this.mapHelper(this.filterByCatagorie(this.state.friendRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
