@@ -193,7 +193,7 @@ const SearchBar = () => {
                       onDelete={handlePreferencesOneDelete}>
                     </Chip>}
                 >
-                  <Paper component="form" className={classes.root} variant="outlined" elevation={3}>
+                  <Paper onSubmit={(e)=> e.preventDefault()} component="form" className={classes.root} variant="outlined" elevation={3}>
                     <IconButton type="submit" className={classes.iconButton} aria-label="search">
                       <SearchIcon />
                     </IconButton>
