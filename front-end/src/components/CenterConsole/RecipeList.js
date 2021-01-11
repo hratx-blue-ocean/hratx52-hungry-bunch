@@ -61,8 +61,12 @@ class RecipeList extends Component {
 
   filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
     const searchArr = arrOfRecipes.filter (function (singleRecipe) {
-      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || singleRecipe.recipeName === objOfSearchTerms.searchBarInput) {
+      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || (singleRecipe.vegan && objOfSearchTerms.searchBarPreferences[1]) || (singleRecipe.favoritedBy.length && objOfSearchTerms.searchBarPreferences[0])) {
         return true;
+      } else if (objOfSearchTerms.searchBarInput) {
+        if (singleRecipe.recipeName.toLowerCase().includes(objOfSearchTerms.searchBarInput.toLowerCase())) {
+          return true;
+        }
       }
     });
     return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
@@ -93,6 +97,7 @@ class RecipeList extends Component {
   render() {
     return (
       <Grid >
+        {console.log(this.state.userRecipes[0])}
         <Grid container item lg={12} spacing={3}>
           {this.props.friendId ? this.mapHelper(this.filterByCatagorie(this.state.friendRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
