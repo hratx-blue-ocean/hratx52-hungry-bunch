@@ -58,7 +58,7 @@
   cursor: pointer;
 }
 .logout-button:hover{
-  color:white;
+  color:grey;
 }
 .food-quote-pun{
   font-size: 24px;

@@ -115,6 +115,11 @@ body{
   cursor:pointer;
   border-radius: 5px;
   font-size: 20px;
+  border: 1px solid clear;
+}
+.add-remove-friend.add-remove-friend-button:hover{
+  color: grey;
+  border: 1px solid grey;
 }
 
 .user-page-catergory-carousel{
