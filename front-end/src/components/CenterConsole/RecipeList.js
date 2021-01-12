@@ -108,19 +108,21 @@ class RecipeList extends Component {
           {this.props.friendId ? this.mapHelper(this.filterByCatagorie(this.state.friendRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
         <div className="show-more-previous-buttons">
-          <div
+          <Button
             className="button"
+            disabled={this.state.disablePreviousButton}
             onClick={() => this.showPreviousClickHandler()}
           >
           Show Previous
-          </div>
+          </Button>
 
-          <div
+          <Button
             className="button"
+            disabled={this.state.disableShowMoreButton}
             onClick={() => this.showMoreClickHandler()}
           >
           Show More
-          </div>
+          </Button>
         </div>
 
       </Grid>
