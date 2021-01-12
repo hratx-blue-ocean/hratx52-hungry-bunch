@@ -49,16 +49,13 @@ const RightToolBar = ({ friends }) => {
   if (state.userReducer.user) {
     return (
       <>
-        <Grid container spacing={2}>
-          <Grid item>
-            <GroupIcon fontSize='large'/>
-          </Grid>
+        <Grid container spacing={4}>
           <Grid item>
             <Paper component='form' onSubmit={searchBarClickHandler}>
               <InputBase
                 onChange={handleFriendsSearch}
                 value={userInput}
-                placeholder='search for friends'
+                placeholder='     search for friends'
               />
               <IconButton onClick={searchBarClickHandler} >
                 <SearchIcon/>

@@ -59,28 +59,25 @@ export default function UserInfoToolbar() {
     // change to userID
     const userLink = `/user/${_id}`;
     return (
-      <Container>
+      <Container >
         <Grid>
-          <Link to={userLink}>
-            <Avatar alt={name} src={picture} className={classes.large}/>
+          <Link to={userLink} >
+            <Avatar alt={name} style={{width: '200px', height: '200px', marginBottom: '20px'}} src={picture} />
           </Link>
         </Grid>
         <Grid>
-          <Link to={userLink}>
-            <Typography>
-              {name}
-            </Typography>
+          <Link to={userLink} className="button" style={{fontSize: '24px', textDecoration: 'none', color: 'black', fontWeight: 'bold', paddingRight: '100px'}}>
+            {name}
           </Link>
         </Grid>
         <Grid>
-          <Button onClick={(e) => {
-            e.preventDefault();
-            toggleVisibility(!isVisible);
-          }}>
-            change avatar
-          </Button>
+          <div
+            className="button "
+            onClick={(e) => { e.preventDefault(); toggleVisibility(!isVisible); }}>
+            CHANGE AVATAR
+          </div>
           {isVisible ?
-            <div>
+            <div >
               <input
                 type="file"
                 onChange={e => {
@@ -89,22 +86,25 @@ export default function UserInfoToolbar() {
                 }}></input>
 
 
-              <Button
+              <div
+                className="button"
                 onClick={(e)=>{
                   // e.preventDefault();
                   handleUpload();
                   toggleVisibility(!isVisible);
                 }}
               >
-                upload
-              </Button>
+                UPLOAD
+              </div>
             </div>
             : null}
         </Grid>
         <Grid>
-          <Button onClick={handleOpen}>
-              add recipe
-          </Button>
+          <div
+            className="button"
+            onClick={handleOpen}>
+              ADD RECIPE
+          </div>
           <Modal
             open={modalState}
             onClose={handleClose}

@@ -58,6 +58,7 @@ body{
 
 .user-page-name-and-avatar{
  display:flex;
+ align-items: center;
 }
 
 .user-page-name{
@@ -72,6 +73,7 @@ body{
 .friend-list{
   height: 70vh;
   overflow-y: auto;
+  width: 100%;
 }
 
 .friends-list-avatar-and-name{
@@ -84,6 +86,9 @@ body{
   padding-left: 15px;
   color: black;
 }
+.friends-list-name:hover{
+  color: #e2dada;
+}
 
 .add-remove-profile-grid{
   display: flex;
@@ -94,15 +99,32 @@ body{
   color: black;
   font-size: 25px;
   font-family: 'Oswald', sans-serif;
-  background-color: #e2dada;
   padding: 20px;
   cursor: default;
 }
 .add-remove-friend.add-remove-friend-button{
+  background-color: #e2dada;
   cursor:pointer;
+  border-radius: 5px;
 }
 
 .user-page-catergory-carousel{
   padding-bottom: 20px;
   padding-right: 25px;
 }
+.button{
+  color: black;
+  padding:5px;
+  cursor: pointer;
+
+}
+
+.button:hover{
+ background-color:#e2dada;
+ border-radius:5px;
+}
+
+/* button:hover{
+  background-color:#e2dada;
+ } */
+

@@ -38,7 +38,7 @@ const MainPage = () => {
         direction="row"
         alignItems="flex-start"
       >
-        <Grid xs={2}>
+        <Grid xs={2} className="profile-container">
           <UserInfoToolbar/>
         </Grid>
         <Grid xs={8}>

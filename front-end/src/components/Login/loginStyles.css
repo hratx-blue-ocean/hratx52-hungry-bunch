@@ -57,7 +57,9 @@
   font-family: 'Oswald', sans-serif;
   cursor: pointer;
 }
-
+.logout-button:hover{
+  color:white;
+}
 .food-quote-pun{
   font-size: 24px;
 }

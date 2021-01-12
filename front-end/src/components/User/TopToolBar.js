@@ -25,7 +25,7 @@ const TopToolbar = (props) => {
         </Link>
         {/* user avatar and username*/}
         <div className="user-page-name-and-avatar">
-          <Avatar src={props.picture} />
+          <Avatar style={{width: '100px', height: '100px'}} src={props.picture} />
           <div className="user-page-name">
             {props.nickname}
           </div>
