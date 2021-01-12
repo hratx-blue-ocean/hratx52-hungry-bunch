@@ -23,6 +23,7 @@ body{
   color: white;
   font-size: xxx-large;
   font-family: 'Amatic SC', cursive;
+  border-bottom: 1px solid grey;
 }
 .title{
   color:black;
@@ -48,6 +49,8 @@ body{
   background-color: #e2dada;
   height: 78px;
   justify-content: space-around;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 .show-more-previous-buttons{
@@ -97,15 +100,21 @@ body{
 
 .add-remove-friend{
   color: black;
-  font-size: 25px;
   font-family: 'Oswald', sans-serif;
   padding: 20px;
   cursor: default;
 }
+
+.profile-display{
+  font-family: 'Amatic SC', cursive;
+  font-size: 35px;
+}
+
 .add-remove-friend.add-remove-friend-button{
   background-color: #e2dada;
   cursor:pointer;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .user-page-catergory-carousel{

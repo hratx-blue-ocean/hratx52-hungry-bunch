@@ -71,7 +71,10 @@ export const AddFriend = () => {
     );
   } else if (usersProfile) {
     return (
-      <div className="add-remove-friend">Your Profile</div>
+      <div className="add-remove-friend profile-display">
+        <div>Hey, hungry fellow!</div>
+        <dic>Whatcha cooking?</dic>
+      </div>
     );
   } else {
     return (
