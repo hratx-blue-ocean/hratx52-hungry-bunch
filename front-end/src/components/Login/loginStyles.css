@@ -57,9 +57,12 @@
   font-family: 'Oswald', sans-serif;
   cursor: pointer;
 }
-
+.logout-button:hover{
+  color:grey;
+}
 .food-quote-pun{
   font-size: 24px;
+  font-family: 'Dancing Script', cursive;
 }
 
 .login-linked-in{

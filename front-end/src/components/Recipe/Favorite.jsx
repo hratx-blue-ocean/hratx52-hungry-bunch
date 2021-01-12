@@ -4,9 +4,10 @@ import {recipe} from '../../data/recipeDummyData.js';
 
 const Favorite = () => {
   return (
-    <Button
+    <div className="button"
       // onClick={handleFave}
-    >Fave? ({recipe.favoritedBy})</Button>
+    >Fave? ({recipe.favoritedBy})
+    </div>
   );
 };
 

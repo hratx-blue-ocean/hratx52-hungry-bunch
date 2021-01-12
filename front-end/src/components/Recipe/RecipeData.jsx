@@ -29,7 +29,13 @@ const RecipeData = (props) => {
         </div>
         <div className='recipe-ingredients'>
           <ul>{props.recipeData.ingredients.map((ingredient, i) => (
-            <li key={i}>{ingredient}</li>
+            <>
+              <div key={i}>
+                <Checkbox style={{color: 'black'}}/>
+                {ingredient}
+              </div>
+
+            </>
           ))}
           </ul>
 
@@ -45,15 +51,14 @@ const RecipeData = (props) => {
             {props.recipeData.steps.map((step, i) => (
               <ListItem key={i} margin={1} padding={0}>
                 <ListItemText>{i + 1}. {step}</ListItemText>
-                <Checkbox />
               </ListItem>
             ))}
           </List>
 
-          <ol>{props.recipeData.steps.map((step, i) => (
+          {/* <ol>{props.recipeData.steps.map((step, i) => (
             <li key={i}>{step}</li>
           ))}
-          </ol>
+          </ol> */}
 
         </div>
       </div>
