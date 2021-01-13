@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Grid, Container } from '@material-ui/core';
 import TopToolbar from './TopToolBar.js';
 import SetFilterCategory from './SetFilterCategory.js';
-import { default as LeftToolbar } from '../RightToolBar/RightToolBar.js';
+import { default as FriendToolbar } from '../RightToolBar/RightToolBar.js';
 import RightToolBar from '../RightToolBar/RightToolBar.js';
 import MainPageFooter from '../MainPage/MainPageFooter';
 import { AddFriend } from '../AddFriend/addFriend.js';
@@ -61,7 +61,6 @@ class UserDbCalls extends React.Component {
                 <div className="add-remove-profile-grid">
                   <AddFriend/>
                 </div>
-
               </Grid>
             </Grid>
           </div>

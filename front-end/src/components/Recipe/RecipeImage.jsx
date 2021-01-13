@@ -8,7 +8,7 @@ const RecipeImage = (props) => {
   return (
     <div className='recipe-image-and-rating-container'>
       <div className='recipe-image-container'>
-        <img className='recipe-page-image' src={props.image} width="800px" height='750px'/>
+        <img className='recipe-page-image' src={props.image} width='90%' height='auto'/>
       </div>
       {/* <div className='recipe-rating-container'>
         <Rating />
