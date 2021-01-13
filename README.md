@@ -61,11 +61,14 @@
 ## About The Project
 
 Application Login
-<img src="front-end/src/assets/login.gif" alt="Logo" width="80" height="80">
+<br></br>
+<img src="front-end/src/assets/login.gif" alt="login" width="200" height="200">
 Main Page Functionality
-<img src="front-end/src/assets/recipes.gif" alt="Logo" width="80" height="80">
+<br></br>
+<img src="front-end/src/assets/recipes.gif" alt="recipes" width="200" height="200">
 User's Page Functionality
-<img src="front-end/src/assets/user.gif" alt="Logo" width="80" height="80">
+<br></br>
+<img src="front-end/src/assets/user.gif" alt="user" width="200" height="200">
 
 Project Description
 
