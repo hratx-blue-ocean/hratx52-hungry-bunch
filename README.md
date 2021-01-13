@@ -17,7 +17,7 @@
   <h3 align="center">Hungry Bunch</h3>
 
   <p align="center">
-    PLACEHOLDER STATEMENT: An application to connect your community through cooking
+    OUR MISSION: An application to connect your community through cooking
     <br />
     <br />
     <a href="https://github.com/hratx-blue-ocean/hungry-bunch"><strong>Explore the docs »</strong></a>
@@ -60,7 +60,12 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Application Login
+<img src="front-end/src/assets/login.gif" alt="Logo" width="80" height="80">
+Main Page Functionality
+<img src="front-end/src/assets/recipes.gif" alt="Logo" width="80" height="80">
+User's Page Functionality
+<img src="front-end/src/assets/user.gif" alt="Logo" width="80" height="80">
 
 Project Description
 
