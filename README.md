@@ -61,16 +61,15 @@
 ## About The Project
 
 Application Login
-<br></br>
 <img src="front-end/src/assets/login.gif" alt="login">
 <br></br>
 Main Page Functionality
 <br></br>
-<img src="front-end/src/assets/recipes.gif" alt="recipes" width="200" height="200">
+<img src="front-end/src/assets/recipes.gif" alt="recipes">
 <br></br>
 User's Page Functionality
 <br></br>
-<img src="front-end/src/assets/user.gif" alt="user" width="200" height="200">
+<img src="front-end/src/assets/user.gif" alt="user">
 
 Project Description
 
@@ -86,16 +85,15 @@ Comments
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-- [React Bootstrap](https://react-bootstrap.github.io/)
 - [React](https://reactjs.org/)
-- [Postgres](https://www.postgresql.org/)
+- [Redux](https://reactjs.org/)
 - [Material-UI](https://material-ui.com/)
+- [MongoDB](https://www.postgresql.org/)
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -158,8 +156,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 
 ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 Project Link: [https://github.com/hratx-blue-ocean/hungry-bunch](https://github.com/hratx-blue-ocean/hungry-bunch)
 
