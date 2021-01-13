@@ -62,7 +62,7 @@
 
 Application Login
 <br></br>
-<img src="front-end/src/assets/login.gif" alt="login" width="500">
+<img src="front-end/src/assets/login.gif" alt="login">
 <br></br>
 Main Page Functionality
 <br></br>
