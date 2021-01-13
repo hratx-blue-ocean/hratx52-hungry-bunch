@@ -60,24 +60,25 @@
 
 ## About The Project
 
-Application Login
+**Application Login**
 <img src="front-end/src/assets/login.gif" alt="login">
 <br></br>
-Main Page Functionality
-<br></br>
+**Main Page Functionality**
 <img src="front-end/src/assets/recipes.gif" alt="recipes">
 <br></br>
-User's Page Functionality
-<br></br>
+**User's Page Functionality**
 <img src="front-end/src/assets/user.gif" alt="user">
 
 Project Description
 
 Key Features:
 
-- Feature
-- Feature
-- Feature :smile:
+- View recipes of friends
+- Filter recipes
+- Upload recipes
+- Print recipes
+- Search for friends
+- Add friends
 
 Comments
 
