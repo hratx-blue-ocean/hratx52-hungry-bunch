@@ -62,10 +62,12 @@
 
 Application Login
 <br></br>
-<img src="front-end/src/assets/login.gif" alt="login" width="200" height="200">
+<img src="front-end/src/assets/login.gif" alt="login" width="500">
+<br></br>
 Main Page Functionality
 <br></br>
 <img src="front-end/src/assets/recipes.gif" alt="recipes" width="200" height="200">
+<br></br>
 User's Page Functionality
 <br></br>
 <img src="front-end/src/assets/user.gif" alt="user" width="200" height="200">
