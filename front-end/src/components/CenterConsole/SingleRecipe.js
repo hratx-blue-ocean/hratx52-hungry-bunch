@@ -26,10 +26,10 @@ const SingleRecipe = ({oneRecipe}) => {
             <CardMedia
               component='img'
               image={oneRecipe.imageUrl}
-              height='200'
+              height='250'
               alt='image of recipe'
             />
-            <CardContent>
+            <CardContent >
               {oneRecipe.recipeName}
               <Grid>
                 <br></br>

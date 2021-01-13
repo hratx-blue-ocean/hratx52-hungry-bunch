@@ -6,4 +6,139 @@ body{
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  font-family: 'Oswald', sans-serif;
 }
+
+.login-page{
+  font-family: 'Amatic SC', cursive;
+}
+
+.main-page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px 20px 40px;
+  margin-bottom: 37px;
+  background: #e2dada;
+  color: white;
+  font-size: xxx-large;
+  font-family: 'Amatic SC', cursive;
+  border-bottom: 1px solid grey;
+}
+.title{
+  color:black;
+}
+
+.logo{
+  padding-left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.titile-and-logo{
+  display: flex;
+  align-items: center;
+}
+.MuiGrid-root.search-recipe-bar.MuiGrid-grid-xs-4 {
+  padding-left: 25px;
+}
+
+.main-footer-page{
+  display: flex;
+  align-items: center;
+  background-color: #e2dada;
+  height: 78px;
+  justify-content: space-around;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.show-more-previous-buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 16px 20px 0px;
+}
+
+.user-page-name-and-avatar{
+ display:flex;
+ align-items: center;
+}
+
+.user-page-name{
+  padding-left: 20px;
+  color:black;
+}
+
+.user-friends-list{
+  padding: 0px 100px;
+}
+
+.friend-list{
+  height: 70vh;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.friends-list-avatar-and-name{
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.friends-list-name{
+  padding-left: 15px;
+  color: black;
+}
+.friends-list-name:hover{
+  color: #e2dada;
+}
+
+.add-remove-profile-grid{
+  display: flex;
+  justify-content: center;
+}
+
+.add-remove-friend{
+  color: black;
+  font-family: 'Oswald', sans-serif;
+  padding: 20px;
+  cursor: default;
+}
+
+.profile-display{
+  font-family: 'Amatic SC', cursive;
+  font-size: 35px;
+}
+
+.add-remove-friend.add-remove-friend-button{
+  background-color: #e2dada;
+  cursor:pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  border: 1px solid clear;
+}
+.add-remove-friend.add-remove-friend-button:hover{
+  color: grey;
+  border: 1px solid grey;
+}
+
+.user-page-catergory-carousel{
+  padding-bottom: 20px;
+  padding-right: 25px;
+}
+.button{
+  color: black;
+  padding:5px;
+  cursor: pointer;
+
+}
+
+.button:hover{
+ background-color:#e2dada;
+ border-radius:5px;
+}
+
+/* button:hover{
+  background-color:#e2dada;
+ } */
+

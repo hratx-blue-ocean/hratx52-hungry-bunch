@@ -7,7 +7,7 @@ import { selectCurrentSteps, selectCurrentIngredients, selectRecipeName, selectC
 import { selectUser } from '../../containers/addUserContainer.js';
 import { AddedIngredients } from './addedIngredients.js';
 import { AddedInstructions } from './addedInstructions.js';
-import { postNewRecipe, getUserData } from '../../utils/apiCalls.js';
+import { postNewRecipe, getUserData, uploadRecipeImage } from '../../utils/apiCalls.js';
 import { listOfImages } from '../../assets/foodImageUrls.js';
 import { receiveLogin } from '../../actions/action';
 import Container from '@material-ui/core/Container';
@@ -74,6 +74,9 @@ export const AddRecipe = () => {
     dispatch({type: 'SET_NEW_RECIPE_DEFAULT'});
   };
 
+  const [recipeImage, handleRecipeImage] = useState(null);
+  const [recipeUrl, handleRecipeUrl] = useState(null);
+
   const handleRecipeChange = (event) => {
     event.preventDefault();
     if (event.target.id === 'add-recipe-ingredient') {
@@ -93,12 +96,20 @@ export const AddRecipe = () => {
     } else if (event.target.name === 'add-recipe-vegan') {
       dispatch({type: 'SET_VEGAN', payload: event.target.value});
     } else if (event.target.id === 'add-recipe-imageUrl') {
-      console.log(event.target.files[0]);
+      handleRecipeImage(event.target.files[0]);
     }
   };
 
+  const handleUpload = async () => {
+    const formData = new FormData();
+    formData.append('recipeImage', recipeImage);
+    var imageUrl = await uploadRecipeImage(formData);
+    var imageUrl = imageUrl.data;
+    handleRecipeUrl(imageUrl);
+  };
+
   const handleSubmit = async (event) => {
-    newRecipe.imageUrl = randomImage();
+    newRecipe.imageUrl = recipeUrl;
 
     var response = await postNewRecipe(newRecipe, user['_id']);
 
@@ -213,7 +224,7 @@ export const AddRecipe = () => {
               onChange={handleRecipeChange}
             />
             <label htmlFor="add-recipe-imageUrl">
-              <Button variant="contained" color="primary" component="span">
+              <Button variant="contained" color="primary" component="span" onClick={handleUpload}>
                 Upload an image
               </Button>
             </label>

@@ -61,9 +61,20 @@ class RecipeList extends Component {
 
   filterBySearchBar (arrOfRecipes, objOfSearchTerms) {
     const searchArr = arrOfRecipes.filter (function (singleRecipe) {
-      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty || singleRecipe.recipeName === objOfSearchTerms.searchBarInput) {
+      if (singleRecipe.category === objOfSearchTerms.searchBarCategory || singleRecipe.difficulty === objOfSearchTerms.searchBarDifficulty) {
         return true;
       }
+      if (objOfSearchTerms.searchBarInput) {
+        if (singleRecipe.recipeName.toLowerCase().includes(objOfSearchTerms.searchBarInput.toLowerCase())) {
+          return true;
+        }
+      }
+      if (objOfSearchTerms.searchBarPreferences) {
+        if ((singleRecipe.vegan === true && objOfSearchTerms.searchBarPreferences[1] === true) || (singleRecipe.favoritedBy.length && objOfSearchTerms.searchBarPreferences[0])) {
+          return true;
+        }
+      }
+
     });
     return searchArr.length ? searchArr.slice(this.state.startOfSlice, this.state.endOfSlice) : arrOfRecipes.slice(this.state.startOfSlice, this.state.endOfSlice);
   }
@@ -92,30 +103,28 @@ class RecipeList extends Component {
 
   render() {
     return (
-      <Grid container >
+      <Grid >
         <Grid container item lg={12} spacing={3}>
           {this.props.friendId ? this.mapHelper(this.filterByCatagorie(this.state.friendRecipes, this.props)) : this.mapHelper(this.filterBySearchBar(this.state.userRecipes, this.props))}
         </Grid>
-        <Grid spacing={10}>
-          <Grid item >
-            <Button
-              disabled={this.state.disablePreviousButton}
-              color='primary'
-              onClick={() => this.showPreviousClickHandler()}
-            >
-            Show Previous
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              disabled={this.state.disableShowMoreButton}
-              color='primary'
-              onClick={() => this.showMoreClickHandler()}
-            >
-            Show More
-            </Button>
-          </Grid>
-        </Grid>
+        <div className="show-more-previous-buttons">
+          <Button
+            className="button"
+            disabled={this.state.disablePreviousButton}
+            onClick={() => this.showPreviousClickHandler()}
+          >
+          Show Previous
+          </Button>
+
+          <Button
+            className="button"
+            disabled={this.state.disableShowMoreButton}
+            onClick={() => this.showMoreClickHandler()}
+          >
+          Show More
+          </Button>
+        </div>
+
       </Grid>
     );
   }

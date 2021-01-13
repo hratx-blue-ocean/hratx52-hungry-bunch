@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 import { Grid, Container, Paper, InputBase, IconButton, Typography, Modal } from '@material-ui/core';
 import {connect, useSelector, useDispatch } from 'react-redux';
 import { selectModal } from '../../containers/addRecipeContainer.js';
-import { uploadAvatar } from '../../utils/apiCalls.js';
+import { uploadAvatar, getUserData } from '../../utils/apiCalls.js';
 import { selectUser } from '../../containers/addUserContainer.js';
 import axios from 'axios';
+import { receiveLogin } from '../../actions/action';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -43,34 +44,40 @@ export default function UserInfoToolbar() {
     dispatch({type: 'SET_MODAL', payload: false});
     clearRecipe();
   };
-  // app, recipe page, user
+
+  const handleUpload = async () => {
+    const formData = new FormData();
+    formData.append('avatar', file);
+    formData.append('userId', user['_id']);
+    var uploadedAvatar = await uploadAvatar(formData);
+    var updatedUser = await getUserData(user['_id']);
+    dispatch(receiveLogin(updatedUser.data));
+  };
+
   if (user) {
     const { name, picture, email, _id } = user;
     // change to userID
     const userLink = `/user/${_id}`;
     return (
-      <Container>
+      <Container >
         <Grid>
-          <Link to={userLink}>
-            <Avatar alt={name} src={picture} className={classes.large}/>
+          <Link to={userLink} >
+            <Avatar alt={name} style={{width: '200px', height: '200px', marginBottom: '20px'}} src={picture} />
           </Link>
         </Grid>
         <Grid>
-          <Link to={userLink}>
-            <Typography>
-              {name}
-            </Typography>
+          <Link to={userLink} className="button" style={{fontSize: '24px', textDecoration: 'none', color: 'black', fontWeight: 'bold', paddingRight: '100px'}}>
+            {name}
           </Link>
         </Grid>
         <Grid>
-          <Button onClick={(e) => {
-            e.preventDefault();
-            toggleVisibility(!isVisible);
-          }}>
-            change avatar
-          </Button>
+          <div
+            className="button "
+            onClick={(e) => { e.preventDefault(); toggleVisibility(!isVisible); }}>
+            CHANGE AVATAR
+          </div>
           {isVisible ?
-            <div>
+            <div >
               <input
                 type="file"
                 onChange={e => {
@@ -79,25 +86,25 @@ export default function UserInfoToolbar() {
                 }}></input>
 
 
-              <Button
+              <div
+                className="button"
                 onClick={(e)=>{
-                  e.preventDefault();
-                  const formData = new FormData();
-                  formData.append('avatar', file);
-                  formData.append('userId', _id);
-                  uploadAvatar(formData);
+                  // e.preventDefault();
+                  handleUpload();
                   toggleVisibility(!isVisible);
                 }}
               >
-                upload
-              </Button>
+                UPLOAD
+              </div>
             </div>
             : null}
         </Grid>
         <Grid>
-          <Button onClick={handleOpen}>
-              add recipe
-          </Button>
+          <div
+            className="button"
+            onClick={handleOpen}>
+              ADD RECIPE
+          </div>
           <Modal
             open={modalState}
             onClose={handleClose}

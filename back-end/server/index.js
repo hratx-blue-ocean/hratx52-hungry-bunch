@@ -7,7 +7,7 @@ const log = console.log;
 const queries = require('./queries');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const {uploadAvatarToS3} = require('./uploadAvatar');
+const {uploadImageToS3} = require('./uploadImageToS3');
 const fs = require('fs');
 const multer = require('multer');
 const helpers = require('./helpers');
@@ -154,22 +154,6 @@ app.post('/addRecipe', (req, res) => {
   });
 });
 
-// add friend - add to friends array in friends collection
-app.post('/addFriend', (req, res) => {
-  const { id, friendId } = req.body;
-  // add friend query
-  queries.AddNewFriend({ id, friendId }, (err, response) => {
-    if (err) {
-      res.send(500);
-      log(chalk.bgRed('ERROR ADDING NEW FRIEND TO DATABASE'));
-    } else {
-      // send status success back to client
-      res.send(200);
-      log(chalk.magentaBright('NEW FRIEND ADDED SUCCESFULLY'));
-    }
-  });
-});
-
 // remove friend - remove from friends array in friends collection
 app.post('/removeFriend', (req, res) => {
   const { id, friendId } = req.body;
@@ -182,6 +166,22 @@ app.post('/removeFriend', (req, res) => {
       // send status success back to client
       res.send(200);
       log(chalk.magentaBright('FRIEND REMOVED SUCCESSFULLY'));
+    }
+  });
+});
+
+// add friend - add to friends array in friends collection
+app.post('/addFriend', (req, res) => {
+  const { id, friendId } = req.body;
+  // add friend query
+  queries.AddNewFriend({ id, friendId }, (err, response) => {
+    if (err) {
+      res.send(500);
+      log(chalk.bgRed('ERROR ADDING NEW FRIEND TO DATABASE'));
+    } else {
+      // send status success back to client
+      res.send(200);
+      log(chalk.magentaBright('NEW FRIEND ADDED SUCCESFULLY'));
     }
   });
 });
@@ -220,7 +220,7 @@ app.post('/uploadAvatar', upload.single('avatar'), (req, res) => {
   console.log('file: ', req.file);
   const file = req.file;
   const id = req.body.userId;
-  uploadAvatarToS3(file.filename, (err, response) => {
+  uploadImageToS3(file.filename, (err, response) => {
     if (err) {
       console.log(err);
       res.status(500).send(err);
@@ -235,6 +235,20 @@ app.post('/uploadAvatar', upload.single('avatar'), (req, res) => {
           log(chalk.magentaBright('NEW USER PHOTO ADDED SUCCESFULLY'));
         }
       });
+    }
+  });
+});
+
+app.post('/uploadRecipeImage', upload.single('recipeImage'), (req, res) => {
+  console.log('file: ', req.file);
+  const file = req.file;
+  const id = req.body.userId;
+  uploadImageToS3(file.filename, (err, response) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(response);
     }
   });
 });
@@ -255,17 +269,17 @@ app.post('/addUserPhoto', (req, res) => {
 });
 
 app.post('/updateFavoritedBy', (req, res) => {
-  queries.UpdateFavoritedBy((err, result) => {
+  const {userId, recipeId} = req.body;
+  queries.UpdateFavoritedBy({userId, recipeId}, (err, result) => {
     if (err) {
       log(chalk.red(err));
       res.send(500);
     } else {
-      console.log(result);
-      res.send(result);
+      log(chalk.magentaBright('NEW FAVORITE ADDED SUCCESFULLY'));
+      res.send(200);
     }
   });
 });
-
 
 app.listen(port, () => {
   log(chalk.magenta('HUNGRY BACK-END app listening at ') + chalk.bold.greenBright(`http://localhost:${port}`));

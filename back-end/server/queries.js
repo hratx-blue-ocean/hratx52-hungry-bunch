@@ -206,16 +206,35 @@ const GetAllRecipes = (callback) => {
 };
 
 // UpdateFavoritedBy
+// const UpdateFavoritedBy = ({ userId, recipeId }, callback) => {
+//   Recipe.findByIdAndUpdate(recipeId, { $push: { favoritedBy: userId } }, (err, favorites) => {
+//     if (err) {
+//       log(chalk.redBright('err', err));
+//       callback(err);
+//     } else {
+//       callback(null, favorites);
+//     }
+//   });
+// };
+
 const UpdateFavoritedBy = ({ userId, recipeId }, callback) => {
   Recipe.findByIdAndUpdate(recipeId, { $push: { favoritedBy: userId } }, (err, favorites) => {
     if (err) {
       log(chalk.redBright('err', err));
       callback(err);
     } else {
-      callback(null, favorites);
+      User.findByIdAndUpdate(userId, { $push: { favoriteRecipes: recipeId}}, (err, favorites) => {
+        if (err) {
+          log(chalk.redBright('err', err));
+          callback(err);
+        } else {
+          callback(null, favorites);
+        }
+      });
     }
   });
 };
+
 
 module.exports = {
   GetUser,

@@ -8,7 +8,7 @@ import FriendsList from './FriendsList.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchForFriends } from '../../utils/apiCalls.js';
 
-const RightToolBar = () => {
+const RightToolBar = ({ friends }) => {
 
   const [userInput, setUserInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -34,6 +34,14 @@ const RightToolBar = () => {
 
   };
 
+  const checkForUserPageFriends = () => {
+    if (friends) {
+      return friends;
+    } else {
+      return state.userReducer.user.friends;
+    }
+  };
+
   useEffect(()=> {
     searchBarClickHandler;
   }, [searchResults, userInput]);
@@ -41,17 +49,13 @@ const RightToolBar = () => {
   if (state.userReducer.user) {
     return (
       <>
-        <Grid container spacing={2}>
-          <Grid item>
-            <GroupIcon fontSize='large'/>
-          </Grid>
+        <Grid container spacing={4}>
           <Grid item>
             <Paper component='form' onSubmit={searchBarClickHandler}>
               <InputBase
                 onChange={handleFriendsSearch}
                 value={userInput}
-                placeholder='search for friends'
-
+                placeholder='     search for friends'
               />
               <IconButton onClick={searchBarClickHandler} >
                 <SearchIcon/>
@@ -59,7 +63,8 @@ const RightToolBar = () => {
             </Paper>
           </Grid>
           <FriendsList
-            friends={searchResults.length ? searchResults : state.userReducer.user.friends}
+            userFriends={friends}
+            friends={searchResults.length ? searchResults : checkForUserPageFriends()}
             searchInput={userInput}/>
         </Grid>
       </>

@@ -14,9 +14,9 @@ const FriendsList = ({ friends, searchInput }) => {
   };
 
   return (
-    <div id='friendList'>
-      <Container>
-        <Grid container direction='column' item spacing={3} xs={12}>
+    <div className="friend-list">
+      <Container maxWidth={false}>
+        <Grid container direction='column' item spacing={3} xs={12} >
           {userFriendSearch(searchInput).map((friend)=>{
             return (
               <IndividualFriend key={friend._id} friend={friend}/>

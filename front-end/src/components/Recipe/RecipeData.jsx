@@ -23,46 +23,49 @@ const RecipeData = (props) => {
     return (
       <div className='recipe-data'>
         <div className='recipe-name-and-user'>
-          <h1>{props.recipeData.recipeName}</h1>
-          <Link to={`/user/${props.recipeData.owner._id}`}>
+          <div className='recipe-name'>{props.recipeData.recipeName}</div>
+          <Link className='recipe-owner-name' to={`/user/${props.recipeData.owner._id}`} style={{textDecoration: 'none'}}>
             <div>{props.recipeData.owner.name}</div>
           </Link>
         </div>
         <div className='recipe-ingredients'>
-
           <ul>{props.recipeData.ingredients.map((ingredient, i) => (
-            <li key={i}>{ingredient}</li>
+            <>
+              <div key={i}>
+                <Checkbox style={{color: 'black'}}/>
+                {ingredient}
+              </div>
+
+            </>
           ))}
           </ul>
         </div>
         <br></br>
-
-        <Typography variant="body1">
+        <div className='recipe-steps'>
           Category: {props.recipeData.category}
           <br></br>
           Time: {props.recipeData.time} minutes
           <br></br>
           Difficulty: {props.recipeData.difficulty}
           <br></br>
-          {props.recipeData.vegan ? ', Vegan' : null}
-        </Typography>
+          {props.recipeData.vegan ? 'Vegan' : null}
+        </div>
         <br></br>
         <br></br>
 
         <div className='recipe-steps'>
-          <Typography variant="h6">
-            Check off steps as you complete them!
-            <Checkbox checked={true} color={'primary'}/>
-          </Typography>
 
-          <List dense={true} disableGutters={true}>
+            Check off steps as you complete them!
+          <Checkbox checked={true} color={'primary'}/>
+
+          <ul>
             {props.recipeData.steps.map((step, i) => (
-              <ListItem key={i} margin={1} padding={0}>
-                <ListItemText>{i + 1}. {step}</ListItemText>
+              <li key={i} margin={1} padding={0} >
+                {i + 1}. {step}
                 <Checkbox color={'primary'}/>
-              </ListItem>
+              </li>
             ))}
-          </List>
+          </ul>
         </div>
       </div>
     );

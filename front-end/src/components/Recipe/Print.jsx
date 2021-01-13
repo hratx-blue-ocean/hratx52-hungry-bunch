@@ -5,9 +5,9 @@ const Print = () => {
 
   return (
 
-    <Button onClick={() => { window.print(); }}>
+    <div className="button" onClick={() => { window.print(); }}>
       Print Recipe
-    </Button>
+    </div>
   );
 };
 

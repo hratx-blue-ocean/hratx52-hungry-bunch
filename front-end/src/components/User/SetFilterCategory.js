@@ -48,17 +48,26 @@ class SetFilterCategory extends React.Component {
     if (this.state.currCategory) {
       return (
         <>
-          <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
-          <br></br>
-          <CenterConsole userFilter={this.state.currCategory} friendRecipes={this.state.userUrlRecipes} friendId={this.state.userId}/>
+          <div className="user-page-catergory-carousel">
+            <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
+          </div>
+          <div className="user-page-center-console">
+            <CenterConsole userFilter={this.state.currCategory} friendRecipes={this.state.userUrlRecipes} friendId={this.state.userId}/>
+          </div>
+
+
+
         </>
       );
     } else {
       return (
         <>
-          <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
-          <br></br>
-          <CenterConsole friendRecipes={this.state.userUrlRecipes} friendId={this.state.userId}/>
+          <div className="user-page-catergory-carousel">
+            <CategoryCarousel setCurrCategory={this.setCurrCategory}/>
+          </div>
+          <div className="user-page-center-console">
+            <CenterConsole friendRecipes={this.state.userUrlRecipes} friendId={this.state.userId}/>
+          </div>
         </>
       );
     }
