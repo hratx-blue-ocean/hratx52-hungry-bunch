@@ -32,10 +32,15 @@
 
 .recipe-steps {
   background-color: white;
-  font-family: "Amatic SC", cursive;
-  font-size: 25px;
+  font-size: 20px;
+  padding-top: 10px;
 }
 
+.recipe-steps-headline {
+  padding-left: 30px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px
+}
 /* RECIPE IMAGE */
 
 .recipe-image-and-rating-container {

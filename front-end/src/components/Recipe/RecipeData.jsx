@@ -40,32 +40,28 @@ const RecipeData = (props) => {
           ))}
           </ul>
         </div>
-        <br></br>
-        <div className='recipe-steps'>
-          Category: {props.recipeData.category}
-          <br></br>
-          Time: {props.recipeData.time} minutes
-          <br></br>
-          Difficulty: {props.recipeData.difficulty}
-          <br></br>
-          {props.recipeData.vegan ? 'Vegan' : null}
+        <div className='optional-recipe-data'>
+          <div>Category: {props.recipeData.category}</div>
+          <div>Time: {props.recipeData.time} minutes</div>
+          <div>Difficulty: {props.recipeData.difficulty}</div>
+          {props.recipeData.vegan ? <div>Vegan</div> : null}
         </div>
-        <br></br>
-        <br></br>
 
         <div className='recipe-steps'>
-
+          <div className='recipe-steps-headline'>
             Check off steps as you complete them!
-          <Checkbox checked={true} color={'primary'}/>
+            <Checkbox checked={true} color={'black'}/>
+          </div>
 
-          <ul>
+
+          <List dense={true} disableGutters={true}	>
             {props.recipeData.steps.map((step, i) => (
-              <li key={i} margin={1} padding={0} >
-                {i + 1}. {step}
-                <Checkbox color={'primary'}/>
-              </li>
+              <ListItem key={i} margin={1} padding={0}>
+                <ListItemText>{i + 1}. {step}</ListItemText>
+                <Checkbox color={'black'}/>
+              </ListItem>
             ))}
-          </ul>
+          </List>
         </div>
       </div>
     );
