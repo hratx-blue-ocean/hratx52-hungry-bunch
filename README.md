@@ -1,4 +1,4 @@
-# Team Tuffle
+# Team Truffle
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -11,13 +11,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/hratx-blue-ocean/hungry-bunch">
-    <img src="dist/hungry.png" alt="Logo" width="80" height="80">
+    <img src="front-end/src/assets/hungry.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Hungry Bunch</h3>
 
   <p align="center">
-    PLACEHOLDER STATEMENT: An application to connect your community through cooking
+    OUR MISSION: An application to connect your community through cooking
     <br />
     <br />
     <a href="https://github.com/hratx-blue-ocean/hungry-bunch"><strong>Explore the docs »</strong></a>
@@ -60,15 +60,25 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+**Application Login**
+<img src="front-end/src/assets/login.gif" alt="login">
+<br></br>
+**Main Page Functionality**
+<img src="front-end/src/assets/recipes.gif" alt="recipes">
+<br></br>
+**User's Page Functionality**
+<img src="front-end/src/assets/user.gif" alt="user">
 
 Project Description
 
 Key Features:
 
-- Feature
-- Feature
-- Feature :smile:
+- View recipes of friends
+- Filter recipes
+- Upload recipes
+- Print recipes
+- Search for friends
+- Add friends
 
 Comments
 
@@ -76,16 +86,15 @@ Comments
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-- [React Bootstrap](https://react-bootstrap.github.io/)
 - [React](https://reactjs.org/)
-- [Postgres](https://www.postgresql.org/)
+- [Redux](https://reactjs.org/)
 - [Material-UI](https://material-ui.com/)
+- [MongoDB](https://www.postgresql.org/)
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -148,8 +157,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 
 ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 Project Link: [https://github.com/hratx-blue-ocean/hungry-bunch](https://github.com/hratx-blue-ocean/hungry-bunch)
 

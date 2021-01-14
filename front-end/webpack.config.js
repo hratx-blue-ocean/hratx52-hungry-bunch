@@ -1,9 +1,13 @@
-var path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    path.resolve(__dirname, './src/index.js'),
+  ],
   module: {
     rules: [
       {
@@ -16,6 +20,41 @@ module.exports = {
         exclude: /node_modules/,
         use: ['file-loader'],
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
+      }
     ],
   },
   resolve: {
@@ -26,12 +65,16 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/',
   },
+  devtool: 'inline-source-map',
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html')
-    })
+    new HtmlWebPackPlugin({
+      template: path.resolve(__dirname, 'src', 'index.html'),
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
+    watchContentBase: true,
+    historyApiFallback: true
   },
 };
