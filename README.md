@@ -89,7 +89,7 @@ This section should list any major frameworks that you built your project using.
 - [React](https://reactjs.org/)
 - [Redux](https://reactjs.org/)
 - [Material-UI](https://material-ui.com/)
-- [MongoDB](https://www.postgresql.org/)
+- [MongoDB](https://www.mongodb.com/)
 
 <!-- GETTING STARTED -->
 
